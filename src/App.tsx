@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DashboardLayout } from "./components/DashboardLayout";
 import Home from "./pages/Home";
 import RoiBusinessCase from "./pages/RoiBusinessCase";
+import SystemOverview from "./pages/SystemOverview";
+import AgentSelection from "./pages/AgentSelection";
+import ChatInterface from "./pages/ChatInterface";
 import OnTrackAgents from "./pages/OnTrackAgents";
 import ProcessImprovement from "./pages/ProcessImprovement";
 import AiAdoption from "./pages/AiAdoption";
@@ -23,6 +26,9 @@ const App = () => (
           <Route element={<DashboardLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/roi-business-case" element={<RoiBusinessCase />} />
+            <Route path="/roi-business-case/:system/overview" element={<SystemOverview />} />
+            <Route path="/roi-business-case/:system/select-agent" element={<AgentSelection />} />
+            <Route path="/roi-business-case/:system/chat" element={<ChatInterface />} />
             <Route path="/on-track-agents" element={<OnTrackAgents />} />
             <Route path="/process-improvement" element={<ProcessImprovement />} />
             <Route path="/ai-adoption" element={<AiAdoption />} />

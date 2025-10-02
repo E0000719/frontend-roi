@@ -1,57 +1,73 @@
 import { FileText, Wrench, DollarSign, Headphones, Eye, FileCheck, ShoppingCart, Cpu, Globe } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const modules = [
   {
     title: "Legacy Takeover",
+    subtitle: "Takeover",
     icon: Wrench,
-    description: "Modernize legacy systems"
+    description: "Modernize legacy systems",
+    route: "legacy-takeover"
   },
   {
     title: "Agentic Cost to Hire",
     subtitle: "Cost to Hire",
     icon: DollarSign,
-    description: "Optimize hiring costs"
+    description: "Optimize hiring costs",
+    route: "cost-to-hire"
   },
   {
     title: "Agentic Customer Support",
     subtitle: "Customer Support",
     icon: Headphones,
-    description: "AI-powered support"
+    description: "AI-powered support",
+    route: "customer-support"
   },
   {
     title: "Real Time Insights",
     subtitle: "Insights",
     icon: Eye,
-    description: "Live analytics"
+    description: "Live analytics",
+    route: "insights"
   },
   {
     title: "Contract Management Compliance",
     subtitle: "Compliance",
     icon: FileCheck,
-    description: "Manage contracts"
+    description: "Manage contracts",
+    route: "compliance"
   },
   {
     title: "Agentic Order to Cash",
     subtitle: "Order to Cash",
     icon: ShoppingCart,
-    description: "Streamline O2C"
+    description: "Streamline O2C",
+    route: "order-to-cash"
   },
   {
     title: "Physical AI",
     subtitle: "AI",
     icon: Cpu,
-    description: "Physical automation"
+    description: "Physical automation",
+    route: "physical-ai"
   },
   {
     title: "Web Interface Takeover",
     subtitle: "Takeover",
     icon: Globe,
-    description: "Web automation"
+    description: "Web automation",
+    route: "web-takeover"
   }
 ];
 
 export default function RoiBusinessCase() {
+  const navigate = useNavigate();
+
+  const handleModuleClick = (route: string) => {
+    navigate(`/roi-business-case/${route}/overview`);
+  };
+
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
@@ -87,6 +103,7 @@ export default function RoiBusinessCase() {
             return (
               <Card 
                 key={module.title}
+                onClick={() => handleModuleClick(module.route)}
                 className="group cursor-pointer transition-all hover:shadow-hover hover:scale-105 border-border/50"
               >
                 <CardHeader className="text-center pb-3">
