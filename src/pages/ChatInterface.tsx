@@ -42,6 +42,7 @@ export default function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // 🆕 Estados para agente experto
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
@@ -173,6 +174,11 @@ export default function ChatInterface() {
       };
 
       setMessages(prev => [...prev, assistantMessage]);
+      
+      // Focus textarea after response
+      setTimeout(() => {
+        textareaRef.current?.focus();
+      }, 100);
     } catch (error) {
       toast.error('Failed to send message. Please try again.');
       console.error('Error sending message:', error);
@@ -182,6 +188,11 @@ export default function ChatInterface() {
         content: 'Sorry, there was an error processing your message. Please try again.',
       };
       setMessages(prev => [...prev, errorMessage]);
+      
+      // Focus textarea after error
+      setTimeout(() => {
+        textareaRef.current?.focus();
+      }, 100);
     } finally {
       setIsLoading(false);
     }
@@ -329,6 +340,7 @@ export default function ChatInterface() {
 
           <div className="relative">
             <Textarea
+              ref={textareaRef}
               placeholder={
                 correctionState?.awaiting_corrections
                   ? 'Send only the corrected value...'
