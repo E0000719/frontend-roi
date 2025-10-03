@@ -8,7 +8,7 @@ const modules = [
     subtitle: "Takeover",
     icon: Wrench,
     description: "Modernize legacy systems",
-    route: "legacy-takeover"
+    route: "legacy_takeover"
   },
   {
     title: "Agentic Cost to Hire",

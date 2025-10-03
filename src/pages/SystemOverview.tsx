@@ -16,7 +16,7 @@ const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
       'Human Error',
     ],
   },
-  'legacy-takeover': {
+  'legacy_takeover': {
     name: 'Legacy Takeover',
     dimensions: [
       'System Efficiency',
