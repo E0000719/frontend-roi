@@ -169,118 +169,53 @@ export default function SystemOverview() {
   const renderCalculationResults = () => {
     if (!calculationResults || !showResults) return null;
 
-    const { tco_global, dimensions, summary_text } = calculationResults;
+    const { tco_global, dimensions } = calculationResults;
+
+    // Preparar datos para la gráfica radial
+    const dimensionNames = dimensions.map((dim: any) => dim.dimension_name);
+    const dimensionValues = dimensions.map((dim: any) => dim.impact_percentage);
 
     return (
-      <div className="space-y-6">
-        {/* Resumen ejecutivo */}
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border border-green-200 dark:border-green-800 rounded-xl p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="h-6 w-6 text-green-600" />
-            <h3 className="text-xl font-semibold text-foreground">Executive Summary</h3>
-          </div>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            {summary_text}
-          </p>
-        </div>
-
-        {/* TCO Global - 4 tarjetas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Current TCO */}
-          <div className="gradient-card rounded-xl p-6 border border-border/50">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="h-5 w-5 text-red-600" />
-              <p className="text-sm text-muted-foreground">Current TCO</p>
-            </div>
-            <p className="text-2xl font-bold text-foreground">
-              {formatCurrency(tco_global.current_tco)}
-            </p>
-          </div>
-
-          {/* Future TCO */}
-          <div className="gradient-card rounded-xl p-6 border border-border/50">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="h-5 w-5 text-green-600" />
-              <p className="text-sm text-muted-foreground">Future TCO</p>
-            </div>
-            <p className="text-2xl font-bold text-foreground">
-              {formatCurrency(tco_global.future_tco)}
-            </p>
-          </div>
-
-          {/* Total ROI */}
-          <div className="gradient-card rounded-xl p-6 border border-border/50">
-            <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="h-5 w-5 text-blue-600" />
-              <p className="text-sm text-muted-foreground">Total ROI</p>
-            </div>
-            <p className="text-2xl font-bold text-foreground">
-              {formatCurrency(tco_global.roi_total)}
-            </p>
-          </div>
-
-          {/* ROI Percentage */}
-          <div className="gradient-card rounded-xl p-6 border border-border/50">
-            <div className="flex items-center gap-2 mb-2">
-              <Calculator className="h-5 w-5 text-purple-600" />
-              <p className="text-sm text-muted-foreground">ROI Percentage</p>
-            </div>
-            <p className="text-2xl font-bold text-green-600">
-              {formatPercentage(tco_global.roi_percentage)}
-            </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        {/* Gráfica Radial */}
+        <div className="flex items-center justify-center">
+          <div className="w-full aspect-square max-w-md">
+            <RadialChart dimensions={dimensionNames} data={dimensionValues} />
           </div>
         </div>
 
-        {/* Tabla de dimensiones */}
-        <div className="gradient-card rounded-xl p-6 border border-border/50">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Impact by Dimension</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Dimension</th>
-                  <th className="text-right py-3 px-4 text-sm font-medium text-muted-foreground">Current TCO</th>
-                  <th className="text-right py-3 px-4 text-sm font-medium text-muted-foreground">Future TCO</th>
-                  <th className="text-right py-3 px-4 text-sm font-medium text-muted-foreground">ROI</th>
-                  <th className="text-right py-3 px-4 text-sm font-medium text-muted-foreground">Impact</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dimensions.map((dim: any, index: number) => (
-                  <tr key={dim.dimension_id} className="border-b border-border/50 hover:bg-accent/5">
-                    <td className="py-3 px-4">
-                      <p className="font-medium text-foreground">{dim.dimension_name}</p>
-                      {dim.description && (
-                        <p className="text-xs text-muted-foreground mt-1">{dim.description}</p>
-                      )}
-                    </td>
-                    <td className="text-right py-3 px-4 text-sm text-muted-foreground">
-                      {formatCurrency(dim.current_tco)}
-                    </td>
-                    <td className="text-right py-3 px-4 text-sm text-muted-foreground">
-                      {formatCurrency(dim.future_tco)}
-                    </td>
-                    <td className="text-right py-3 px-4 text-sm font-medium text-green-600">
-                      {formatCurrency(dim.roi)}
-                    </td>
-                    <td className="text-right py-3 px-4">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                        {formatPercentage(dim.impact_percentage)}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* Información TCO y Dimensiones */}
+        <div className="flex flex-col justify-center space-y-6">
+          {/* TCO Total */}
+          <div className="text-center lg:text-left">
+            <p className="text-muted-foreground mb-2">The process associated has a</p>
+            <p className="text-4xl font-bold text-foreground mb-2">
+              TCO of {formatCurrency(tco_global.current_tco)}
+            </p>
+            <p className="text-muted-foreground mb-4">annually. This process consider the following dimension breakdown:</p>
           </div>
-        </div>
 
-        {/* Botón Calcular Proyección */}
-        <div className="flex justify-center">
-          <Button onClick={handleCalculateProjection} size="lg" className="px-8">
-            <Calculator className="h-5 w-5 mr-2" />
-            Calcular Proyección
-          </Button>
+          {/* Lista de dimensiones con impacto */}
+          <div className="space-y-2">
+            {dimensions
+              .sort((a: any, b: any) => b.impact_percentage - a.impact_percentage)
+              .map((dim: any) => (
+                <div key={dim.dimension_id} className="flex justify-between items-center">
+                  <span className="text-foreground">{dim.dimension_name}</span>
+                  <span className="font-semibold text-foreground">
+                    {formatPercentage(dim.impact_percentage)} impact
+                  </span>
+                </div>
+              ))}
+          </div>
+
+          {/* Botón Calcular Proyección */}
+          <div className="pt-4">
+            <Button onClick={handleCalculateProjection} size="lg" className="w-full lg:w-auto px-8">
+              <Calculator className="h-5 w-5 mr-2" />
+              Calcular Proyección
+            </Button>
+          </div>
         </div>
       </div>
     );
