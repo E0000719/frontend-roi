@@ -18,10 +18,10 @@ export default function AgentSelection() {
         <div className="p-3 rounded-xl bg-accent/10">
           <FileText className="h-8 w-8 text-accent" />
         </div>
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">New ROI Implementation</h1>
-          <p className="text-muted-foreground">New ROI Business Case</p>
-        </div>
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
+            <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
+          </div>
       </div>
 
       <div className="gradient-card shadow-card rounded-xl p-12 border border-border/50">
@@ -29,11 +29,11 @@ export default function AgentSelection() {
           <div className="p-2 rounded-full bg-accent/10">
             <FileText className="h-6 w-6 text-accent" />
           </div>
-          <h2 className="text-xl font-semibold text-foreground">New ROI Business Case</h2>
+          <h2 className="text-xl font-semibold text-foreground">Nuevo Caso de Negocio de ROI</h2>
         </div>
 
         <h3 className="text-3xl font-bold text-center text-foreground mb-16">
-          how do you want to start?
+          ¿Cómo deseas comenzar?
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">

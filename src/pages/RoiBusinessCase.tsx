@@ -74,10 +74,10 @@ export default function RoiBusinessCase() {
         <div className="p-3 rounded-xl bg-accent/10">
           <FileText className="h-8 w-8 text-accent" />
         </div>
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">New ROI Implementation</h1>
-          <p className="text-muted-foreground">New ROI Business Case</p>
-        </div>
+      <div>
+        <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
+        <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
+      </div>
       </div>
 
       <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50">
@@ -85,15 +85,15 @@ export default function RoiBusinessCase() {
           <div className="p-2 rounded-full bg-accent/10">
             <FileText className="h-6 w-6 text-accent" />
           </div>
-          <h2 className="text-xl font-semibold text-foreground">ROI First Assistant</h2>
+          <h2 className="text-xl font-semibold text-foreground">Asistente ROI First</h2>
         </div>
 
         <div className="text-center mb-10">
           <h3 className="text-2xl font-bold text-foreground mb-2">
-            Select one of the AgenticAI Modules
+            Selecciona uno de los Módulos de AgenticAI
           </h3>
           <p className="text-lg text-muted-foreground">
-            to create a new Business Case
+            para crear un nuevo Caso de Negocio
           </p>
         </div>
 

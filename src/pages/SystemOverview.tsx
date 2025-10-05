@@ -188,11 +188,11 @@ export default function SystemOverview() {
         <div className="flex flex-col justify-center space-y-6">
           {/* TCO Total */}
           <div className="text-center lg:text-left">
-            <p className="text-muted-foreground mb-2">The process associated has a</p>
+            <p className="text-muted-foreground mb-2">El proceso asociado tiene un</p>
             <p className="text-4xl font-bold text-foreground mb-2">
-              TCO of {formatCurrency(tco_global.current_tco)}
+              TCO de {formatCurrency(tco_global.current_tco)}
             </p>
-            <p className="text-muted-foreground mb-4">annually. This process consider the following dimension breakdown:</p>
+            <p className="text-muted-foreground mb-4">anual. Este proceso considera el siguiente desglose de dimensiones:</p>
           </div>
 
           {/* Lista de dimensiones con impacto */}
@@ -243,7 +243,7 @@ export default function SystemOverview() {
             </div>
 
             <p className="text-muted-foreground mb-4">
-              The process associated to the Agentic {config.name.split(' ').slice(1).join(' ')} module has {config.dimensions.length} dimensions:
+              El proceso asociado al módulo Agentic {config.name.split(' ').slice(1).join(' ')} tiene {config.dimensions.length} dimensiones:
             </p>
 
             <ul className="space-y-2 mb-4">
@@ -253,7 +253,7 @@ export default function SystemOverview() {
             </ul>
 
             <p className="text-muted-foreground text-sm">
-              These dimensions can vary based on the information filled in the present questionnaire, let's start...
+              Estas dimensiones pueden variar según la información completada en el cuestionario presente, comencemos...
             </p>
           </div>
         </div>
@@ -276,8 +276,8 @@ export default function SystemOverview() {
             <FileText className="h-8 w-8 text-accent" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">New ROI Implementation</h1>
-            <p className="text-muted-foreground">New ROI Business Case</p>
+            <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
+            <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
           </div>
         </div>
 
@@ -296,7 +296,7 @@ export default function SystemOverview() {
             <FileText className="h-6 w-6 text-accent" />
           </div>
           <h2 className="text-xl font-semibold text-foreground">
-            {showResults ? 'ROI Calculation Results' : 'ROI First Assistant'}
+            {showResults ? 'Resultados del Cálculo de ROI' : 'Asistente ROI First'}
           </h2>
         </div>
 

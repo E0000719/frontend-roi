@@ -322,10 +322,10 @@ export default function ChatInterface() {
         <div className="flex items-center gap-2 text-sm">
           <AlertCircle className="h-4 w-4 text-orange-600" />
           <span className="text-orange-800 dark:text-orange-400 font-medium">
-            Correction Mode:
+            Modo de Corrección:
           </span>
           <span className="text-orange-700 dark:text-orange-300">
-            {correctionState.invalid_fields.length} field(s) pending
+            {correctionState.invalid_fields.length} campo(s) pendiente(s)
           </span>
         </div>
       </div>
@@ -340,14 +340,14 @@ export default function ChatInterface() {
             <FileText className="h-8 w-8 text-accent" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">New ROI Implementation</h1>
-            <p className="text-muted-foreground">New ROI Business Case</p>
+            <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
+            <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
           </div>
         </div>
         
         {messages.length > 0 && (
           <Button variant="outline" size="sm" onClick={handleClearChat}>
-            Clear Chat
+            Limpiar Chat
           </Button>
         )}
       </div>
@@ -357,7 +357,7 @@ export default function ChatInterface() {
           <div className="p-2 rounded-full bg-accent/10">
             <FileText className="h-6 w-6 text-accent" />
           </div>
-          <h2 className="text-xl font-semibold text-foreground">New ROI Business Case</h2>
+          <h2 className="text-xl font-semibold text-foreground">Nuevo Caso de Negocio de ROI</h2>
         </div>
 
         <div className="flex items-center justify-center gap-2 mb-6">
@@ -378,10 +378,10 @@ export default function ChatInterface() {
                 <Calculator className="h-5 w-5 text-green-600" />
                 <div>
                   <p className="text-sm font-medium text-green-800 dark:text-green-400">
-                    Data collection completed!
+                    ¡Recopilación de datos completada!
                   </p>
                   <p className="text-xs text-green-700 dark:text-green-300">
-                    All required data has been collected and validated
+                    Todos los datos requeridos han sido recopilados y validados
                   </p>
                 </div>
               </div>
@@ -393,12 +393,12 @@ export default function ChatInterface() {
                 {isCalculating ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Calculating...
+                    Calculando...
                   </>
                 ) : (
                   <>
                     <Calculator className="h-4 w-4 mr-2" />
-                    Calculate ROI
+                    Calcular ROI
                   </>
                 )}
               </Button>
@@ -409,8 +409,8 @@ export default function ChatInterface() {
         <div className="flex-1 overflow-y-auto mb-6 space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-muted-foreground py-12">
-              <p className="text-xl font-semibold mb-2">Tell me about the current process</p>
-              <p className="text-sm">Share details about your process to get started with the ROI analysis</p>
+              <p className="text-xl font-semibold mb-2">Cuéntame sobre el proceso actual</p>
+              <p className="text-sm">Comparte detalles sobre tu proceso para comenzar con el análisis de ROI</p>
             </div>
           )}
           
@@ -452,8 +452,8 @@ export default function ChatInterface() {
               ref={textareaRef}
               placeholder={
                 correctionState?.awaiting_corrections
-                  ? 'Send only the corrected value...'
-                  : 'write the general process description'
+                  ? 'Envía solo el valor corregido...'
+                  : 'escribe la descripción general del proceso'
               }
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -481,18 +481,18 @@ export default function ChatInterface() {
           {/* Info de estado */}
           <div className="flex justify-between items-center text-xs text-muted-foreground">
             <span>
-              {conversationHistory.length > 0 && `Messages: ${conversationHistory.length}`}
+              {conversationHistory.length > 0 && `Mensajes: ${conversationHistory.length}`}
             </span>
             
             {correctionState?.awaiting_corrections && (
               <span className="text-orange-600 font-medium">
-                Correcting {correctionState.invalid_fields.length} field(s)
+                Corrigiendo {correctionState.invalid_fields.length} campo(s)
               </span>
             )}
             
             {showCalculateButton && !isCalculating && (
               <span className="text-green-600 font-medium">
-                ✓ Ready to calculate
+                ✓ Listo para calcular
               </span>
             )}
             
