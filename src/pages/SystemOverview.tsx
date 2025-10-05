@@ -175,47 +175,58 @@ export default function SystemOverview() {
     const dimensionNames = dimensions.map((dim: any) => dim.dimension_name);
     const dimensionValues = dimensions.map((dim: any) => dim.impact_percentage);
 
+    // Ordenar dimensiones por impacto para la leyenda
+    const sortedDimensions = [...dimensions].sort((a: any, b: any) => b.impact_percentage - a.impact_percentage);
+
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        {/* Gráfica Radial */}
-        <div className="flex items-center justify-center">
-          <div className="w-full aspect-square max-w-md">
-            <RadialChart dimensions={dimensionNames} data={dimensionValues} />
+      <div className="space-y-8">
+        {/* TCO Total - Centrado arriba */}
+        <div className="text-center">
+          <p className="text-muted-foreground mb-2">El proceso asociado tiene un</p>
+          <p className="text-4xl font-bold text-foreground mb-2">
+            TCO de {formatCurrency(tco_global.current_tco)}
+          </p>
+          <p className="text-muted-foreground">anual. Este proceso considera el siguiente desglose de dimensiones:</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Gráfica Radial */}
+          <div className="flex items-center justify-center">
+            <div className="w-full aspect-square max-w-md">
+              <RadialChart dimensions={dimensionNames} data={dimensionValues} />
+            </div>
+          </div>
+
+          {/* Leyenda de dimensiones */}
+          <div className="flex flex-col justify-center space-y-3">
+            <h3 className="text-lg font-semibold text-foreground mb-2">Leyenda de Dimensiones</h3>
+            <div className="space-y-3">
+              {dimensionNames.map((name: string, index: number) => {
+                const dimension = dimensions.find((d: any) => d.dimension_name === name);
+                return (
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-sm">
+                      {index + 1}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-foreground text-sm leading-tight">{name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Impacto: <span className="font-semibold text-accent">{formatPercentage(dimension?.impact_percentage || 0)}</span>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Información TCO y Dimensiones */}
-        <div className="flex flex-col justify-center space-y-6">
-          {/* TCO Total */}
-          <div className="text-center lg:text-left">
-            <p className="text-muted-foreground mb-2">El proceso asociado tiene un</p>
-            <p className="text-4xl font-bold text-foreground mb-2">
-              TCO de {formatCurrency(tco_global.current_tco)}
-            </p>
-            <p className="text-muted-foreground mb-4">anual. Este proceso considera el siguiente desglose de dimensiones:</p>
-          </div>
-
-          {/* Lista de dimensiones con impacto */}
-          <div className="space-y-2">
-            {dimensions
-              .sort((a: any, b: any) => b.impact_percentage - a.impact_percentage)
-              .map((dim: any) => (
-                <div key={dim.dimension_id} className="flex justify-between items-center">
-                  <span className="text-foreground">{dim.dimension_name}</span>
-                  <span className="font-semibold text-foreground">
-                    {formatPercentage(dim.impact_percentage)} impact
-                  </span>
-                </div>
-              ))}
-          </div>
-
-          {/* Botón Calcular Proyección */}
-          <div className="pt-4">
-            <Button onClick={handleCalculateProjection} size="lg" className="w-full lg:w-auto px-8">
-              <Calculator className="h-5 w-5 mr-2" />
-              Calcular Proyección
-            </Button>
-          </div>
+        {/* Botón Calcular Proyección */}
+        <div className="flex justify-center pt-4">
+          <Button onClick={handleCalculateProjection} size="lg" className="px-8">
+            <Calculator className="h-5 w-5 mr-2" />
+            Calcular Proyección
+          </Button>
         </div>
       </div>
     );
