@@ -36,3 +36,80 @@ export const clearRoiSession = (): void => {
     sessionStorage.removeItem(key);
   });
 };
+
+/**
+ * Guardar datos recolectados en sessionStorage
+ */
+export const setCollectedData = (data: any): void => {
+  try {
+    sessionStorage.setItem('collectedData', JSON.stringify(data));
+    console.log('💾 Collected data saved to sessionStorage');
+  } catch (error) {
+    console.error('Error saving collected data:', error);
+  }
+};
+
+/**
+ * Obtener datos recolectados desde sessionStorage
+ */
+export const getCollectedData = (): any | null => {
+  try {
+    const data = sessionStorage.getItem('collectedData');
+    return data ? JSON.parse(data) : null;
+  } catch (error) {
+    console.error('Error getting collected data:', error);
+    return null;
+  }
+};
+
+/**
+ * Guardar resultados de cálculo ROI en sessionStorage
+ */
+export const setCalculationData = (data: any): void => {
+  try {
+    sessionStorage.setItem('calculationData', JSON.stringify(data));
+    console.log('💾 Calculation data saved to sessionStorage');
+  } catch (error) {
+    console.error('Error saving calculation data:', error);
+  }
+};
+
+/**
+ * Obtener resultados de cálculo ROI desde sessionStorage
+ */
+export const getCalculationData = (): any | null => {
+  try {
+    const data = sessionStorage.getItem('calculationData');
+    return data ? JSON.parse(data) : null;
+  } catch (error) {
+    console.error('Error getting calculation data:', error);
+    return null;
+  }
+};
+
+/**
+ * Limpiar datos de cálculo (útil para nuevo caso de uso)
+ */
+export const clearCalculationData = (): void => {
+  try {
+    sessionStorage.removeItem('calculationData');
+    sessionStorage.removeItem('collectedData');
+    console.log('🧹 Calculation data cleared from sessionStorage');
+  } catch (error) {
+    console.error('Error clearing calculation data:', error);
+  }
+};
+
+/**
+ * Verificar si hay resultados de cálculo disponibles
+ */
+export const hasCalculationData = (): boolean => {
+  return sessionStorage.getItem('calculationData') !== null;
+};
+
+/**
+ * Verificar si hay datos recolectados disponibles
+ */
+export const hasCollectedData = (): boolean => {
+  return sessionStorage.getItem('collectedData') !== null;
+};

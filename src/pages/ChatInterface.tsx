@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FileText, Send, Sparkles, Bot, AlertCircle } from 'lucide-react';
+import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { getRoiSystem, getRoiType, getRoiDimensions } from '@/utils/sessionStorage';
-import { roiService } from '@/services/roiService';
 import { toast } from 'sonner';
 
 interface Message {
@@ -12,7 +11,6 @@ interface Message {
   content: string;
 }
 
-// 🆕 Interfaz para respuesta del backend
 interface ChatResponse {
   response: string;
   conversation_history: any[];
@@ -27,12 +25,37 @@ interface ChatResponse {
   timestamp?: string;
 }
 
-// 🆕 Estado de corrección
 interface CorrectionState {
   awaiting_corrections: boolean;
   valid_data: any;
   invalid_fields: any[];
   status: string;
+}
+
+interface ROICalculationResult {
+  success: boolean;
+  system: string;
+  summary_text: string;
+  calculation_details?: string;
+  tco_global: {
+    current_tco: number;
+    future_tco: number;
+    roi_total: number;
+    roi_percentage: number;
+    payback_months?: number;
+  };
+  dimensions: Array<{
+    dimension_id: string;
+    dimension_name: string;
+    current_tco: number;
+    future_tco: number;
+    roi: number;
+    ia_improvement_factor: number;
+    impacto_ia: number;
+    impact_percentage: number;
+    description?: string;
+  }>;
+  metadata?: any;
 }
 
 export default function ChatInterface() {
@@ -44,18 +67,22 @@ export default function ChatInterface() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // 🆕 Estados para agente experto
+  // Estados para agentes
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [correctionState, setCorrectionState] = useState<CorrectionState | null>(null);
   const [currentState, setCurrentState] = useState<any>(null);
+
+  // 🆕 Estados para cálculo ROI
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [showCalculateButton, setShowCalculateButton] = useState(false);
+  const [collectedData, setCollectedData] = useState<any>(null);
 
   const roiSystem = getRoiSystem();
   const roiType = getRoiType();
   const dimensions = getRoiDimensions();
 
   useEffect(() => {
-    // Redirect if session data is missing
     if (!roiSystem || !roiType || !system) {
       toast.error('Session data missing. Please start from the beginning.');
       navigate('/roi-business-case');
@@ -75,7 +102,6 @@ export default function ChatInterface() {
 
   const sendMessageToAPI = async (messageText: string) => {
     try {
-      // Construir payload según el contexto
       let requestPayload: any = {
         message: messageText,
         system: roiSystem || 'legacy_takeover',
@@ -85,7 +111,6 @@ export default function ChatInterface() {
         conversation_id: conversationId
       };
 
-      // Si estamos en modo corrección, agregar contexto
       if (correctionState?.awaiting_corrections) {
         requestPayload.correction_context = {
           is_correction: true,
@@ -112,15 +137,41 @@ export default function ChatInterface() {
 
       const data: ChatResponse = await response.json();
 
-      // Actualizar historial de conversación
       if (data.conversation_history) {
         setConversationHistory(data.conversation_history);
       }
 
-      // Actualizar estados básicos
       if (data.current_state || data.conversation_id) {
         setCurrentState(data.current_state);
         setConversationId(data.conversation_id);
+      }
+
+      // 🆕 Detectar si la recopilación está completa
+      if (data.status === 'completed' || data.status === 'data_completed' || data.status === 'validated_complete') {
+        console.log('✅ Datos completos detectados');
+        
+        let dataToSave = null;
+        
+        if (roiType === 'beginner' && data.current_state?.collected_data) {
+          // Agente guiado
+          dataToSave = data.current_state.collected_data;
+          console.log('📊 Datos del agente guiado:', dataToSave);
+        } else if (roiType === 'expert' && data.data) {
+          // Agente experto
+          dataToSave = data.data;
+          console.log('📊 Datos del agente experto:', dataToSave);
+        }
+        
+        if (dataToSave) {
+          setCollectedData(dataToSave);
+          setShowCalculateButton(true);
+          
+          // Guardar en sessionStorage inmediatamente
+          sessionStorage.setItem('collectedData', JSON.stringify(dataToSave));
+          console.log('💾 Datos guardados en sessionStorage');
+          
+          toast.success('All data collected! Ready to calculate ROI.');
+        }
       }
 
       // Manejar estado de corrección experto
@@ -135,11 +186,6 @@ export default function ChatInterface() {
       } else if (data.status === 'validated_complete' || data.ready_for_calculation) {
         setCorrectionState(null);
         console.log('✅ Validación completa');
-        
-        if (data.ready_for_calculation && data.data) {
-          console.log('🎉 Datos listos para cálculo:', data.data);
-          toast.success('All data validated successfully!');
-        }
       } else if (data.status === 'awaiting_missing_data' && data.missing_or_invalid_fields) {
         setCorrectionState({
           awaiting_corrections: true,
@@ -175,7 +221,6 @@ export default function ChatInterface() {
 
       setMessages(prev => [...prev, assistantMessage]);
       
-      // Focus textarea after response
       setTimeout(() => {
         textareaRef.current?.focus();
       }, 100);
@@ -189,7 +234,6 @@ export default function ChatInterface() {
       };
       setMessages(prev => [...prev, errorMessage]);
       
-      // Focus textarea after error
       setTimeout(() => {
         textareaRef.current?.focus();
       }, 100);
@@ -198,14 +242,60 @@ export default function ChatInterface() {
     }
   };
 
-  const handleEstimateTCO = () => {
-    toast.info('Estimating TCO of the current process...');
-    // This will be connected to your backend
-  };
+  // 🆕 Función para calcular ROI
+  const handleCalculateROI = async () => {
+    if (!collectedData || !roiSystem) {
+      toast.error('No data available for calculation');
+      return;
+    }
 
-  const handleCreateProposal = () => {
-    toast.info('Creating technical and financial proposal...');
-    // This will be connected to your backend
+    setIsCalculating(true);
+    
+    try {
+      console.log('🧮 Iniciando cálculo ROI...');
+      console.log('📊 Datos a enviar:', collectedData);
+
+      const response = await fetch('http://localhost:8001/calculate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          system: roiSystem,
+          collected_data: collectedData
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const calculationResult: ROICalculationResult = await response.json();
+
+      if (!calculationResult.success) {
+        throw new Error(calculationResult.metadata?.error || 'Calculation failed');
+      }
+
+      console.log('✅ Cálculo completado:', calculationResult);
+
+      // 💾 Guardar resultados en sessionStorage
+      sessionStorage.setItem('calculationData', JSON.stringify(calculationResult));
+      console.log('💾 Resultados guardados en sessionStorage');
+
+      // 🎉 Mostrar toast de éxito
+      toast.success('ROI calculation completed successfully!');
+
+      // 🔄 Redirigir a la pantalla de overview
+      setTimeout(() => {
+        navigate(`/roi-business-case/${system}/overview`);
+      }, 500);
+
+    } catch (error) {
+      console.error('❌ Error calculando ROI:', error);
+      toast.error('Failed to calculate ROI. Please try again.');
+    } finally {
+      setIsCalculating(false);
+    }
   };
 
   const handleClearChat = () => {
@@ -214,6 +304,12 @@ export default function ChatInterface() {
     setConversationId(null);
     setCorrectionState(null);
     setCurrentState(null);
+    setShowCalculateButton(false);
+    setCollectedData(null);
+    
+    // Limpiar solo el chat, NO los resultados
+    sessionStorage.removeItem('collectedData');
+    
     toast.success('Chat cleared');
   };
 
@@ -274,6 +370,42 @@ export default function ChatInterface() {
         {/* Indicador de corrección */}
         {renderCorrectionIndicator()}
 
+        {/* 🆕 Botón Calculate ROI - Aparece cuando los datos están completos */}
+        {showCalculateButton && (
+          <div className="mb-4 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Calculator className="h-5 w-5 text-green-600" />
+                <div>
+                  <p className="text-sm font-medium text-green-800 dark:text-green-400">
+                    Data collection completed!
+                  </p>
+                  <p className="text-xs text-green-700 dark:text-green-300">
+                    All required data has been collected and validated
+                  </p>
+                </div>
+              </div>
+              <Button
+                onClick={handleCalculateROI}
+                disabled={isCalculating}
+                className="bg-green-600 hover:bg-green-700 text-white"
+              >
+                {isCalculating ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Calculating...
+                  </>
+                ) : (
+                  <>
+                    <Calculator className="h-4 w-4 mr-2" />
+                    Calculate ROI
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+        )}
+
         <div className="flex-1 overflow-y-auto mb-6 space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-muted-foreground py-12">
@@ -315,29 +447,6 @@ export default function ChatInterface() {
         </div>
 
         <div className="space-y-4">
-          <div className="flex gap-2">
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={handleEstimateTCO}
-              className="flex-1"
-              disabled={isLoading}
-            >
-              <Sparkles className="h-4 w-4 mr-2" />
-              Estimate the current TCO of the process
-            </Button>
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={handleCreateProposal}
-              className="flex-1"
-              disabled={isLoading}
-            >
-              <Sparkles className="h-4 w-4 mr-2" />
-              Estimate TCO & create a technical / financial proposal
-            </Button>
-          </div>
-
           <div className="relative">
             <Textarea
               ref={textareaRef}
@@ -355,12 +464,12 @@ export default function ChatInterface() {
                 }
               }}
               className="min-h-[100px] pr-12 resize-none"
-              disabled={isLoading}
+              disabled={isLoading || isCalculating}
             />
             <Button
               size="icon"
               onClick={handleSendMessage}
-              disabled={!message.trim() || isLoading}
+              disabled={!message.trim() || isLoading || isCalculating}
               className={`absolute bottom-3 right-3 ${
                 correctionState?.awaiting_corrections ? 'bg-orange-600 hover:bg-orange-700' : ''
               }`}
@@ -378,6 +487,12 @@ export default function ChatInterface() {
             {correctionState?.awaiting_corrections && (
               <span className="text-orange-600 font-medium">
                 Correcting {correctionState.invalid_fields.length} field(s)
+              </span>
+            )}
+            
+            {showCalculateButton && !isCalculating && (
+              <span className="text-green-600 font-medium">
+                ✓ Ready to calculate
               </span>
             )}
             
