@@ -8,14 +8,14 @@ export default function ProcessImprovement() {
           <TrendingUp className="h-8 w-8 text-primary" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Continuous Process Improvement</h1>
-          <p className="text-muted-foreground">Track and optimize business processes</p>
+          <h1 className="text-3xl font-bold text-foreground">Mejora Continua de Procesos</h1>
+          <p className="text-muted-foreground">Seguimiento y optimización de procesos de negocio</p>
         </div>
       </div>
 
       <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50">
         <p className="text-muted-foreground">
-          Content for Continuous Process Improvement module will be displayed here.
+          El contenido del módulo de Mejora Continua de Procesos se mostrará aquí.
         </p>
       </div>
     </div>

@@ -8,14 +8,14 @@ export default function OnTrackAgents() {
           <Users className="h-8 w-8 text-accent" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-foreground">On Track Agents</h1>
-          <p className="text-muted-foreground">Monitor and manage agent performance</p>
+          <h1 className="text-3xl font-bold text-foreground">Agentes en Seguimiento</h1>
+          <p className="text-muted-foreground">Monitorear y gestionar el rendimiento de agentes</p>
         </div>
       </div>
 
       <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50">
         <p className="text-muted-foreground">
-          Content for On Track Agents module will be displayed here.
+          El contenido del módulo de Agentes en Seguimiento se mostrará aquí.
         </p>
       </div>
     </div>

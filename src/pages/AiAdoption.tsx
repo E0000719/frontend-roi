@@ -8,14 +8,14 @@ export default function AiAdoption() {
           <Target className="h-8 w-8 text-accent" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-foreground">360 Company AI Adoption</h1>
-          <p className="text-muted-foreground">Comprehensive AI adoption tracking</p>
+          <h1 className="text-3xl font-bold text-foreground">Adopción de IA 360 Empresarial</h1>
+          <p className="text-muted-foreground">Seguimiento integral de adopción de IA</p>
         </div>
       </div>
 
       <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50">
         <p className="text-muted-foreground">
-          Content for 360 Company AI Adoption module will be displayed here.
+          El contenido del módulo de Adopción de IA 360 Empresarial se mostrará aquí.
         </p>
       </div>
     </div>

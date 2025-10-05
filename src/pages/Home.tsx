@@ -3,25 +3,25 @@ import { DashboardCard } from "@/components/DashboardCard";
 
 const modules = [
   {
-    title: "New ROI Business Case",
+    title: "Nuevo Caso de Negocio de ROI",
     icon: FileText,
     to: "/roi-business-case",
     iconColor: "text-primary",
   },
   {
-    title: "On Track Agents",
+    title: "Agentes en Seguimiento",
     icon: Users,
     to: "/on-track-agents",
     iconColor: "text-accent",
   },
   {
-    title: "Continuous Process Improvement",
+    title: "Mejora Continua de Procesos",
     icon: TrendingUp,
     to: "/process-improvement",
     iconColor: "text-primary",
   },
   {
-    title: "360 Company AI Adoption",
+    title: "Adopción de IA 360 Empresarial",
     icon: Target,
     to: "/ai-adoption",
     iconColor: "text-accent",
@@ -36,7 +36,7 @@ export default function Home() {
           ROI First Core
         </h1>
         <p className="text-muted-foreground text-sm md:text-base">
-          Select a module to get started
+          Selecciona un módulo para comenzar
         </p>
       </div>
 

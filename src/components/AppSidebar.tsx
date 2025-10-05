@@ -13,11 +13,11 @@ import {
 } from "@/components/ui/sidebar";
 
 const menuItems = [
-  { title: "Home", url: "/", icon: Home },
-  { title: "New ROI Business Case", url: "/roi-business-case", icon: FileText },
-  { title: "On Track Agents", url: "/on-track-agents", icon: Users },
-  { title: "Continuous Process Improvement", url: "/process-improvement", icon: TrendingUp },
-  { title: "360 Company AI Adoption", url: "/ai-adoption", icon: Target },
+  { title: "Inicio", url: "/", icon: Home },
+  { title: "Nuevo Caso de Negocio de ROI", url: "/roi-business-case", icon: FileText },
+  { title: "Agentes en Seguimiento", url: "/on-track-agents", icon: Users },
+  { title: "Mejora Continua de Procesos", url: "/process-improvement", icon: TrendingUp },
+  { title: "Adopción de IA 360 Empresarial", url: "/ai-adoption", icon: Target },
 ];
 
 export function AppSidebar() {
