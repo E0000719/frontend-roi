@@ -95,6 +95,11 @@ export default function ChatInterface() {
   // Función para enviar el saludo inicial sin mostrarlo en el chat
   const sendInitialGreeting = async () => {
     try {
+      // Limpiar historial antes de enviar el "Hola"
+      setConversationHistory([]);
+      setConversationId(null);
+      setCurrentState(null);
+      
       setIsLoading(true);
       const response = await sendMessageToAPI('Hola');
       
