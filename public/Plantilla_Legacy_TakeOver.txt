@@ -1,0 +1,43 @@
+**EFICIENCIA:**
+¿Horas Hombre? Tu_Respuesta
+¿Costo Hora Hombre? Tu_Respuesta
+¿Recursos? Tu_Respuesta
+¿Porcentaje Mantenimiento? Tu_Respuesta
+¿Porcentaje Nuevas Funcionalidades? Tu_Respuesta
+
+**CALIDAD:**
+¿Errores Produccion? Tu_Respuesta
+¿Costo Error Produccion? Tu_Respuesta
+¿Errores Qa? Tu_Respuesta
+¿Costo Error Qa? Tu_Respuesta
+¿Porcentaje Codigo Automatizado? Tu_Respuesta
+
+**VELOCIDAD:**
+¿Dias Promedio? Tu_Respuesta
+¿Costo Diario? Tu_Respuesta
+¿Porcentaje Retrasos? Tu_Respuesta
+¿Proyectos? Tu_Respuesta
+¿Costo Promedio Proyecto? Tu_Respuesta
+
+**COSTOS OPERATIVOS:**
+¿Devs Internos? Tu_Respuesta
+¿Costo Dev Interno? Tu_Respuesta
+¿Consultores? Tu_Respuesta
+¿Costo Consultor? Tu_Respuesta
+¿Costo Licencias? Tu_Respuesta
+¿Incidentes? Tu_Respuesta
+¿Costo Incidente? Tu_Respuesta
+
+**SATISFACCION VALOR:**
+¿Quejas? Tu_Respuesta
+¿Costo Queja? Tu_Respuesta
+¿Porcentaje Rotacion? Tu_Respuesta
+¿Recursos Legacy? Tu_Respuesta
+¿Costo Rotacion? Tu_Respuesta
+¿Costo Productividad Perdida? Tu_Respuesta
+
+**INNOVACION ESCALABILIDAD:**
+¿Inversion Innovacion? Tu_Respuesta
+¿Porcentaje Proyectos Bloqueados? Tu_Respuesta
+¿Costo Retrasos? Tu_Respuesta
+¿Costo Infraestructura Legacy? Tu_Respuesta

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator } from 'lucide-react';
+import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { getRoiSystem, getRoiType, getRoiDimensions } from '@/utils/sessionStorage';
@@ -388,11 +388,31 @@ export default function ChatInterface() {
           </div>
         </div>
         
-        {messages.length > 0 && (
-          <Button variant="outline" size="sm" onClick={handleClearChat}>
-            Limpiar Chat
-          </Button>
-        )}
+        <div className="flex items-center gap-2">
+          {roiType === 'expert' && (
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/Plantilla_Legacy_TakeOver.txt';
+                link.download = 'Plantilla_Legacy_TakeOver.txt';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Descargar Plantilla
+            </Button>
+          )}
+          
+          {messages.length > 0 && (
+            <Button variant="outline" size="sm" onClick={handleClearChat}>
+              Limpiar Chat
+            </Button>
+          )}
+        </div>
       </div>
 
       <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50 h-[calc(100%-8rem)] flex flex-col">
