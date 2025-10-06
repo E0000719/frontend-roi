@@ -101,7 +101,12 @@ export default function ChatInterface() {
       setCurrentState(null);
       
       setIsLoading(true);
-      const response = await sendMessageToAPI('Hola');
+      // Pasar explícitamente valores vacíos para asegurar que se envíen
+      const response = await sendMessageToAPI('Hola', {
+        conversationHistory: [],
+        conversationId: null,
+        currentState: null
+      });
       
       // Solo agregar la respuesta del asistente, no el "Hola"
       const assistantMessage: Message = {
@@ -129,15 +134,19 @@ export default function ChatInterface() {
   const agentName = roiType === 'expert' ? 'GPT ROI First' : 'ROI First Assistant';
   const AgentIcon = roiType === 'expert' ? Sparkles : Bot;
 
-  const sendMessageToAPI = async (messageText: string) => {
+  const sendMessageToAPI = async (messageText: string, overrideState?: { conversationHistory?: any[], conversationId?: string | null, currentState?: any | null }) => {
     try {
+      const historyToUse = overrideState?.conversationHistory !== undefined ? overrideState.conversationHistory : conversationHistory;
+      const conversationIdToUse = overrideState?.conversationId !== undefined ? overrideState.conversationId : conversationId;
+      const currentStateToUse = overrideState?.currentState !== undefined ? overrideState.currentState : currentState;
+      
       let requestPayload: any = {
         message: messageText,
         system: roiSystem || 'legacy_takeover',
-        conversation_history: conversationHistory,
+        conversation_history: historyToUse,
         user_type: roiType === 'expert' ? 'expert' : 'beginner',
-        current_state: currentState,
-        conversation_id: conversationId
+        current_state: currentStateToUse,
+        conversation_id: conversationIdToUse
       };
 
       if (correctionState?.awaiting_corrections) {
