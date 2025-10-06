@@ -86,8 +86,32 @@ export default function ChatInterface() {
     if (!roiSystem || !roiType || !system) {
       toast.error('Session data missing. Please start from the beginning.');
       navigate('/roi-business-case');
+    } else {
+      // Enviar mensaje inicial "Hola" automáticamente
+      sendInitialGreeting();
     }
   }, [roiSystem, roiType, system, navigate]);
+
+  // Función para enviar el saludo inicial sin mostrarlo en el chat
+  const sendInitialGreeting = async () => {
+    try {
+      setIsLoading(true);
+      const response = await sendMessageToAPI('Hola');
+      
+      // Solo agregar la respuesta del asistente, no el "Hola"
+      const assistantMessage: Message = {
+        role: 'assistant',
+        content: response.response || 'Bienvenido al análisis de ROI.',
+      };
+      
+      setMessages([assistantMessage]);
+    } catch (error) {
+      console.error('Error sending initial greeting:', error);
+      toast.error('Error al iniciar la conversación.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     scrollToBottom();
@@ -311,6 +335,11 @@ export default function ChatInterface() {
     sessionStorage.removeItem('collectedData');
     
     toast.success('Chat cleared');
+    
+    // Enviar mensaje inicial "Hola" automáticamente después de limpiar
+    setTimeout(() => {
+      sendInitialGreeting();
+    }, 500);
   };
 
   // Renderizar indicador de corrección
