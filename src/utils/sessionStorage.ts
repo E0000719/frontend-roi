@@ -113,3 +113,28 @@ export const hasCalculationData = (): boolean => {
 export const hasCollectedData = (): boolean => {
   return sessionStorage.getItem('collectedData') !== null;
 };
+
+/**
+ * Guardar información de la empresa
+ */
+export const setCompanyInfo = (info: { name: string; size: string; sector: string }): void => {
+  try {
+    sessionStorage.setItem('companyInfo', JSON.stringify(info));
+    console.log('💼 Company info saved to sessionStorage');
+  } catch (error) {
+    console.error('Error saving company info:', error);
+  }
+};
+
+/**
+ * Obtener información de la empresa
+ */
+export const getCompanyInfo = (): { name: string; size: string; sector: string } | null => {
+  try {
+    const info = sessionStorage.getItem('companyInfo');
+    return info ? JSON.parse(info) : null;
+  } catch (error) {
+    console.error('Error getting company info:', error);
+    return null;
+  }
+};

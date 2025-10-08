@@ -1,15 +1,43 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { FileText, Bot, Sparkles } from 'lucide-react';
 import { Card, CardHeader } from '@/components/ui/card';
-import { setRoiType } from '@/utils/sessionStorage';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { setRoiType, setCompanyInfo } from '@/utils/sessionStorage';
+import { useState } from 'react';
 
 export default function AgentSelection() {
   const { system } = useParams<{ system: string }>();
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const [selectedAgent, setSelectedAgent] = useState<'beginner' | 'expert' | null>(null);
+  const [companyName, setCompanyName] = useState('');
+  const [companySize, setCompanySize] = useState('');
+  const [companySector, setCompanySector] = useState('');
 
   const handleAgentSelect = (type: 'beginner' | 'expert') => {
-    setRoiType(type);
-    navigate(`/roi-business-case/${system}/chat`);
+    setSelectedAgent(type);
+    setShowModal(true);
+  };
+
+  const handleSubmit = () => {
+    if (!companyName || !companySize || !companySector) {
+      return;
+    }
+
+    setCompanyInfo({
+      name: companyName,
+      size: companySize,
+      sector: companySector,
+    });
+
+    if (selectedAgent) {
+      setRoiType(selectedAgent);
+      navigate(`/roi-business-case/${system}/chat`);
+    }
   };
 
   return (
@@ -66,6 +94,72 @@ export default function AgentSelection() {
           </Card>
         </div>
       </div>
+
+      <Dialog open={showModal} onOpenChange={setShowModal}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Información de la Empresa</DialogTitle>
+            <DialogDescription>
+              Por favor, completa los siguientes datos antes de continuar.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="company-name">Nombre de la Empresa</Label>
+              <Input
+                id="company-name"
+                placeholder="Ingresa el nombre de la empresa"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="company-size">Tamaño</Label>
+              <Select value={companySize} onValueChange={setCompanySize}>
+                <SelectTrigger id="company-size">
+                  <SelectValue placeholder="Selecciona el tamaño" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1-50">1-50 empleados</SelectItem>
+                  <SelectItem value="51-200">51-200 empleados</SelectItem>
+                  <SelectItem value="201-500">201-500 empleados</SelectItem>
+                  <SelectItem value="501-1000">501-1000 empleados</SelectItem>
+                  <SelectItem value="1000+">Más de 1000 empleados</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="company-sector">Sector</Label>
+              <Select value={companySector} onValueChange={setCompanySector}>
+                <SelectTrigger id="company-sector">
+                  <SelectValue placeholder="Selecciona el sector" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="tecnologia">Tecnología</SelectItem>
+                  <SelectItem value="finanzas">Finanzas</SelectItem>
+                  <SelectItem value="salud">Salud</SelectItem>
+                  <SelectItem value="manufactura">Manufactura</SelectItem>
+                  <SelectItem value="retail">Retail</SelectItem>
+                  <SelectItem value="servicios">Servicios</SelectItem>
+                  <SelectItem value="educacion">Educación</SelectItem>
+                  <SelectItem value="otro">Otro</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div className="flex justify-end gap-3">
+            <Button variant="outline" onClick={() => setShowModal(false)}>
+              Cancelar
+            </Button>
+            <Button 
+              onClick={handleSubmit}
+              disabled={!companyName || !companySize || !companySector}
+            >
+              Continuar
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
