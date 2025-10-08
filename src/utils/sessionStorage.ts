@@ -3,6 +3,9 @@ export const SESSION_KEYS = {
   SYSTEM: 'roi_system',
   TYPE: 'roi_type',
   DIMENSIONS: 'roi_dimensions',
+  COMPANY_INFO: 'companyInfo',
+  COLLECTED_DATA: 'collectedData',
+  CALCULATION_DATA: 'calculationData',
 } as const;
 
 export const setRoiSystem = (system: string): void => {
@@ -42,7 +45,7 @@ export const clearRoiSession = (): void => {
  */
 export const setCollectedData = (data: any): void => {
   try {
-    sessionStorage.setItem('collectedData', JSON.stringify(data));
+    sessionStorage.setItem(SESSION_KEYS.COLLECTED_DATA, JSON.stringify(data));
     console.log('💾 Collected data saved to sessionStorage');
   } catch (error) {
     console.error('Error saving collected data:', error);
@@ -54,7 +57,7 @@ export const setCollectedData = (data: any): void => {
  */
 export const getCollectedData = (): any | null => {
   try {
-    const data = sessionStorage.getItem('collectedData');
+    const data = sessionStorage.getItem(SESSION_KEYS.COLLECTED_DATA);
     return data ? JSON.parse(data) : null;
   } catch (error) {
     console.error('Error getting collected data:', error);
@@ -67,7 +70,7 @@ export const getCollectedData = (): any | null => {
  */
 export const setCalculationData = (data: any): void => {
   try {
-    sessionStorage.setItem('calculationData', JSON.stringify(data));
+    sessionStorage.setItem(SESSION_KEYS.CALCULATION_DATA, JSON.stringify(data));
     console.log('💾 Calculation data saved to sessionStorage');
   } catch (error) {
     console.error('Error saving calculation data:', error);
@@ -79,7 +82,7 @@ export const setCalculationData = (data: any): void => {
  */
 export const getCalculationData = (): any | null => {
   try {
-    const data = sessionStorage.getItem('calculationData');
+    const data = sessionStorage.getItem(SESSION_KEYS.CALCULATION_DATA);
     return data ? JSON.parse(data) : null;
   } catch (error) {
     console.error('Error getting calculation data:', error);
@@ -92,8 +95,8 @@ export const getCalculationData = (): any | null => {
  */
 export const clearCalculationData = (): void => {
   try {
-    sessionStorage.removeItem('calculationData');
-    sessionStorage.removeItem('collectedData');
+    sessionStorage.removeItem(SESSION_KEYS.CALCULATION_DATA);
+    sessionStorage.removeItem(SESSION_KEYS.COLLECTED_DATA);
     console.log('🧹 Calculation data cleared from sessionStorage');
   } catch (error) {
     console.error('Error clearing calculation data:', error);
@@ -104,14 +107,14 @@ export const clearCalculationData = (): void => {
  * Verificar si hay resultados de cálculo disponibles
  */
 export const hasCalculationData = (): boolean => {
-  return sessionStorage.getItem('calculationData') !== null;
+  return sessionStorage.getItem(SESSION_KEYS.CALCULATION_DATA) !== null;
 };
 
 /**
  * Verificar si hay datos recolectados disponibles
  */
 export const hasCollectedData = (): boolean => {
-  return sessionStorage.getItem('collectedData') !== null;
+  return sessionStorage.getItem(SESSION_KEYS.COLLECTED_DATA) !== null;
 };
 
 /**
@@ -119,7 +122,7 @@ export const hasCollectedData = (): boolean => {
  */
 export const setCompanyInfo = (info: { name: string; size: string; sector: string }): void => {
   try {
-    sessionStorage.setItem('companyInfo', JSON.stringify(info));
+    sessionStorage.setItem(SESSION_KEYS.COMPANY_INFO, JSON.stringify(info));
     console.log('💼 Company info saved to sessionStorage');
   } catch (error) {
     console.error('Error saving company info:', error);
@@ -131,7 +134,7 @@ export const setCompanyInfo = (info: { name: string; size: string; sector: strin
  */
 export const getCompanyInfo = (): { name: string; size: string; sector: string } | null => {
   try {
-    const info = sessionStorage.getItem('companyInfo');
+    const info = sessionStorage.getItem(SESSION_KEYS.COMPANY_INFO);
     return info ? JSON.parse(info) : null;
   } catch (error) {
     console.error('Error getting company info:', error);
