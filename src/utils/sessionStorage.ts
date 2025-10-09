@@ -120,7 +120,7 @@ export const hasCollectedData = (): boolean => {
 /**
  * Guardar información de la empresa
  */
-export const setCompanyInfo = (info: { name: string; size: string; sector: string }): void => {
+export const setCompanyInfo = (info: { name: string; size: string; sector: string; secondarySectors?: string[] }): void => {
   try {
     sessionStorage.setItem(SESSION_KEYS.COMPANY_INFO, JSON.stringify(info));
     console.log('💼 Company info saved to sessionStorage');
@@ -132,7 +132,7 @@ export const setCompanyInfo = (info: { name: string; size: string; sector: strin
 /**
  * Obtener información de la empresa
  */
-export const getCompanyInfo = (): { name: string; size: string; sector: string } | null => {
+export const getCompanyInfo = (): { name: string; size: string; sector: string; secondarySectors?: string[] } | null => {
   try {
     const info = sessionStorage.getItem(SESSION_KEYS.COMPANY_INFO);
     return info ? JSON.parse(info) : null;
