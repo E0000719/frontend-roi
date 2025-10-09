@@ -172,7 +172,7 @@ export default function AgentSelection() {
             </div>
             {primarySector && (
               <div className="space-y-2">
-                <Label>Sectores Secundarios (máximo 2)</Label>
+                <Label>Sectores Secundarios (opcional, máximo 2)</Label>
                 <div className="space-y-2 max-h-40 overflow-y-auto border border-border rounded-md p-3">
                   {availableSecondarySectors.map(sector => (
                     <div key={sector.value} className="flex items-center space-x-2">
