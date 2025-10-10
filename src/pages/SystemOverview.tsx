@@ -180,6 +180,9 @@ export default function SystemOverview() {
       showFutureProjection ? dim.future_tco : dim.current_tco
     );
 
+    // Usar siempre el TCO actual como escala máxima para mostrar la reducción
+    const maxScaleValue = tco_global.current_tco;
+
     // Calcular porcentajes de contribución al TCO global
     const dimensionPercentages = dimensionTcoValues.map((tco: number) => 
       (tco / currentGlobalTco) * 100
@@ -207,7 +210,7 @@ export default function SystemOverview() {
               <RadialChart 
                 dimensions={dimensionNames} 
                 data={dimensionTcoValues}
-                maxValue={currentGlobalTco}
+                maxValue={maxScaleValue}
               />
             </div>
           </div>
