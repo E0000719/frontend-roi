@@ -3,14 +3,18 @@ import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Responsi
 interface RadialChartProps {
   dimensions: string[];
   data?: number[];
+  maxValue?: number;
 }
 
-export const RadialChart = ({ dimensions, data }: RadialChartProps) => {
+export const RadialChart = ({ dimensions, data, maxValue }: RadialChartProps) => {
   const chartData = dimensions.map((dimension, index) => ({
-    dimension: `${index + 1}`, // Usar números en lugar de nombres completos
+    dimension: `${index + 1}`,
     fullName: dimension,
     value: data?.[index] || 0,
   }));
+
+  // Calcular el dominio máximo para la escala radial
+  const maxDomain = maxValue || Math.max(...(data || [0]), 100);
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -22,8 +26,13 @@ export const RadialChart = ({ dimensions, data }: RadialChartProps) => {
         />
         <PolarRadiusAxis 
           angle={90} 
-          domain={[0, Math.max(...(data || [0]), 5)]} 
-          tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }}
+          domain={[0, maxDomain]} 
+          tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }}
+          tickFormatter={(value) => {
+            if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+            if (value >= 1000) return `${(value / 1000).toFixed(0)}K`;
+            return value.toString();
+          }}
         />
         <Radar
           name="Impacto"

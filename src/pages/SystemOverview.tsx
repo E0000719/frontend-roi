@@ -103,6 +103,7 @@ export default function SystemOverview() {
   // Estados para resultados de cálculo
   const [calculationResults, setCalculationResults] = useState<any>(null);
   const [showResults, setShowResults] = useState(false);
+  const [showFutureProjection, setShowFutureProjection] = useState(false);
   
   const config = system ? systemConfigs[system] : null;
 
@@ -147,8 +148,7 @@ export default function SystemOverview() {
   };
 
   const handleCalculateProjection = () => {
-    // TODO: Implementar cálculo de proyección
-    console.log('🚧 Calcular proyección - Funcionalidad pendiente');
+    setShowFutureProjection(!showFutureProjection);
   };
 
   // Formatear números para display
@@ -171,29 +171,44 @@ export default function SystemOverview() {
 
     const { tco_global, dimensions } = calculationResults;
 
+    // Determinar qué TCO mostrar (actual o futuro)
+    const currentGlobalTco = showFutureProjection ? tco_global.future_tco : tco_global.current_tco;
+    
     // Preparar datos para la gráfica radial
     const dimensionNames = dimensions.map((dim: any) => dim.dimension_name);
-    const dimensionValues = dimensions.map((dim: any) => dim.impact_percentage);
+    const dimensionTcoValues = dimensions.map((dim: any) => 
+      showFutureProjection ? dim.future_tco : dim.current_tco
+    );
 
-    // Ordenar dimensiones por impacto para la leyenda
-    const sortedDimensions = [...dimensions].sort((a: any, b: any) => b.impact_percentage - a.impact_percentage);
+    // Calcular porcentajes de contribución al TCO global
+    const dimensionPercentages = dimensionTcoValues.map((tco: number) => 
+      (tco / currentGlobalTco) * 100
+    );
 
     return (
       <div className="space-y-8">
         {/* TCO Total - Centrado arriba */}
         <div className="text-center">
-          <p className="text-muted-foreground mb-2">El proceso asociado tiene un</p>
-          <p className="text-4xl font-bold text-foreground mb-2">
-            TCO de {formatCurrency(tco_global.current_tco)}
+          <p className="text-muted-foreground mb-2">
+            {showFutureProjection ? 'La proyección futura del proceso tiene un' : 'El proceso asociado tiene un'}
           </p>
-          <p className="text-muted-foreground">anual. Este proceso considera el siguiente desglose de dimensiones:</p>
+          <p className="text-4xl font-bold text-foreground mb-2">
+            TCO de {formatCurrency(currentGlobalTco)}
+          </p>
+          <p className="text-muted-foreground">
+            anual{showFutureProjection ? ' proyectado' : ''}. Este proceso considera el siguiente desglose de dimensiones:
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Gráfica Radial */}
           <div className="flex items-center justify-center">
             <div className="w-full aspect-square max-w-md">
-              <RadialChart dimensions={dimensionNames} data={dimensionValues} />
+              <RadialChart 
+                dimensions={dimensionNames} 
+                data={dimensionTcoValues}
+                maxValue={currentGlobalTco}
+              />
             </div>
           </div>
 
@@ -203,6 +218,8 @@ export default function SystemOverview() {
             <div className="space-y-3">
               {dimensionNames.map((name: string, index: number) => {
                 const dimension = dimensions.find((d: any) => d.dimension_name === name);
+                const tcoValue = showFutureProjection ? dimension?.future_tco : dimension?.current_tco;
+                const percentage = (tcoValue / currentGlobalTco) * 100;
                 return (
                   <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-sm">
@@ -211,7 +228,8 @@ export default function SystemOverview() {
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-foreground text-sm leading-tight">{name}</p>
                       <p className="text-xs text-muted-foreground mt-1">
-                        Impacto: <span className="font-semibold text-accent">{formatPercentage(dimension?.impact_percentage || 0)}</span>
+                        TCO: <span className="font-semibold text-accent">{formatCurrency(tcoValue || 0)}</span>
+                        {' '}({formatPercentage(percentage)})
                       </p>
                     </div>
                   </div>
@@ -221,11 +239,11 @@ export default function SystemOverview() {
           </div>
         </div>
 
-        {/* Botón Calcular Proyección */}
+        {/* Botón Alternar Proyección */}
         <div className="flex justify-center pt-4">
           <Button onClick={handleCalculateProjection} size="lg" className="px-8">
             <Calculator className="h-5 w-5 mr-2" />
-            Calcular Proyección
+            {showFutureProjection ? 'Ver Proyección Actual' : 'Ver Proyección Futura'}
           </Button>
         </div>
       </div>
