@@ -180,8 +180,8 @@ export default function SystemOverview() {
       showFutureProjection ? dim.future_tco : dim.current_tco
     );
 
-    // Usar siempre el TCO actual como escala máxima para mostrar la reducción
-    const maxScaleValue = tco_global.current_tco;
+    // Usar el valor máximo de las dimensiones como escala
+    const maxScaleValue = Math.max(...dimensionTcoValues);
 
     // Calcular porcentajes de contribución al TCO global
     const dimensionPercentages = dimensionTcoValues.map((tco: number) => 
