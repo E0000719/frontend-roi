@@ -180,8 +180,9 @@ export default function SystemOverview() {
       showFutureProjection ? dim.future_tco : dim.current_tco
     );
 
-    // Usar el valor máximo de las dimensiones como escala
-    const maxScaleValue = Math.max(...dimensionTcoValues);
+    // Calcular el valor máximo absoluto entre todas las dimensiones (current y future) para escala fija
+    const allDimensionValues = dimensions.flatMap((dim: any) => [dim.current_tco, dim.future_tco]);
+    const maxScaleValue = Math.max(...allDimensionValues);
 
     // Calcular porcentajes de contribución al TCO global
     const dimensionPercentages = dimensionTcoValues.map((tco: number) => 
