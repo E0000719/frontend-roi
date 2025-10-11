@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator, Download } from 'lucide-react';
+import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator, Download, ArrowLeft, Zap, Trash, Paperclip, SendHorizonal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { getRoiSystem, getRoiType, getRoiDimensions } from '@/utils/sessionStorage';
 import { toast } from 'sonner';
+import { Input } from '@/components/ui/input';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -67,13 +68,13 @@ export default function ChatInterface() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Estados para agentes
+  // States for agents
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [correctionState, setCorrectionState] = useState<CorrectionState | null>(null);
   const [currentState, setCurrentState] = useState<any>(null);
 
-  // 🆕 Estados para cálculo ROI
+  // 🆕 States for ROI calculation
   const [isCalculating, setIsCalculating] = useState(false);
   const [showCalculateButton, setShowCalculateButton] = useState(false);
   const [collectedData, setCollectedData] = useState<any>(null);
@@ -87,37 +88,37 @@ export default function ChatInterface() {
       toast.error('Session data missing. Please start from the beginning.');
       navigate('/roi-business-case');
     } else {
-      // Enviar mensaje inicial "Hola" automáticamente
+      // Send initial "Hello" message automatically
       sendInitialGreeting();
     }
   }, [roiSystem, roiType, system, navigate]);
 
-  // Función para enviar el saludo inicial sin mostrarlo en el chat
+  // Function to send the initial greeting without showing it in the chat
   const sendInitialGreeting = async () => {
     try {
-      // Limpiar historial antes de enviar el "Hola"
+      // Clear history before sending "Hello"
       setConversationHistory([]);
       setConversationId(null);
       setCurrentState(null);
       
       setIsLoading(true);
-      // Pasar explícitamente valores vacíos para asegurar que se envíen
-      const response = await sendMessageToAPI('Hola', {
+      // Explicitly pass empty values to ensure they are sent
+      const response = await sendMessageToAPI('Hello', {
         conversationHistory: [],
         conversationId: null,
         currentState: null
       });
       
-      // Solo agregar la respuesta del asistente, no el "Hola"
+      // Only add the assistant's response, not the "Hello"
       const assistantMessage: Message = {
         role: 'assistant',
-        content: response.response || 'Bienvenido al análisis de ROI.',
+        content: response.response || 'Welcome to the ROI analysis.',
       };
       
       setMessages([assistantMessage]);
     } catch (error) {
       console.error('Error sending initial greeting:', error);
-      toast.error('Error al iniciar la conversación.');
+      toast.error('Error starting the conversation.');
     } finally {
       setIsLoading(false);
     }
@@ -158,7 +159,7 @@ export default function ChatInterface() {
           )
         };
         
-        console.log('🔄 Enviando corrección con contexto:', requestPayload.correction_context);
+        console.log('🔄 Sending correction with context:', requestPayload.correction_context);
       }
 
       const response = await fetch('http://localhost:8001/chat', {
@@ -184,35 +185,35 @@ export default function ChatInterface() {
         setConversationId(data.conversation_id);
       }
 
-      // 🆕 Detectar si la recopilación está completa
+      // 🆕 Detect if data collection is complete
       if (data.status === 'completed' || data.status === 'data_completed' || data.status === 'validated_complete') {
-        console.log('✅ Datos completos detectados');
+        console.log('✅ Complete data detected');
         
         let dataToSave = null;
         
         if (roiType === 'beginner' && data.current_state?.collected_data) {
-          // Agente guiado
+          // Guided agent
           dataToSave = data.current_state.collected_data;
-          console.log('📊 Datos del agente guiado:', dataToSave);
+          console.log('📊 Guided agent data:', dataToSave);
         } else if (roiType === 'expert' && data.data) {
-          // Agente experto
+          // Expert agent
           dataToSave = data.data;
-          console.log('📊 Datos del agente experto:', dataToSave);
+          console.log('📊 Expert agent data:', dataToSave);
         }
         
         if (dataToSave) {
           setCollectedData(dataToSave);
           setShowCalculateButton(true);
           
-          // Guardar en sessionStorage inmediatamente
+          // Save to sessionStorage immediately
           sessionStorage.setItem('collectedData', JSON.stringify(dataToSave));
-          console.log('💾 Datos guardados en sessionStorage');
+          console.log('💾 Data saved to sessionStorage');
           
           toast.success('All data collected! Ready to calculate ROI.');
         }
       }
 
-      // Manejar estado de corrección experto
+      // Handle expert correction state
       if (data.status === 'awaiting_corrections' && data.missing_or_invalid_fields) {
         setCorrectionState({
           awaiting_corrections: true,
@@ -220,10 +221,10 @@ export default function ChatInterface() {
           invalid_fields: data.missing_or_invalid_fields || [],
           status: data.status
         });
-        console.log('❌ Errores detectados:', data.missing_or_invalid_fields);
+        console.log('❌ Errors detected:', data.missing_or_invalid_fields);
       } else if (data.status === 'validated_complete' || data.ready_for_calculation) {
         setCorrectionState(null);
-        console.log('✅ Validación completa');
+        console.log('✅ Validation complete');
       } else if (data.status === 'awaiting_missing_data' && data.missing_or_invalid_fields) {
         setCorrectionState({
           awaiting_corrections: true,
@@ -231,7 +232,7 @@ export default function ChatInterface() {
           invalid_fields: data.missing_or_invalid_fields || [],
           status: data.status
         });
-        console.log('⚠️ Datos faltantes');
+        console.log('⚠️ Missing data');
       }
 
       return data;
@@ -280,7 +281,7 @@ export default function ChatInterface() {
     }
   };
 
-  // 🆕 Función para calcular ROI
+  // 🆕 Function to calculate ROI
   const handleCalculateROI = async () => {
     if (!collectedData || !roiSystem) {
       toast.error('No data available for calculation');
@@ -290,8 +291,8 @@ export default function ChatInterface() {
     setIsCalculating(true);
     
     try {
-      console.log('🧮 Iniciando cálculo ROI...');
-      console.log('📊 Datos a enviar:', collectedData);
+      console.log('🧮 Starting ROI calculation...');
+      console.log('📊 Data to send:', collectedData);
 
       const response = await fetch('http://localhost:8001/calculate', {
         method: 'POST',
@@ -316,20 +317,20 @@ export default function ChatInterface() {
 
       console.log('✅ Cálculo completado:', calculationResult);
 
-      // 💾 Guardar resultados en sessionStorage
+      // 💾 Save results to sessionStorage
       sessionStorage.setItem('calculationData', JSON.stringify(calculationResult));
-      console.log('💾 Resultados guardados en sessionStorage');
+      console.log('💾 Results saved to sessionStorage');
 
-      // 🎉 Mostrar toast de éxito
+      // 🎉 Show success toast
       toast.success('ROI calculation completed successfully!');
 
-      // 🔄 Redirigir a la pantalla de overview
+      // 🔄 Redirect to overview screen
       setTimeout(() => {
         navigate(`/roi-business-case/${system}/overview`);
       }, 500);
 
     } catch (error) {
-      console.error('❌ Error calculando ROI:', error);
+      console.error('❌ Error calculating ROI:', error);
       toast.error('Failed to calculate ROI. Please try again.');
     } finally {
       setIsCalculating(false);
@@ -345,18 +346,18 @@ export default function ChatInterface() {
     setShowCalculateButton(false);
     setCollectedData(null);
     
-    // Limpiar solo el chat, NO los resultados
+    // Clear only the chat, NOT the results
     sessionStorage.removeItem('collectedData');
     
     toast.success('Chat cleared');
     
-    // Enviar mensaje inicial "Hola" automáticamente después de limpiar
+    // Send initial "Hello" message automatically after clearing
     setTimeout(() => {
       sendInitialGreeting();
     }, 500);
   };
 
-  // Renderizar indicador de corrección
+  // Render correction indicator
   const renderCorrectionIndicator = () => {
     if (!correctionState?.awaiting_corrections) return null;
 
@@ -365,10 +366,10 @@ export default function ChatInterface() {
         <div className="flex items-center gap-2 text-sm">
           <AlertCircle className="h-4 w-4 text-orange-600" />
           <span className="text-orange-800 dark:text-orange-400 font-medium">
-            Modo de Corrección:
+            Correction Mode:
           </span>
           <span className="text-orange-700 dark:text-orange-300">
-            {correctionState.invalid_fields.length} campo(s) pendiente(s)
+            {correctionState.invalid_fields.length} field(s) pending
           </span>
         </div>
       </div>
@@ -376,18 +377,20 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="space-y-8 h-[calc(100vh-8rem)]">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-accent/10">
-            <FileText className="h-8 w-8 text-accent" />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
-            <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
-          </div>
+    <div className="w-full h-full bg-bluegrey-500 rounded-2xl p-6 h-[calc(100vh-8rem)]">
+      {/* Header */}
+      <div className="flex items-center">
+        <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">
+          <Bot className="size-6 text-bluegrey-700" strokeWidth={1.5} />
         </div>
-        
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">ROI First Assistant</h1>
+        </div>
+      </div>
+      <div className="flex items-center cursor-pointer font-bold text-lg mt-8" onClick={() => navigate(-1)}>
+        <ArrowLeft /> <span className='ml-3'>{system}</span>
+      </div>
+      <div className="flex items-center justify-between">    
         <div className="flex items-center gap-2">
           {roiType === 'expert' && (
             <Button 
@@ -403,165 +406,192 @@ export default function ChatInterface() {
               }}
             >
               <Download className="h-4 w-4 mr-2" />
-              Descargar Plantilla
+              Download Template
             </Button>
           )}
           
           {messages.length > 0 && (
             <Button variant="outline" size="sm" onClick={handleClearChat}>
-              Limpiar Chat
+              Clear Chat
             </Button>
           )}
         </div>
       </div>
-
-      <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50 h-[calc(100%-8rem)] flex flex-col">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-full bg-accent/10">
-            <FileText className="h-6 w-6 text-accent" />
-          </div>
-          <h2 className="text-xl font-semibold text-foreground">Nuevo Caso de Negocio de ROI</h2>
-        </div>
-
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <div className="p-2 rounded-full bg-accent/10">
-            <AgentIcon className="h-5 w-5 text-accent" />
-          </div>
-          <h3 className="text-lg font-semibold text-foreground">{agentName}</h3>
-        </div>
-
-        {/* Indicador de corrección */}
-        {renderCorrectionIndicator()}
-
-        {/* 🆕 Botón Calculate ROI - Aparece cuando los datos están completos */}
-        {showCalculateButton && (
-          <div className="mb-4 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Calculator className="h-5 w-5 text-green-600" />
-                <div>
-                  <p className="text-sm font-medium text-green-800 dark:text-green-400">
-                    ¡Recopilación de datos completada!
-                  </p>
-                  <p className="text-xs text-green-700 dark:text-green-300">
-                    Todos los datos requeridos han sido recopilados y validados
-                  </p>
-                </div>
+      <div className='flex space-x-2 mt-8 itmes-start'>
+        <div className=' md:w-1/3 bg-bluegrey-400 text-gray-900 p-6 rounded-2xl'>
+          <div className='text-2xl font-bold'>Smart suggestions</div>
+          <div className='text-sm font-normal'>Choose an AI suggestion.</div>
+          <div className='mt-6'>
+            <div className='flex gap-3 items-center bg-bluegrey-300 px-3 py-4 rounded-2xl'>
+              <div className='bg-bluegrey-200 size-12 flex items-center justify-center rounded-2xl'>
+                <Zap className='size-6 text-bluegrey-700' />
               </div>
-              <Button
-                onClick={handleCalculateROI}
-                disabled={isCalculating}
-                className="bg-green-600 hover:bg-green-700 text-white"
-              >
-                {isCalculating ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Calculando...
-                  </>
-                ) : (
-                  <>
-                    <Calculator className="h-4 w-4 mr-2" />
-                    Calcular ROI
-                  </>
-                )}
-              </Button>
-            </div>
-          </div>
-        )}
-
-        <div className="flex-1 overflow-y-auto mb-6 space-y-4">
-          {messages.length === 0 && (
-            <div className="text-center text-muted-foreground py-12">
-              <p className="text-xl font-semibold mb-2">Cuéntame sobre el proceso actual</p>
-              <p className="text-sm">Comparte detalles sobre tu proceso para comenzar con el análisis de ROI</p>
-            </div>
-          )}
-          
-          {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              <div
-                className={`max-w-[70%] rounded-xl p-4 whitespace-pre-wrap ${
-                  msg.role === 'user'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted text-foreground'
-                }`}
-              >
-                {msg.content}
+              <div className='font-medium text-sm text-gray-900'>
+                Estimate the current TCO of the process
               </div>
             </div>
-          ))}
-          
-          {isLoading && (
-            <div className="flex justify-start">
-              <div className="bg-muted text-foreground rounded-xl p-4">
-                <div className="flex gap-2">
-                  <span className="animate-bounce">●</span>
-                  <span className="animate-bounce delay-100">●</span>
-                  <span className="animate-bounce delay-200">●</span>
-                </div>
-              </div>
-            </div>
-          )}
-          
-          <div ref={messagesEndRef} />
-        </div>
-
-        <div className="space-y-4">
-          <div className="relative">
-            <Textarea
-              ref={textareaRef}
-              placeholder={
-                correctionState?.awaiting_corrections
-                  ? 'Envía solo el valor corregido...'
-                  : 'escribe la descripción general del proceso'
-              }
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSendMessage();
-                }
-              }}
-              className="min-h-[100px] pr-12 resize-none"
-              disabled={isLoading || isCalculating}
-            />
-            <Button
-              size="icon"
-              onClick={handleSendMessage}
-              disabled={!message.trim() || isLoading || isCalculating}
-              className={`absolute bottom-3 right-3 ${
-                correctionState?.awaiting_corrections ? 'bg-orange-600 hover:bg-orange-700' : ''
-              }`}
-            >
-              <Send className="h-4 w-4" />
+          </div>
+        </div>  
+        <div className="flex flex-col flex-grow md:w-2/3 rounded-xl p-6 h-[calc(100%-8rem)] bg-bluegrey-400">
+          <div className="flex items-center justify-between gap-3 mb-6">
+            <h2 className="text-xl font-semibold text-foreground">ROI First Assistant</h2>
+            <Button variant='outline' className='font-jetbrains border-bluegrey-700 rounded-xl'> 
+              Delete Chat
+              <Trash className="size-5 ml-2" />
             </Button>
           </div>
 
-          {/* Info de estado */}
-          <div className="flex justify-between items-center text-xs text-muted-foreground">
-            <span>
-              {conversationHistory.length > 0 && `Mensajes: ${conversationHistory.length}`}
-            </span>
+          {/* Correction indicator */}
+          {renderCorrectionIndicator()}
+
+          {/* 🆕 Calculate ROI Button - Appears when data is complete */}
+          {showCalculateButton && (
+            <div className="mb-4 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Calculator className="h-5 w-5 text-green-600" />
+                  <div>
+                    <p className="text-sm font-medium text-green-800 dark:text-green-400">
+                      Data collection completed!
+                    </p>
+                    <p className="text-xs text-green-700 dark:text-green-300">
+                      All required data has been collected and validated
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  onClick={handleCalculateROI}
+                  disabled={isCalculating}
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                >
+                  {isCalculating ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Calculating...
+                    </>
+                  ) : (
+                    <>
+                      <Calculator className="h-4 w-4 mr-2" />
+                      Calculate ROI
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {messages.length === 0 && (
+            <div className="w-full h-[350px] p-6 bg-bluegrey-300 rounded-xl text-gray-900 items-center justify-center flex flex-col">
+              <div className='bg-bluegrey-200 size-12 flex items-center justify-center rounded-2xl'>
+                <Zap className='size-6 text-bluegrey-700' />
+              </div>
+              <div className="text-center py-4">
+                <p className="text-xl font-semibold mb-2">Tell me about the current process</p>
+                <p className="text-sm">Share details about your process to start the ROI analysis</p>
+              </div>
+            </div>
+          )}
+
+          <div className="flex-1 overflow-y-auto space-y-4">
             
-            {correctionState?.awaiting_corrections && (
-              <span className="text-orange-600 font-medium">
-                Corrigiendo {correctionState.invalid_fields.length} campo(s)
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <div
+                  className={`max-w-[70%] rounded-xl p-4 whitespace-pre-wrap ${
+                    msg.role === 'user'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-foreground'
+                  }`}
+                >
+                  {msg.content}
+                </div>
+              </div>
+            ))}
+            
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="bg-muted text-foreground rounded-xl p-4">
+                  <div className="flex gap-2">
+                    <span className="animate-bounce">●</span>
+                    <span className="animate-bounce delay-100">●</span>
+                    <span className="animate-bounce delay-200">●</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Input Area */}
+          <div className="mt-2">
+            <div className="flex items-center">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-11 bg-bluegrey-200 text-bluegrey-700 rounded-full mr-3"
+              >
+                <Paperclip className="size-5" />
+              </Button>
+              <div className="flex-grow relative">
+                <Input
+
+                  placeholder={
+                    correctionState?.awaiting_corrections
+                      ? 'Send only the corrected value...'
+                      : 'write the general description of the process'
+                  }
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSendMessage();
+                    }
+                  }}
+                  className="h-12 bg-bluegrey-200 text-gray-800 flex-1 rounded-full pl-10 pr-12 focus:ring-2 focus:ring-blue-500 border-gray-300"
+                />
+                <Button
+                  onClick={handleSendMessage}
+                  disabled={!message.trim() || isLoading || isCalculating}
+                  size="sm"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 size-8 rounded-full bg-green-600  hover:bg-green-500 flex items-center justify-center"
+                >
+                  <SendHorizonal className="size-4 text-gray-900" />
+                </Button>
+              </div>
+            </div>
+            <p className="text-xs text-bluegrey-800 font-jetbrains font-bold mt-2">
+              Valid formats: PDF, TXT (max. 10MB)
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            {/* Status info */}
+            <div className="flex justify-between items-center text-xs text-muted-foreground">
+              <span>
+                {conversationHistory.length > 0 && `Messages: ${conversationHistory.length}`}
               </span>
-            )}
-            
-            {showCalculateButton && !isCalculating && (
-              <span className="text-green-600 font-medium">
-                ✓ Listo para calcular
-              </span>
-            )}
-            
-            {conversationId && (
-              <span>ID: {conversationId}</span>
-            )}
+              
+              {correctionState?.awaiting_corrections && (
+                <span className="text-orange-600 font-medium">
+                  Correcting {correctionState.invalid_fields.length} field(s)
+                </span>
+              )}
+              
+              {showCalculateButton && !isCalculating && (
+                <span className="text-green-600 font-medium">
+                  ✓ Ready to calculate
+                </span>
+              )}
+              
+              {conversationId && (
+                <span>ID: {conversationId}</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

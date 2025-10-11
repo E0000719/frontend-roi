@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const metricsData = [
   { label: "Total Cost Savings", value: "$2.4M", change: "+12.5% vs. Expected", icon: DollarSign, color: "text-primary" },
@@ -48,36 +49,36 @@ export default function OnTrackAgents() {
   const [viewPeriod, setViewPeriod] = useState("monthly");
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <div className="p-3 rounded-xl bg-accent/10">
-          <Users className="h-8 w-8 text-accent" />
+    <div className="w-full h-full">
+      <div className="flex items-center gap-4 bg-bluegrey-500 rounded-2xl py-8 px-4">
+        <div className="p-3 rounded-xl bg-bluegrey-200">
+          <Users className="size-8 text-bluegrey-900" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-foreground">On Track Agents</h1>
-          <p className="text-muted-foreground">Monitor and manage agent performance</p>
+          <h1 className="text-2xl font-bold text-foreground">On Track Agents</h1>
+          <p className="text-bluegrey-900">Monitor and manage agent performance</p>
         </div>
       </div>
 
       {/* Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
         {metricsData.map((metric, index) => (
-          <Card key={index}>
+          <Card key={index} className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">{metric.label}</span>
+                <span className="text-sm">{metric.label}</span>
                 <metric.icon className={`h-5 w-5 ${metric.color}`} />
               </div>
               <div className="text-3xl font-bold mb-1">{metric.value}</div>
-              <div className="text-xs text-muted-foreground">{metric.change}</div>
+              <div className="text-xs">{metric.change}</div>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
         {/* Monthly Savings Chart */}
-        <Card className="lg:col-span-2">
+        <Card className="lg:col-span-2 bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Monthly Cost Savings by Department</CardTitle>
@@ -109,7 +110,7 @@ export default function OnTrackAgents() {
         </Card>
 
         {/* Implementation Progress */}
-        <Card>
+        <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
           <CardHeader>
             <CardTitle>Implementation Progress</CardTitle>
           </CardHeader>
@@ -159,22 +160,22 @@ export default function OnTrackAgents() {
       </div>
 
       {/* Agent Performance Table */}
-      <Card>
+      <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>AI Agent Performance</CardTitle>
-            <button className="text-sm text-primary hover:underline">View All</button>
+            <Button variant="outline" size="sm" className="text-bluegrey-800 font-jetbrains border-bluegrey-800"> View All </Button>
           </div>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Agent Name</TableHead>
-                <TableHead>Department</TableHead>
-                <TableHead>Tasks Completed</TableHead>
-                <TableHead>Efficiency</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead className="text-bluegrey-900">Agent Name</TableHead>
+                <TableHead className="text-bluegrey-900">Department</TableHead>
+                <TableHead className="text-bluegrey-900">Tasks Completed</TableHead>
+                <TableHead className="text-bluegrey-900">Efficiency</TableHead>
+                <TableHead className="text-bluegrey-900">Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -197,7 +198,7 @@ export default function OnTrackAgents() {
       </Card>
 
       {/* Department Breakdown */}
-      <Card>
+      <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
           <CardTitle>Department Breakdown</CardTitle>
         </CardHeader>

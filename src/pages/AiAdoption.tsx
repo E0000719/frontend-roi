@@ -35,24 +35,24 @@ export default function AiAdoption() {
   const progressPercent = 84;
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <div className="p-3 rounded-xl bg-accent/10">
-          <Target className="h-8 w-8 text-accent" />
+    <div className="w-full h-full">
+      <div className="flex items-center gap-4 bg-bluegrey-500 rounded-2xl py-8 px-4 mb-2">
+        <div className="p-3 rounded-xl bg-bluegrey-200">
+          <Target className="h-8 w-8 text-bluegrey-900" />
         </div>
         <div>
           <h1 className="text-3xl font-bold text-foreground">360 Company AI Adoption</h1>
-          <p className="text-muted-foreground">Comprehensive AI adoption tracking</p>
+          <p className="text-bluegrey-900">Comprehensive AI adoption tracking</p>
         </div>
       </div>
 
       {/* Headcount Reduction Tracking */}
-      <Card>
+      <Card className="bg-bluegrey-500 rounded-2xl py-8 px-4">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>Headcount Reduction Tracking</CardTitle>
-              <p className="text-sm text-muted-foreground mt-1">
+              <p className="text-sm text-bluegrey-900 mt-1">
                 Monitor and predict headcount reduction trends
               </p>
             </div>
@@ -67,14 +67,14 @@ export default function AiAdoption() {
         <CardContent className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-sm text-muted-foreground mb-1">Total Headcount Reduction</div>
+              <div className="text-sm text-bluegrey-900 mb-1">Total Headcount Reduction</div>
               <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground">Projected: 247</span>
+                <span className="text-sm text-bluegrey-900">Projected: 247</span>
                 <div className="flex items-center gap-2">
                   <span className="text-3xl font-bold">{currentHeadcount}</span>
                   <div className="text-sm">
                     <div className="text-primary font-medium">Actual: {currentHeadcount}</div>
-                    <div className="text-muted-foreground">{progressPercent}% Complete</div>
+                    <div className="text-bluegrey-900">{progressPercent}% Complete</div>
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export default function AiAdoption() {
       </Card>
 
       {/* Department Cost Savings */}
-      <Card>
+      <Card className="bg-bluegrey-500 rounded-2xl py-8 px-4 mt-2">
         <CardHeader>
           <CardTitle>Department Cost Savings per Department</CardTitle>
         </CardHeader>
@@ -131,7 +131,7 @@ export default function AiAdoption() {
                   <Progress value={dept.progress} className="h-2" />
                 </div>
                 <div className="ml-6 text-right">
-                  <div className="text-sm text-muted-foreground">Annual Savings</div>
+                  <div className="text-sm text-bluegrey-900">Annual Savings</div>
                   <div className="font-semibold">${(dept.savings / 1000000).toFixed(2)}M</div>
                 </div>
               </div>
@@ -141,14 +141,14 @@ export default function AiAdoption() {
       </Card>
 
       {/* Total Annual Cost Savings */}
-      <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+      <Card className="bg-bluegrey-500 rounded-2xl py-8 px-4 mt-2">
         <CardContent className="p-8">
           <div className="text-center">
-            <div className="text-sm text-muted-foreground mb-2">Total Annual Cost Savings</div>
+            <div className="text-sm text-bluegrey-900 mb-2">Total Annual Cost Savings</div>
             <div className="text-5xl font-bold text-primary mb-2">
               ${(totalSavings / 1000000).toFixed(3).replace(/\.?0+$/, '')}M
             </div>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-bluegrey-900">
               (133 agents deployed saving of ${(totalSavings / 133).toLocaleString()}/year each)
             </div>
           </div>

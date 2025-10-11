@@ -4,6 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const agentPerformanceData = [
   { name: "AP-Bot-01", department: "Finance", tasks: 1245, efficiency: "98.7%", status: "active" },
@@ -33,47 +34,47 @@ export default function ProcessImprovement() {
 
   if (selectedProcess) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-primary/10">
-            <TrendingUp className="h-8 w-8 text-primary" />
+      <div>
+        <div className="flex items-center gap-4 bg-bluegrey-500 text-gray-900 rounded-2xl border-0 py-6 px-4">
+          <div className="p-3 rounded-xl bg-bluegrey-200">
+            <TrendingUp className="h-8 w-8 text-bluegrey-900" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-foreground">Continuous Process Improvement</h1>
-            <p className="text-muted-foreground">Select how you want to start improving</p>
+            <p className="text-bluegrey-900">Select how you want to start improving</p>
           </div>
         </div>
 
-        <Card>
-          <CardContent className="p-12">
+        <Card className="mt-2 bg-bluegrey-500 text-gray-900 rounded-2xl border-0 py-6 px-4">
+          <CardContent>
             <div className="flex items-center gap-4 mb-8">
-              <div className="p-4 rounded-xl bg-primary/10">
-                <TrendingUp className="h-12 w-12 text-primary" />
+              <div className="p-4 rounded-xl bg-bluegrey-200">
+                <TrendingUp className="h-12 w-12 text-bluegrey-900" />
               </div>
               <div>
                 <h2 className="text-xl font-semibold">Continuous process improvement</h2>
               </div>
             </div>
 
-            <h3 className="text-2xl font-semibold text-center mb-12">how do you want to start?</h3>
+            <h3 className="text-2xl font-semibold text-center mb-12">How do you want to start?</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <button
                 onClick={() => handleStartOption("roi-first")}
-                className="flex flex-col items-center justify-center p-8 rounded-xl border-2 border-border hover:border-primary hover:bg-accent/5 transition-all"
+                className="flex flex-col items-center justify-center p-8 bg-bluegrey-400 rounded-xl border-0 border-border hover:border-primary hover:bg-accent/5 transition-all"
               >
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Bot className="h-10 w-10 text-primary" />
+                <div className="size-20 rounded-2xl bg-bluegrey-200 flex items-center justify-center mb-4">
+                  <Bot className="h-10 w-10 text-bluegrey-900" />
                 </div>
                 <h4 className="text-lg font-semibold">ROI First Assistant</h4>
               </button>
 
               <button
                 onClick={() => handleStartOption("gpt-roi")}
-                className="flex flex-col items-center justify-center p-8 rounded-xl border-2 border-border hover:border-primary hover:bg-accent/5 transition-all"
+                className="flex flex-col items-center justify-center p-8 bg-bluegrey-400 rounded-xl border-0 border-border hover:border-primary hover:bg-accent/5 transition-all"
               >
-                <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                  <Sparkles className="h-10 w-10 text-accent" />
+                <div className="size-20 rounded-xl bg-bluegrey-200 flex items-center justify-center mb-4">
+                  <Sparkles className="h-10 w-10 text-bluegrey-900" />
                 </div>
                 <h4 className="text-lg font-semibold">GPT ROI First</h4>
               </button>
@@ -85,39 +86,36 @@ export default function ProcessImprovement() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <div className="p-3 rounded-xl bg-primary/10">
-          <TrendingUp className="h-8 w-8 text-primary" />
+    <div className="w-full h-full">
+      <div className="flex items-center gap-4 bg-bluegrey-500 rounded-2xl py-8 px-4 mb-2">
+        <div className="p-3 rounded-xl bg-bluegrey-200">
+          <TrendingUp className="h-8 w-8 text-bluegrey-900" />
         </div>
         <div>
           <h1 className="text-3xl font-bold text-foreground">Continuous Process Improvement</h1>
-          <p className="text-muted-foreground">Select a process to improve</p>
+          <p className="text-bluegrey-900">Select a process to improve</p>
         </div>
       </div>
 
-      <Card>
+      <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
         <CardContent className="p-8">
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 rounded-xl bg-primary/10">
-              <TrendingUp className="h-12 w-12 text-primary" />
-            </div>
-            <h2 className="text-xl font-semibold">Select one process to improve</h2>
+            <h2 className="text-xl text-gray-900 font-bold">Select one process to improve</h2>
           </div>
 
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">AI Agent Performance</h3>
-              <button className="text-sm text-primary hover:underline">View All</button>
+              <Button variant="outline" size="sm" className="text-bluegrey-800 font-jetbrains border-bluegrey-800"> View All </Button>
             </div>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Agent Name</TableHead>
-                  <TableHead>Department</TableHead>
-                  <TableHead>Tasks Completed</TableHead>
-                  <TableHead>Efficiency</TableHead>
-                  <TableHead>Status</TableHead>
+                  <TableHead className="text-gray-900">Agent Name</TableHead>
+                  <TableHead className="text-gray-900">Department</TableHead>
+                  <TableHead className="text-gray-900">Tasks Completed</TableHead>
+                  <TableHead className="text-gray-900">Efficiency</TableHead>
+                  <TableHead className="text-gray-900">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

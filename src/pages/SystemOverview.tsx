@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FileText, TrendingUp, DollarSign, Calculator } from 'lucide-react';
+import { FileText, TrendingUp, DollarSign, Calculator, ArrowLeft, Bot, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RadialChart } from '@/components/RadialChart';
 import { setRoiSystem, setRoiDimensions, getCalculationData, hasCalculationData, clearCalculationData } from '@/utils/sessionStorage';
@@ -258,59 +258,54 @@ export default function SystemOverview() {
     return (
       <>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div className="flex items-center justify-center">
+          <div className="rounded-2xl text-card-foreground shadow-sm border-0 bg-bluegrey-400 p-6">
             <div className="w-full aspect-square max-w-md">
               <RadialChart dimensions={config.dimensions} />
             </div>
           </div>
-
-          <div className="flex flex-col justify-center">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 rounded-full bg-accent/10">
-                <FileText className="h-5 w-5 text-accent" />
+          <div className="rounded-2xl text-card-foreground shadow-sm border-0 bg-bluegrey-400 p-6 flex flex-col">
+            <div className='flex-grow'>
+              <div className="font-bold text-2xl text-gray-900">
+                <span>{config.name.split(' ').slice(1).join(' ')}</span>
               </div>
-              <h3 className="text-xl font-semibold text-foreground">
-                Agentic <span className="text-accent">{config.name.split(' ').slice(1).join(' ')}</span>
-              </h3>
+
+              <p className="text-gray-700 text-sm mt-1">
+                El proceso asociado al módulo Agentic {config.name.split(' ').slice(1).join(' ')} tiene {config.dimensions.length} dimensiones:
+              </p>
+
+              <ul className="text-gray-700 text-sm mt-4 space-y-1">
+                {config.dimensions.map((dimension) => (
+                  <li key={dimension} className="flex items-center">
+                    <Check className="text-bluegrey-700 mr-2" />
+                    {dimension}</li>
+                ))}
+              </ul>
+
+              <p className="text-gray-700 text-sm mt-4">
+                Estas dimensiones pueden variar según la información completada en el cuestionario presente, comencemos...
+              </p>
             </div>
-
-            <p className="text-muted-foreground mb-4">
-              El proceso asociado al módulo Agentic {config.name.split(' ').slice(1).join(' ')} tiene {config.dimensions.length} dimensiones:
-            </p>
-
-            <ul className="space-y-2 mb-4">
-              {config.dimensions.map((dimension) => (
-                <li key={dimension} className="text-foreground">{dimension}</li>
-              ))}
-            </ul>
-
-            <p className="text-muted-foreground text-sm">
-              Estas dimensiones pueden variar según la información completada en el cuestionario presente, comencemos...
-            </p>
+            <Button onClick={handleStart} size="lg" className="px-8">
+              Comenzar Caso de Uso
+            </Button>
           </div>
         </div>
 
         <div className="flex justify-center">
-          <Button onClick={handleStart} size="lg" className="px-8">
-            Comenzar Caso de Uso
-          </Button>
         </div>
       </>
     );
   };
 
   return (
-    <div className="space-y-8">
+    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="p-3 rounded-xl bg-accent/10">
-            <FileText className="h-8 w-8 text-accent" />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
-            <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
-          </div>
+      <div className="flex items-center">
+        <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">
+          <Bot className="size-6 text-bluegrey-700" strokeWidth={1.5} />
+        </div>
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900">ROI First Assistant</h1>
         </div>
 
         {/* Botón "Nuevo Caso de Uso" solo si hay resultados */}
@@ -320,19 +315,11 @@ export default function SystemOverview() {
           </Button>
         )}
       </div>
-
+      <div className="flex items-center cursor-pointer font-bold text-lg mt-8" onClick={() => navigate(-1)}>
+        <ArrowLeft /> <span className='ml-3'>{config.name}</span>
+      </div>
       {/* Contenido principal */}
-      <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50">
-        <div className="flex items-center gap-3 mb-8">
-          <div className="p-2 rounded-full bg-accent/10">
-            <FileText className="h-6 w-6 text-accent" />
-          </div>
-          <h2 className="text-xl font-semibold text-foreground">
-            {showResults ? 'Resultados del Cálculo de ROI' : 'Asistente ROI First'}
-          </h2>
-        </div>
-
-        {/* Renderizar según si hay resultados o no */}
+      <div className="mt-8">
         {showResults ? renderCalculationResults() : renderInitialView()}
       </div>
     </div>

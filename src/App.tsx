@@ -1,9 +1,9 @@
+import { DashboardLayout } from "./components/layout/Layout";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { DashboardLayout } from "./components/DashboardLayout";
 import Home from "./pages/Home";
 import RoiBusinessCase from "./pages/RoiBusinessCase";
 import SystemOverview from "./pages/SystemOverview";

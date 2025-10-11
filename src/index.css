@@ -2,137 +2,213 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
-  :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 10%;
-
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-
-    --accent: 24 100% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 10%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 99%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 0 0% 10%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 92%;
-    --sidebar-ring: 0 0% 10%;
-
-    /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 20%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 99%) 100%);
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 10% / 0.05);
-    --shadow-card: 0 4px 6px -1px hsl(0 0% 10% / 0.08), 0 2px 4px -1px hsl(0 0% 10% / 0.06);
-    --shadow-hover: 0 10px 15px -3px hsl(0 0% 10% / 0.1), 0 4px 6px -2px hsl(0 0% 10% / 0.08);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Neue Haas Grotesk (Text) */
+  @font-face {
+    font-family: 'Neue Haas Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/NeueHaasGrotText-55Roman-Trial.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Neue Haas Grotesk';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/NeueHaasGrotText-56Italic-Trial.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Neue Haas Grotesk';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/NeueHaasGrotText-65Medium-Trial.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Neue Haas Grotesk';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/NeueHaasGrotText-66MediumItalic-Trial.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Neue Haas Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/NeueHaasGrotText-75Bold-Trial.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Neue Haas Grotesk';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/NeueHaasGrotText-76BoldItalic-Trial.otf') format('opentype');
   }
 
-  .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
-
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 10%;
-
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
-
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 60%;
-
-    --accent: 24 100% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 95%;
-
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 0% 95%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 0 0% 95%;
-
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 12%) 0%, hsl(0 0% 14%) 100%);
-    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
-    --shadow-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -2px hsl(0 0% 0% / 0.3);
+  /* JetBrains Mono */
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/JetBrainsMono-Bold.ttf') format('truetype');
   }
 }
 
+@layer base {
+  :root {
+    --background: #252837;
+    --foreground: #0C0C0C;
+
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 15 23 42;
+
+    --primary: 157 86% 50%;
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 157 86% 60%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 15 23 42;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 100 116 139;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 30 41 59;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 84% 56%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning brand color: #FDB022 -> hsl(39 98% 56%) */ 
+    --warning: 39 98% 56%;
+    --warning-foreground: 15 23 42;
+
+    --gradient-primary: linear-gradient(135deg, hsl(214, 84%, 56%), hsl(214, 84%, 66%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220, 14%, 96%), hsl(220, 14%, 91%));
+    --gradient-background: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(220, 14%, 96%));
+
+    --shadow-elegant: 0 10px 30px -10px hsl(214, 84%, 56% / 0.3);
+    --shadow-glow: 0 0 40px hsl(214, 84%, 66% / 0.4);
+    --shadow-card: 0 4px 25px -2px hsl(0, 0%, 0% / 0.1);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #1F2425;
+    color: hsl(var(--foreground));
+    font-family: 'Neue Haas Grotesk', system-ui, sans-serif;
+    background-image: url("/point.svg");
+    background-repeat: repeat;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
-  }
-}
+  /* Typography scale (without @apply to avoid build errors) */
+  h1 { font: 700 60px/72px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  h2 { font: 500 48px/64px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  h3 { font: 500 40px/54px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  h4 { font: 500 36px/44px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  h5 { font: 500 32px/40px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  h6 { font: 500 28px/32px 'Neue Haas Grotesk', system-ui, sans-serif; }
 
-@layer utilities {
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
+  .body-l-bold { font: 700 18px/22px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-l-medium { font: 500 18px/22px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-l-regular { font: 400 18px/22px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-m-bold { font: 700 16px/22px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-m-medium { font: 500 16px/22px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-m-regular { font: 400 16px/22px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-s-bold { font: 700 14px/20px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-s-medium { font: 500 14px/20px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .body-s-regular { font: 400 14px/20px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .caption-l-bold { font: 700 12px/16px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .caption-l-medium { font: 500 12px/16px 'Neue Haas Grotesk', system-ui, sans-serif; }
+  .caption-l-regular { font: 400 12px/16px 'Neue Haas Grotesk', system-ui, sans-serif; }
 
-  .gradient-card {
-    background: var(--gradient-card);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-hover {
-    box-shadow: var(--shadow-hover);
-  }
-
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
+  /* JetBrains Mono subtitle & chip helpers */
+  .subtitle-l-bold { font: 700 32px/40px 'JetBrains Mono', monospace; }
+  .subtitle-l-regular { font: 400 32px/40px 'JetBrains Mono', monospace; }
+  .subtitle-m-bold { font: 700 28px/32px 'JetBrains Mono', monospace; }
+  .subtitle-m-regular { font: 400 28px/32px 'JetBrains Mono', monospace; }
+  .subtitle-s-regular { font: 400 18px/32px 'JetBrains Mono', monospace; }
+  .chip-bold { font: 700 14px/16px 'JetBrains Mono', monospace; }
+  .chip-regular { font: 400 14px/16px 'JetBrains Mono', monospace; }
 }

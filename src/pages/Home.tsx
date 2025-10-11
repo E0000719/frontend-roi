@@ -30,17 +30,17 @@ const modules = [
 
 export default function Home() {
   return (
-    <div className="space-y-8">
+    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
       <div>
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-          ROI First Core
+        <h1 className="text-2xl font-bold text-gray-900">
+          Home
         </h1>
-        <p className="text-muted-foreground text-sm md:text-base">
-          Selecciona un módulo para comenzar
+        <p className="text-bluegrey-900 text-sm md:text-base mt-2">
+          Select a module to get started.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
         {modules.map((module) => (
           <DashboardCard
             key={module.title}

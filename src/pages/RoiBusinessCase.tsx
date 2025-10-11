@@ -1,4 +1,4 @@
-import { FileText, Wrench, DollarSign, Headphones, Eye, FileCheck, ShoppingCart, Cpu, Globe } from "lucide-react";
+import { FileText, Wrench, DollarSign, Headphones, Eye, FileCheck, ShoppingCart, Cpu, Globe, Bot } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 
@@ -69,60 +69,50 @@ export default function RoiBusinessCase() {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center gap-4">
-        <div className="p-3 rounded-xl bg-accent/10">
-          <FileText className="h-8 w-8 text-accent" />
-        </div>
+    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Nueva Implementación de ROI</h1>
-        <p className="text-muted-foreground">Nuevo Caso de Negocio de ROI</p>
+        <h1 className="text-2xl font-bold text-gray-900">
+          ROI Business case
+        </h1>
+        <p className="text-bluegrey-900 text-sm md:text-base mt-2">
+          New ROI Business case.
+        </p>
       </div>
+
+      <div className="flex flex-col items-center text-center mb-8">
+        <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mt-8">
+          <Bot className="size-6 text-bluegrey-700" />
+        </div>
+        <h2 className="text-2xl mt-4 text-gray-900 font-bold">ROI First assistant</h2>
+        <div className="text-base text-center">
+          Select one of the agentic AI modules to create a new business case
+        </div>
       </div>
-
-      <div className="gradient-card shadow-card rounded-xl p-8 border border-border/50">
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="p-2 rounded-full bg-accent/10">
-            <FileText className="h-6 w-6 text-accent" />
-          </div>
-          <h2 className="text-xl font-semibold text-foreground">Asistente ROI First</h2>
-        </div>
-
-        <div className="text-center mb-10">
-          <h3 className="text-2xl font-bold text-foreground mb-2">
-            Selecciona uno de los Módulos de AgenticAI
-          </h3>
-          <p className="text-lg text-muted-foreground">
-            para crear un nuevo Caso de Negocio
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {modules.map((module) => {
-            const Icon = module.icon;
-            return (
-              <Card 
-                key={module.title}
-                onClick={() => handleModuleClick(module.route)}
-                className="group cursor-pointer transition-all hover:shadow-hover hover:scale-105 border-border/50"
-              >
-                <CardHeader className="text-center pb-3">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 rounded-full bg-muted group-hover:bg-accent/10 transition-colors">
-                      <Icon className="h-8 w-8 text-foreground group-hover:text-accent transition-colors" />
-                    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+        {modules.map((module) => {
+          const Icon = module.icon;
+          return (
+            <Card 
+              key={module.title}
+              onClick={() => handleModuleClick(module.route)}
+              className="rounded-2xl text-card-foreground shadow-sm border-0 bg-bluegrey-400 px-6 py-8"
+            >
+              <CardHeader className="text-center pb-3">
+                <div className="flex justify-center">
+                  <div className="bg-bluegrey-200 rounded-2xl size-14 flex items-center justify-center mb-4">
+                    <Icon className="size-10 text-bluegrey-700 group-hover:text-accent transition-colors" />
                   </div>
-                  <CardTitle className="text-base font-semibold text-foreground leading-tight">
-                    {module.title.split(' ')[0]}
-                  </CardTitle>
-                  <CardDescription className="text-accent font-medium text-base">
-                    {module.subtitle || module.title.split(' ').slice(1).join(' ')}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            );
-          })}
-        </div>
+                </div>
+                <CardTitle className="text-2xl font-semibold text-foreground leading-tight mt-6">
+                  {module.title.split(' ')[0]}
+                </CardTitle>
+                <CardDescription className="text-bluegrey-900 text-sm font-normal">
+                  {module.subtitle || module.title.split(' ').slice(1).join(' ')}
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
