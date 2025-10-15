@@ -35,7 +35,7 @@ export default function ProcessImprovement() {
   if (selectedProcess) {
     return (
       <div>
-        <div className="flex items-center gap-4 bg-bluegrey-500 text-gray-900 rounded-2xl border-0 py-6 px-4">
+        <div className="flex items-center gap-4 main-card bg-white text-gray-900 rounded-2xl border-0 py-6 px-4">
           <div className="p-3 rounded-xl bg-bluegrey-200">
             <TrendingUp className="h-8 w-8 text-bluegrey-900" />
           </div>
@@ -45,7 +45,7 @@ export default function ProcessImprovement() {
           </div>
         </div>
 
-        <Card className="mt-2 bg-bluegrey-500 text-gray-900 rounded-2xl border-0 py-6 px-4">
+        <Card className="mt-2 main-card bg-white text-gray-900 rounded-2xl border-0 py-6 px-4">
           <CardContent>
             <div className="flex items-center gap-4 mb-8">
               <div className="p-4 rounded-xl bg-bluegrey-200">
@@ -61,7 +61,7 @@ export default function ProcessImprovement() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <button
                 onClick={() => handleStartOption("roi-first")}
-                className="flex flex-col items-center justify-center p-8 bg-bluegrey-400 rounded-xl border-0 border-border hover:border-primary hover:bg-accent/5 transition-all"
+                className="flex flex-col items-center justify-center p-8 secondary-card bg-bluegrey-100 rounded-xl border-0 border-border hover:border-primary hover:bg-accent/5 transition-all"
               >
                 <div className="size-20 rounded-2xl bg-bluegrey-200 flex items-center justify-center mb-4">
                   <Bot className="h-10 w-10 text-bluegrey-900" />
@@ -71,7 +71,7 @@ export default function ProcessImprovement() {
 
               <button
                 onClick={() => handleStartOption("gpt-roi")}
-                className="flex flex-col items-center justify-center p-8 bg-bluegrey-400 rounded-xl border-0 border-border hover:border-primary hover:bg-accent/5 transition-all"
+                className="flex flex-col items-center justify-center p-8 secondary-card bg-bluegrey-100 rounded-xl border-0 border-border hover:border-primary hover:bg-accent/5 transition-all"
               >
                 <div className="size-20 rounded-xl bg-bluegrey-200 flex items-center justify-center mb-4">
                   <Sparkles className="h-10 w-10 text-bluegrey-900" />
@@ -87,7 +87,7 @@ export default function ProcessImprovement() {
 
   return (
     <div className="w-full h-full">
-      <div className="flex items-center gap-4 bg-bluegrey-500 rounded-2xl py-8 px-4 mb-2">
+      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4 mb-2">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <TrendingUp className="h-8 w-8 text-bluegrey-900" />
         </div>
@@ -97,7 +97,7 @@ export default function ProcessImprovement() {
         </div>
       </div>
 
-      <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
+      <Card className="main-card bg-white text-gray-900 rounded-2xl border-0">
         <CardContent className="p-8">
           <div className="flex items-center gap-4 mb-8">
             <h2 className="text-xl text-gray-900 font-bold">Select one process to improve</h2>

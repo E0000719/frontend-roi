@@ -69,7 +69,7 @@ export default function RoiBusinessCase() {
   };
 
   return (
-    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
+    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
           ROI Business case
@@ -95,7 +95,7 @@ export default function RoiBusinessCase() {
             <Card 
               key={module.title}
               onClick={() => handleModuleClick(module.route)}
-              className="rounded-2xl text-card-foreground shadow-sm border-0 bg-bluegrey-400 px-6 py-8"
+              className="rounded-2xl text-card-foreground shadow-sm border-0 secondary-card bg-bluegrey-100 px-6 py-8"
             >
               <CardHeader className="text-center pb-3">
                 <div className="flex justify-center">

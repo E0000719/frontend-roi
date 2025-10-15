@@ -68,7 +68,7 @@ export default function AgentSelection() {
   };
 
   return (
-    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
+    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
       {/* Header */}
       <div className="flex items-center">
         <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">
@@ -89,7 +89,7 @@ export default function AgentSelection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
           <Card
             onClick={() => handleAgentSelect('beginner')}
-            className="bg-bluegrey-400 px-6 py-8 border-0 cursor-pointer hover:bg-bluegrey-300 transition-colors"
+            className="secondary-card bg-bluegrey-100 px-6 py-8 border-0 cursor-pointer hover:bg-bluegrey-300 transition-colors"
           >
             <CardHeader className="text-center space-y-6">
               <div className="flex justify-center">
@@ -103,7 +103,7 @@ export default function AgentSelection() {
 
           <Card
             onClick={() => handleAgentSelect('expert')}
-            className="bg-bluegrey-400 px-6 py-8 border-0 cursor-pointer hover:bg-bluegrey-300 transition-colors"
+            className="secondary-card bg-bluegrey-100 px-6 py-8 border-0 cursor-pointer hover:bg-bluegrey-300 transition-colors"
           >
             <CardHeader className="text-center space-y-6">
               <div className="flex justify-center">

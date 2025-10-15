@@ -12,7 +12,7 @@ interface DashboardCardProps {
 export function DashboardCard({ title, icon: Icon, to, iconColor = "text-primary" }: DashboardCardProps) {
   return (
     <Link to={to} className="block group">
-      <Card className="border-0 bg-bluegrey-400 px-6 py-12">
+      <Card className="border-0 secondary-card bg-bluegrey-100 px-6 py-12">
         <CardContent className="flex flex-col items-center p-0">
           <div className="bg-bluegrey-200 rounded-2xl size-14 flex items-center justify-center mb-4">
             <Icon className="size-10 text-bluegrey-700" strokeWidth={1.5} />

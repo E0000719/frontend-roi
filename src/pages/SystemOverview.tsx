@@ -258,12 +258,12 @@ export default function SystemOverview() {
     return (
       <>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <div className="rounded-2xl text-card-foreground shadow-sm border-0 bg-bluegrey-400 p-6">
+          <div className="rounded-2xl text-card-foreground shadow-sm border-0 secondary-card bg-bluegrey-100 p-6">
             <div className="w-full aspect-square max-w-md">
               <RadialChart dimensions={config.dimensions} />
             </div>
           </div>
-          <div className="rounded-2xl text-card-foreground shadow-sm border-0 bg-bluegrey-400 p-6 flex flex-col">
+          <div className="rounded-2xl text-card-foreground shadow-sm border-0 secondary-card bg-bluegrey-100 p-6 flex flex-col">
             <div className='flex-grow'>
               <div className="font-bold text-2xl text-gray-900">
                 <span>{config.name.split(' ').slice(1).join(' ')}</span>
@@ -298,7 +298,7 @@ export default function SystemOverview() {
   };
 
   return (
-    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
+    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
       {/* Header */}
       <div className="flex items-center">
         <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">

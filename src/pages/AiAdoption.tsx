@@ -36,7 +36,7 @@ export default function AiAdoption() {
 
   return (
     <div className="w-full h-full">
-      <div className="flex items-center gap-4 bg-bluegrey-500 rounded-2xl py-8 px-4 mb-2">
+      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4 mb-2">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <Target className="h-8 w-8 text-bluegrey-900" />
         </div>
@@ -47,7 +47,7 @@ export default function AiAdoption() {
       </div>
 
       {/* Headcount Reduction Tracking */}
-      <Card className="bg-bluegrey-500 rounded-2xl py-8 px-4">
+      <Card className="main-card bg-white rounded-2xl  py-8 px-4">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
@@ -115,7 +115,7 @@ export default function AiAdoption() {
       </Card>
 
       {/* Department Cost Savings */}
-      <Card className="bg-bluegrey-500 rounded-2xl py-8 px-4 mt-2">
+      <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">
         <CardHeader>
           <CardTitle>Department Cost Savings per Department</CardTitle>
         </CardHeader>
@@ -141,7 +141,7 @@ export default function AiAdoption() {
       </Card>
 
       {/* Total Annual Cost Savings */}
-      <Card className="bg-bluegrey-500 rounded-2xl py-8 px-4 mt-2">
+      <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">
         <CardContent className="p-8">
           <div className="text-center">
             <div className="text-sm text-bluegrey-900 mb-2">Total Annual Cost Savings</div>
