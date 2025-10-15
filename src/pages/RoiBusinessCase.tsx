@@ -15,7 +15,7 @@ const modules = [
     subtitle: "Cost to Hire",
     icon: DollarSign,
     description: "Optimize hiring costs",
-    route: "cost-to-hire"
+    route: "order_to_cash"
   },
   {
     title: "Agentic Customer Support",

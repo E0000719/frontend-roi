@@ -28,8 +28,8 @@ const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
       'Technical Debt',
     ],
   },
-  'cost-to-hire': {
-    name: 'Agentic Cost to Hire',
+  'order_to_cash': {
+    name: 'Agentic Order to Cash',
     dimensions: [
       'Time to Hire',
       'Cost per Hire',
