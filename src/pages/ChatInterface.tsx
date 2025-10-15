@@ -377,7 +377,7 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="w-full h-full bg-bluegrey-500 rounded-2xl p-6 h-[calc(100vh-8rem)]">
+    <div className="w-full h-full main-card bg-white rounded-2xl  p-6 h-[calc(100vh-8rem)]">
       {/* Header */}
       <div className="flex items-center">
         <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">
@@ -418,7 +418,7 @@ export default function ChatInterface() {
         </div>
       </div>
       <div className='flex space-x-2 mt-8 itmes-start'>
-        <div className=' md:w-1/3 bg-bluegrey-400 text-gray-900 p-6 rounded-2xl'>
+        <div className=' md:w-1/3 secondary-card bg-bluegrey-100 text-gray-900 p-6 rounded-2xl'>
           <div className='text-2xl font-bold'>Smart suggestions</div>
           <div className='text-sm font-normal'>Choose an AI suggestion.</div>
           <div className='mt-6'>
@@ -432,7 +432,7 @@ export default function ChatInterface() {
             </div>
           </div>
         </div>  
-        <div className="flex flex-col flex-grow md:w-2/3 rounded-xl p-6 h-[calc(100%-8rem)] bg-bluegrey-400">
+        <div className="flex flex-col flex-grow md:w-2/3 rounded-xl p-6 h-[calc(100%-8rem)] secondary-card bg-bluegrey-100">
           <div className="flex items-center justify-between gap-3 mb-6">
             <h2 className="text-xl font-semibold text-foreground">ROI First Assistant</h2>
             <Button variant='outline' className='font-jetbrains border-bluegrey-700 rounded-xl'> 
