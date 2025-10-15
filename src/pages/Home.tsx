@@ -30,7 +30,7 @@ const modules = [
 
 export default function Home() {
   return (
-    <div className="w-full h-full bg-bluegrey-500 rounded-2xl py-8 px-4 mb-4">
+    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
           Home

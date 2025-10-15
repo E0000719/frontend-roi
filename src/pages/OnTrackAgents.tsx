@@ -50,7 +50,7 @@ export default function OnTrackAgents() {
 
   return (
     <div className="w-full h-full">
-      <div className="flex items-center gap-4 bg-bluegrey-500 rounded-2xl py-8 px-4">
+      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <Users className="size-8 text-bluegrey-900" />
         </div>
@@ -63,7 +63,7 @@ export default function OnTrackAgents() {
       {/* Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
         {metricsData.map((metric, index) => (
-          <Card key={index} className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
+          <Card key={index} className="main-card bg-white text-gray-900 rounded-2xl border-0">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm">{metric.label}</span>
@@ -78,7 +78,7 @@ export default function OnTrackAgents() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
         {/* Monthly Savings Chart */}
-        <Card className="lg:col-span-2 bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
+        <Card className="lg:col-span-2 main-card bg-white text-gray-900 rounded-2xl border-0">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Monthly Cost Savings by Department</CardTitle>
@@ -110,7 +110,7 @@ export default function OnTrackAgents() {
         </Card>
 
         {/* Implementation Progress */}
-        <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0">
+        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0">
           <CardHeader>
             <CardTitle>Implementation Progress</CardTitle>
           </CardHeader>
@@ -160,7 +160,7 @@ export default function OnTrackAgents() {
       </div>
 
       {/* Agent Performance Table */}
-      <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0 mt-2">
+      <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>AI Agent Performance</CardTitle>
@@ -198,7 +198,7 @@ export default function OnTrackAgents() {
       </Card>
 
       {/* Department Breakdown */}
-      <Card className="bg-bluegrey-500 text-gray-900 rounded-2xl border-0 mt-2">
+      <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
           <CardTitle>Department Breakdown</CardTitle>
         </CardHeader>
