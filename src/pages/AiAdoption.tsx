@@ -29,16 +29,16 @@ const departmentSavings = [
     monthlySavings: [
       { month: "Jan", value: 0 },
       { month: "Feb", value: 0 },
-      { month: "Mar", value: 340000 },
-      { month: "Apr", value: 340000 },
-      { month: "May", value: 340000 },
-      { month: "Jun", value: 340000 },
-      { month: "Jul", value: 340000 },
-      { month: "Aug", value: 340000 },
-      { month: "Sep", value: 340000 },
-      { month: "Oct", value: 340000 },
-      { month: "Nov", value: 340000 },
-      { month: "Dec", value: 340000 },
+      { month: "Mar", value: 408000 },
+      { month: "Apr", value: 408000 },
+      { month: "May", value: 408000 },
+      { month: "Jun", value: 408000 },
+      { month: "Jul", value: 408000 },
+      { month: "Aug", value: 408000 },
+      { month: "Sep", value: 408000 },
+      { month: "Oct", value: 408000 },
+      { month: "Nov", value: 408000 },
+      { month: "Dec", value: 408000 },
     ]
   },
   { 
@@ -68,17 +68,17 @@ const departmentSavings = [
     progress: 100,
     monthlySavings: [
       { month: "Jan", value: 0 },
-      { month: "Feb", value: 168000 },
-      { month: "Mar", value: 168000 },
-      { month: "Apr", value: 168000 },
-      { month: "May", value: 168000 },
-      { month: "Jun", value: 168000 },
-      { month: "Jul", value: 168000 },
-      { month: "Aug", value: 168000 },
-      { month: "Sep", value: 168000 },
-      { month: "Oct", value: 168000 },
-      { month: "Nov", value: 168000 },
-      { month: "Dec", value: 168000 },
+      { month: "Feb", value: 183273 },
+      { month: "Mar", value: 183273 },
+      { month: "Apr", value: 183273 },
+      { month: "May", value: 183273 },
+      { month: "Jun", value: 183272 },
+      { month: "Jul", value: 183272 },
+      { month: "Aug", value: 183272 },
+      { month: "Sep", value: 183272 },
+      { month: "Oct", value: 183272 },
+      { month: "Nov", value: 183272 },
+      { month: "Dec", value: 183276 },
     ]
   },
   { 
@@ -91,14 +91,14 @@ const departmentSavings = [
       { month: "Feb", value: 0 },
       { month: "Mar", value: 0 },
       { month: "Apr", value: 0 },
-      { month: "May", value: 168000 },
-      { month: "Jun", value: 168000 },
-      { month: "Jul", value: 168000 },
-      { month: "Aug", value: 168000 },
-      { month: "Sep", value: 168000 },
-      { month: "Oct", value: 336000 },
-      { month: "Nov", value: 336000 },
-      { month: "Dec", value: 168000 },
+      { month: "May", value: 210000 },
+      { month: "Jun", value: 210000 },
+      { month: "Jul", value: 210000 },
+      { month: "Aug", value: 210000 },
+      { month: "Sep", value: 210000 },
+      { month: "Oct", value: 210000 },
+      { month: "Nov", value: 210000 },
+      { month: "Dec", value: 210000 },
     ]
   },
   { 
@@ -133,18 +133,18 @@ const departmentSavings = [
       { month: "Apr", value: 0 },
       { month: "May", value: 0 },
       { month: "Jun", value: 0 },
-      { month: "Jul", value: 198000 },
-      { month: "Aug", value: 198000 },
-      { month: "Sep", value: 198000 },
-      { month: "Oct", value: 330000 },
-      { month: "Nov", value: 330000 },
-      { month: "Dec", value: 132000 },
+      { month: "Jul", value: 264000 },
+      { month: "Aug", value: 264000 },
+      { month: "Sep", value: 264000 },
+      { month: "Oct", value: 264000 },
+      { month: "Nov", value: 264000 },
+      { month: "Dec", value: 264000 },
     ]
   },
 ];
 
 export default function AiAdoption() {
-  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(departmentSavings[0].name);
   const totalSavings = departmentSavings.reduce((acc, dept) => acc + dept.savings, 0);
   const totalPositions = departmentSavings.reduce((acc, dept) => acc + dept.positions, 0);
   const currentHeadcount = 247;
