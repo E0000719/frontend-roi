@@ -122,7 +122,7 @@ export default function OnTrackAgents() {
                 <Line 
                   type="monotone" 
                   dataKey="expected" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="#3b82f6" 
                   name="Expected" 
                   strokeWidth={2}
                   dot={{ r: 4 }}
