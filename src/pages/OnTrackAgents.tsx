@@ -3,8 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { useState } from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Button } from "@/components/ui/button";
 
 // Total de savings de todos los departamentos de AiAdoption
@@ -18,6 +17,21 @@ const departmentSavings = [
 ];
 
 const totalCostSavings = departmentSavings.reduce((acc, dept) => acc + dept.savings, 0);
+
+const costSavingsTrackingData = [
+  { month: "Jan", expected: 0.4, current: 0.6 },
+  { month: "Feb", expected: 0.9, current: 1.1 },
+  { month: "Mar", expected: 1.2, current: 1.5 },
+  { month: "Apr", expected: 1.7, current: 2.0 },
+  { month: "May", expected: 2.1, current: 2.4 },
+  { month: "Jun", expected: 2.6, current: null },
+  { month: "Jul", expected: 3.0, current: null },
+  { month: "Aug", expected: 3.6, current: null },
+  { month: "Sep", expected: 4.1, current: null },
+  { month: "Oct", expected: 4.7, current: null },
+  { month: "Nov", expected: 5.4, current: null },
+  { month: "Dec", expected: 6.0, current: null },
+];
 
 const metricsData = [
   { label: "Total Cost Savings", value: `$${(totalCostSavings / 1000000).toFixed(2)}M`, change: "+12.5% vs. Expected", icon: DollarSign, color: "text-primary" },
@@ -81,8 +95,54 @@ export default function OnTrackAgents() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
+        {/* Cost Savings Tracking */}
+        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Cost Savings Tracking</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="mb-6 space-y-1">
+              <p className="text-sm text-bluegrey-900">
+                <span className="font-semibold">Cost Savings Obtained to date:</span> 2.4M
+              </p>
+              <p className="text-sm text-bluegrey-900">
+                <span className="font-semibold">Projected to date:</span> 2.1M
+              </p>
+              <p className="text-sm text-bluegrey-900">
+                <span className="font-semibold">Performance:</span> 5% over projected, 40% completed.
+              </p>
+            </div>
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={costSavingsTrackingData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line 
+                  type="monotone" 
+                  dataKey="expected" 
+                  stroke="hsl(var(--primary))" 
+                  name="Expected" 
+                  strokeWidth={2}
+                  dot={{ r: 4 }}
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="current" 
+                  stroke="hsl(var(--accent))" 
+                  name="Current" 
+                  strokeWidth={2}
+                  dot={{ r: 4 }}
+                  connectNulls={false}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+
         {/* Implementation Progress */}
-        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 lg:col-span-3">
+        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 lg:col-span-1">
           <CardHeader>
             <CardTitle>Implementation Progress</CardTitle>
           </CardHeader>
