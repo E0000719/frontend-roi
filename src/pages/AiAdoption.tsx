@@ -2,7 +2,8 @@ import { Target } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar } from "recharts";
+import { useState } from "react";
 
 const headcountReductionData = [
   { month: "Jan", actual: 320, projected: 315 },
@@ -20,19 +21,138 @@ const headcountReductionData = [
 ];
 
 const departmentSavings = [
-  { name: "Finance & Accounting", positions: 68, savings: 4080000, progress: 100 },
-  { name: "Customer Support", positions: 32, savings: 1536000, progress: 100 },
-  { name: "HR & Administration", positions: 42, savings: 2016000, progress: 100 },
-  { name: "Sales Operations", positions: 28, savings: 1680000, progress: 85 },
-  { name: "IT Operations", positions: 55, savings: 3630000, progress: 92 },
-  { name: "Legal", positions: 22, savings: 1584000, progress: 78 },
+  { 
+    name: "Finance & Accounting", 
+    positions: 68, 
+    savings: 4080000, 
+    progress: 100,
+    monthlySavings: [
+      { month: "Jan", value: 0 },
+      { month: "Feb", value: 0 },
+      { month: "Mar", value: 340000 },
+      { month: "Apr", value: 340000 },
+      { month: "May", value: 340000 },
+      { month: "Jun", value: 340000 },
+      { month: "Jul", value: 340000 },
+      { month: "Aug", value: 340000 },
+      { month: "Sep", value: 340000 },
+      { month: "Oct", value: 340000 },
+      { month: "Nov", value: 340000 },
+      { month: "Dec", value: 340000 },
+    ]
+  },
+  { 
+    name: "Customer Support", 
+    positions: 32, 
+    savings: 1536000, 
+    progress: 100,
+    monthlySavings: [
+      { month: "Jan", value: 128000 },
+      { month: "Feb", value: 128000 },
+      { month: "Mar", value: 128000 },
+      { month: "Apr", value: 128000 },
+      { month: "May", value: 128000 },
+      { month: "Jun", value: 128000 },
+      { month: "Jul", value: 128000 },
+      { month: "Aug", value: 128000 },
+      { month: "Sep", value: 128000 },
+      { month: "Oct", value: 128000 },
+      { month: "Nov", value: 128000 },
+      { month: "Dec", value: 128000 },
+    ]
+  },
+  { 
+    name: "HR & Administration", 
+    positions: 42, 
+    savings: 2016000, 
+    progress: 100,
+    monthlySavings: [
+      { month: "Jan", value: 0 },
+      { month: "Feb", value: 168000 },
+      { month: "Mar", value: 168000 },
+      { month: "Apr", value: 168000 },
+      { month: "May", value: 168000 },
+      { month: "Jun", value: 168000 },
+      { month: "Jul", value: 168000 },
+      { month: "Aug", value: 168000 },
+      { month: "Sep", value: 168000 },
+      { month: "Oct", value: 168000 },
+      { month: "Nov", value: 168000 },
+      { month: "Dec", value: 168000 },
+    ]
+  },
+  { 
+    name: "Sales Operations", 
+    positions: 28, 
+    savings: 1680000, 
+    progress: 85,
+    monthlySavings: [
+      { month: "Jan", value: 0 },
+      { month: "Feb", value: 0 },
+      { month: "Mar", value: 0 },
+      { month: "Apr", value: 0 },
+      { month: "May", value: 168000 },
+      { month: "Jun", value: 168000 },
+      { month: "Jul", value: 168000 },
+      { month: "Aug", value: 168000 },
+      { month: "Sep", value: 168000 },
+      { month: "Oct", value: 336000 },
+      { month: "Nov", value: 336000 },
+      { month: "Dec", value: 168000 },
+    ]
+  },
+  { 
+    name: "IT Operations", 
+    positions: 55, 
+    savings: 3630000, 
+    progress: 92,
+    monthlySavings: [
+      { month: "Jan", value: 302500 },
+      { month: "Feb", value: 302500 },
+      { month: "Mar", value: 302500 },
+      { month: "Apr", value: 302500 },
+      { month: "May", value: 302500 },
+      { month: "Jun", value: 302500 },
+      { month: "Jul", value: 302500 },
+      { month: "Aug", value: 302500 },
+      { month: "Sep", value: 302500 },
+      { month: "Oct", value: 302500 },
+      { month: "Nov", value: 302500 },
+      { month: "Dec", value: 302500 },
+    ]
+  },
+  { 
+    name: "Legal", 
+    positions: 22, 
+    savings: 1584000, 
+    progress: 78,
+    monthlySavings: [
+      { month: "Jan", value: 0 },
+      { month: "Feb", value: 0 },
+      { month: "Mar", value: 0 },
+      { month: "Apr", value: 0 },
+      { month: "May", value: 0 },
+      { month: "Jun", value: 0 },
+      { month: "Jul", value: 198000 },
+      { month: "Aug", value: 198000 },
+      { month: "Sep", value: 198000 },
+      { month: "Oct", value: 330000 },
+      { month: "Nov", value: 330000 },
+      { month: "Dec", value: 132000 },
+    ]
+  },
 ];
 
 export default function AiAdoption() {
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
   const totalSavings = departmentSavings.reduce((acc, dept) => acc + dept.savings, 0);
   const totalPositions = departmentSavings.reduce((acc, dept) => acc + dept.positions, 0);
   const currentHeadcount = 247;
   const progressPercent = 84;
+
+  const selectedDeptData = selectedDepartment 
+    ? departmentSavings.find(d => d.name === selectedDepartment)
+    : null;
 
   return (
     <div className="w-full h-full">
@@ -121,7 +241,13 @@ export default function AiAdoption() {
         </CardHeader>
         <CardContent className="space-y-6">
           {departmentSavings.map((dept) => (
-            <div key={dept.name} className="space-y-2">
+            <div 
+              key={dept.name} 
+              className={`space-y-2 p-3 rounded-lg cursor-pointer transition-all ${
+                selectedDepartment === dept.name ? 'bg-primary/10 border border-primary' : 'hover:bg-muted'
+              }`}
+              onClick={() => setSelectedDepartment(dept.name)}
+            >
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1">
@@ -139,6 +265,35 @@ export default function AiAdoption() {
           ))}
         </CardContent>
       </Card>
+
+      {/* Monthly Cost Savings by Department */}
+      {selectedDeptData && (
+        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Monthly Cost Savings - {selectedDeptData.name}</CardTitle>
+                <p className="text-sm text-bluegrey-900 mt-1">
+                  Total Annual: ${(selectedDeptData.savings / 1000000).toFixed(2)}M
+                </p>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={selectedDeptData.monthlySavings}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                <XAxis dataKey="month" className="text-xs" />
+                <YAxis className="text-xs" />
+                <Tooltip 
+                  formatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
+                />
+                <Bar dataKey="value" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Total Annual Cost Savings */}
       <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">

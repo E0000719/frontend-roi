@@ -7,27 +7,25 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
+// Total de savings de todos los departamentos de AiAdoption
+const departmentSavings = [
+  { name: "Finance & Accounting", positions: 68, savings: 4080000, progress: 100 },
+  { name: "Customer Support", positions: 32, savings: 1536000, progress: 100 },
+  { name: "HR & Administration", positions: 42, savings: 2016000, progress: 100 },
+  { name: "Sales Operations", positions: 28, savings: 1680000, progress: 85 },
+  { name: "IT Operations", positions: 55, savings: 3630000, progress: 92 },
+  { name: "Legal", positions: 22, savings: 1584000, progress: 78 },
+];
+
+const totalCostSavings = departmentSavings.reduce((acc, dept) => acc + dept.savings, 0);
+
 const metricsData = [
-  { label: "Total Cost Savings", value: "$2.4M", change: "+12.5% vs. Expected", icon: DollarSign, color: "text-primary" },
+  { label: "Total Cost Savings", value: `$${(totalCostSavings / 1000000).toFixed(2)}M`, change: "+12.5% vs. Expected", icon: DollarSign, color: "text-primary" },
   { label: "AI Agents Deployed", value: "42", change: "+3 this quarter", icon: Users, color: "text-accent" },
   { label: "Productivity Gain", value: "37.8%", change: "+5.2% vs. Last Month", icon: TrendingUp, color: "text-primary" },
   { label: "ROI", value: "342%", change: "+42% vs. Projected", icon: Target, color: "text-accent" },
 ];
 
-const monthlySavingsData = [
-  { month: "Jan", value: 165000 },
-  { month: "Feb", value: 185000 },
-  { month: "Mar", value: 220000 },
-  { month: "Apr", value: 195000 },
-  { month: "May", value: 245000 },
-  { month: "Jun", value: 280000 },
-  { month: "Jul", value: 315000 },
-  { month: "Aug", value: 290000 },
-  { month: "Sep", value: 350000 },
-  { month: "Oct", value: 385000 },
-  { month: "Nov", value: 420000 },
-  { month: "Dec", value: 450000 },
-];
 
 const agentPerformanceData = [
   { name: "AP-Bot-01", department: "Finance", tasks: 1245, efficiency: "98.7%", status: "active" },
@@ -46,7 +44,6 @@ const departmentBreakdown = [
 ];
 
 export default function OnTrackAgents() {
-  const [viewPeriod, setViewPeriod] = useState("monthly");
 
   return (
     <div className="w-full h-full">
@@ -77,40 +74,8 @@ export default function OnTrackAgents() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
-        {/* Monthly Savings Chart */}
-        <Card className="lg:col-span-2 main-card bg-white text-gray-900 rounded-2xl border-0">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>Monthly Cost Savings by Department</CardTitle>
-              <div className="flex gap-2">
-                {["Monthly", "Quarterly", "Yearly"].map((period) => (
-                  <Badge
-                    key={period}
-                    variant={viewPeriod === period.toLowerCase() ? "default" : "outline"}
-                    className="cursor-pointer"
-                    onClick={() => setViewPeriod(period.toLowerCase())}
-                  >
-                    {period}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={monthlySavingsData}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis dataKey="month" className="text-xs" />
-                <YAxis className="text-xs" />
-                <Tooltip />
-                <Bar dataKey="value" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
-
         {/* Implementation Progress */}
-        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0">
+        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 lg:col-span-3">
           <CardHeader>
             <CardTitle>Implementation Progress</CardTitle>
           </CardHeader>

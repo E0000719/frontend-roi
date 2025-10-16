@@ -14,8 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
-  const navigation = [
-
+  const navigation: Array<{ name: string; href: string; icon: typeof Home }> = [
     { name: "Home", href: "/", icon: Home },
     { name: "ROI Business case", href: "/roi-business-case", icon: FileText },
     { name: "On track agents", href: "/on-track-agents", icon: Bot },
@@ -67,41 +66,6 @@ const Layout = ({ children }: LayoutProps) => {
               </div>
               <div className="h-[calc(100%-4rem)] space-y-4 overflow-y-auto scrollbar-hide">
               {navigation.map((item) => {
-                if (item.children) {
-                  // Accounts receivable with dropdown
-                  return (
-                    <div key={item.name} className="space-y-1">
-                      <button
-                        className={`flex items-center space-x-2 p-2 rounded-xl w-full transition-all duration-200 text-bluegrey-700 hover:text-foreground hover:bg-muted ${arOpen ? "font-semibold" : ""}`}
-                        onClick={() => setArOpen((open) => !open)}
-                        type="button"
-                      >
-                        <item.icon className="size-6" />
-                        <span className={`font-medium flex-1 text-left ${collapsed ? "hidden" : ""}`}>{item.name}</span>
-                        {arOpen ? <ChevronUp className={`size-4 ${collapsed ? "hidden" : ""}`} /> : <ChevronDown className={`size-4 ${collapsed ? "hidden" : ""}`} />}
-                      </button>
-                      {arOpen && (
-                        <div className="ml-8 space-y-1">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.name}
-                              to={child.href}
-                              className={`block p-2 rounded-lg transition-all duration-200 ${
-                                isActive(child.href)
-                                  ? "text-primary-foreground bg-primary"
-                                  : "text-bluegrey-700 hover:text-foreground hover:bg-muted"
-                              }`}
-                              onClick={() => setSidebarOpen(false)}
-                            >
-                              {child.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-                // Regular menu item
                 const Icon = item.icon;
                 return (
                   <Link
