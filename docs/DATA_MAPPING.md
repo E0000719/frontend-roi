@@ -23,6 +23,35 @@ Este documento describe la estructura de datos utilizada en las pantallas princi
 - Productivity Gain: 37.8%
 - ROI: 342%
 
+### Datos de Cost Savings Tracking (costSavingsData)
+```typescript
+{
+  month: string;           // Mes (ej: "Jan", "Feb")
+  expected: number;        // Ahorro esperado en millones ($M)
+  current: number;         // Ahorro actual en millones ($M)
+}
+```
+
+**Datos mensuales:**
+- Enero: Expected $0M, Current $0M
+- Febrero: Expected $1.21M, Current $1.21M
+- Marzo: Expected $2.42M, Current $2.42M
+- Abril: Expected $3.63M, Current $3.63M
+- Mayo: Expected $4.84M, Current $4.84M
+- Junio: Expected $6.05M, Current $6.05M
+- Julio: Expected $7.26M, Current $7.26M
+- Agosto: Expected $8.47M, Current $8.68M
+- Septiembre: Expected $9.68M, Current $10.89M
+- Octubre: Expected $10.89M, Current $12.10M
+- Noviembre: Expected $12.10M, Current $13.31M
+- Diciembre: Expected $14.53M, Current $14.53M
+
+**Métricas del gráfico:**
+- Total Cost Savings: $14.53M
+- Projected to date (Oct): $10.89M
+- Current Savings (Oct): $12.10M
+- Performance: 111.1%
+
 ### Datos de Rendimiento de Agentes (agentPerformanceData)
 ```typescript
 {
