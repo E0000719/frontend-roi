@@ -28,11 +28,18 @@ const metricsData = [
 
 
 const agentPerformanceData = [
-  { name: "AP-Bot-01", department: "Finance", tasks: 1245, efficiency: "98.7%", status: "active" },
-  { name: "HR-Assistant-03", department: "Human Resources", tasks: 876, efficiency: "95.2%", status: "active" },
-  { name: "Support-Agent-12", department: "Customer Service", tasks: 2341, efficiency: "97.8%", status: "active" },
-  { name: "Sales-Assistant-05", department: "Sales", tasks: 543, efficiency: "92.1%", status: "maintenance" },
-  { name: "IT-Support-02", department: "IT", tasks: 1087, efficiency: "99.3%", status: "active" },
+  { name: "ISO 27000", agentType: "Legal & Compliance", version: "0.1", department: "Information Technology", taskCompleted: 10, currentSavingsMM: 0.2, targetSavingsMM: 0.8, percentageToTarget: "25.00%" },
+  { name: "Top Positions Recruiting", agentType: "Agentic Recruiting & Hiring", version: "1", department: "Human Resources", taskCompleted: 234, currentSavingsMM: 0.13, targetSavingsMM: 0.6, percentageToTarget: "21.67%" },
+  { name: "Legacy SAP", agentType: "Legacy Systems Takeover", version: "1.1", department: "Information Technology", taskCompleted: 256, currentSavingsMM: 0.2, targetSavingsMM: 0.7, percentageToTarget: "28.57%" },
+  { name: "SAP Payroll", agentType: "Enterprise Application Automation", version: "1", department: "Human Resources", taskCompleted: 456, currentSavingsMM: 0.23, targetSavingsMM: 0.5, percentageToTarget: "46.00%" },
+  { name: "Retail Banking E-Recruiting", agentType: "Agentic Recruiting & Hiring", version: "1.1", department: "Human Resources", taskCompleted: 786, currentSavingsMM: 0.2, targetSavingsMM: 0.2, percentageToTarget: "100.00%" },
+  { name: "Legacy Core Banking", agentType: "Legacy Systems Takeover", version: "1.2", department: "Operations Management", taskCompleted: 54, currentSavingsMM: 0.09, targetSavingsMM: 0.2, percentageToTarget: "45.00%" },
+  { name: "CV in Bank Branches", agentType: "Real Time Insights", version: "2", department: "Operations Management", taskCompleted: 1254, currentSavingsMM: 0.24, targetSavingsMM: 0.3, percentageToTarget: "80.00%" },
+  { name: "IT Service Desk", agentType: "Agentic Customer & IT Support", version: "0.5", department: "Operations Management", taskCompleted: 300, currentSavingsMM: 0.12, targetSavingsMM: 0.6, percentageToTarget: "20.00%" },
+  { name: "Call Center", agentType: "Agentic Customer & IT Support", version: "0.4", department: "Customer Service", taskCompleted: 124, currentSavingsMM: 0.1, targetSavingsMM: 0.8, percentageToTarget: "12.50%" },
+  { name: "Credit Collections", agentType: "Order to Cash & Collections", version: "1.3", department: "Finance", taskCompleted: 245, currentSavingsMM: 0.4, targetSavingsMM: 0.5, percentageToTarget: "80.00%" },
+  { name: "IT Recruiting", agentType: "Agentic Recruiting & Hiring", version: "2.2", department: "Human Resources", taskCompleted: 222, currentSavingsMM: 0.3, targetSavingsMM: 0.4, percentageToTarget: "75.00%" },
+  { name: "Procurement", agentType: "Legal & Compliance", version: "1.1", department: "Legal", taskCompleted: 135, currentSavingsMM: 0.19, targetSavingsMM: 0.4, percentageToTarget: "47.50%" },
 ];
 
 const departmentBreakdown = [
@@ -137,24 +144,26 @@ export default function OnTrackAgents() {
             <TableHeader>
               <TableRow>
                 <TableHead className="text-bluegrey-900">Agent Name</TableHead>
+                <TableHead className="text-bluegrey-900">Agent Type</TableHead>
+                <TableHead className="text-bluegrey-900">Version</TableHead>
                 <TableHead className="text-bluegrey-900">Department</TableHead>
-                <TableHead className="text-bluegrey-900">Tasks Completed</TableHead>
-                <TableHead className="text-bluegrey-900">Efficiency</TableHead>
-                <TableHead className="text-bluegrey-900">Status</TableHead>
+                <TableHead className="text-bluegrey-900">Task Completed</TableHead>
+                <TableHead className="text-bluegrey-900">Current Savings MM</TableHead>
+                <TableHead className="text-bluegrey-900">Target Savings MM</TableHead>
+                <TableHead className="text-bluegrey-900">Percentage to Target</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {agentPerformanceData.map((agent) => (
+              {agentPerformanceData.map((agent, index) => (
                 <TableRow key={agent.name}>
-                  <TableCell className="font-medium">{agent.name}</TableCell>
+                  <TableCell className="font-medium">{index + 1}. {agent.name}</TableCell>
+                  <TableCell>{agent.agentType}</TableCell>
+                  <TableCell>{agent.version}</TableCell>
                   <TableCell>{agent.department}</TableCell>
-                  <TableCell>{agent.tasks.toLocaleString()}</TableCell>
-                  <TableCell>{agent.efficiency}</TableCell>
-                  <TableCell>
-                    <Badge variant={agent.status === "active" ? "default" : "secondary"}>
-                      {agent.status === "active" ? "Active" : "Maintenance"}
-                    </Badge>
-                  </TableCell>
+                  <TableCell>{agent.taskCompleted}</TableCell>
+                  <TableCell>{agent.currentSavingsMM}</TableCell>
+                  <TableCell>{agent.targetSavingsMM}</TableCell>
+                  <TableCell>{agent.percentageToTarget}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
