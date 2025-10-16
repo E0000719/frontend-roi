@@ -212,3 +212,12 @@
   .chip-bold { font: 700 14px/16px 'JetBrains Mono', monospace; }
   .chip-regular { font: 400 14px/16px 'JetBrains Mono', monospace; }
 }
+
+@layer utilities {
+  .thin-scrollbar::-webkit-scrollbar {
+    height: 4px;
+  }
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+}
