@@ -72,10 +72,10 @@ export default function RoiBusinessCase() {
     <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
-          ROI Business case
+          ROI Business Case
         </h1>
         <p className="text-bluegrey-900 text-sm md:text-base mt-2">
-          New ROI Business case.
+          Create a new ROI business case.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ export default function RoiBusinessCase() {
         <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mt-8">
           <Bot className="size-6 text-bluegrey-700" />
         </div>
-        <h2 className="text-2xl mt-4 text-gray-900 font-bold">ROI First assistant</h2>
+        <h2 className="text-2xl mt-4 text-gray-900 font-bold">ROI First Assistant</h2>
         <div className="text-base text-center">
           Select one of the agentic AI modules to create a new business case
         </div>

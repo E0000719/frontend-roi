@@ -100,7 +100,7 @@ export default function SystemOverview() {
   const { system } = useParams<{ system: string }>();
   const navigate = useNavigate();
   
-  // Estados para resultados de cálculo
+  // States for calculation results
   const [calculationResults, setCalculationResults] = useState<any>(null);
   const [showResults, setShowResults] = useState(false);
   const [showFutureProjection, setShowFutureProjection] = useState(false);
@@ -108,12 +108,12 @@ export default function SystemOverview() {
   const config = system ? systemConfigs[system] : null;
 
   useEffect(() => {
-    // Verificar si hay resultados de cálculo al cargar
+    // Check if there are calculation results on load
     if (hasCalculationData()) {
       const results = getCalculationData();
       setCalculationResults(results);
       setShowResults(true);
-      console.log('✅ Resultados de cálculo cargados:', results);
+      console.log('✅ Calculation results loaded:', results);
     }
   }, []);
 
@@ -134,12 +134,12 @@ export default function SystemOverview() {
   };
 
   const handleNewCase = () => {
-    // Limpiar datos anteriores
+    // Clear previous data
     clearCalculationData();
     setCalculationResults(null);
     setShowResults(false);
     
-    // Redirigir a inicio
+    // Redirect to start
     if (system) {
       setRoiSystem(system);
       setRoiDimensions(config.dimensions);
@@ -151,7 +151,7 @@ export default function SystemOverview() {
     setShowFutureProjection(!showFutureProjection);
   };
 
-  // Formatear números para display
+  // Format numbers for display
   const formatCurrency = (value: number): string => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -165,47 +165,47 @@ export default function SystemOverview() {
     return `${value.toFixed(1)}%`;
   };
 
-  // Renderizar resultados de cálculo
+  // Render calculation results
   const renderCalculationResults = () => {
     if (!calculationResults || !showResults) return null;
 
     const { tco_global, dimensions } = calculationResults;
 
-    // Determinar qué TCO mostrar (actual o futuro)
+    // Determine which TCO to show (current or future)
     const currentGlobalTco = showFutureProjection ? tco_global.future_tco : tco_global.current_tco;
     
-    // Preparar datos para la gráfica radial
+    // Prepare data for radial chart
     const dimensionNames = dimensions.map((dim: any) => dim.dimension_name);
     const dimensionTcoValues = dimensions.map((dim: any) => 
       showFutureProjection ? dim.future_tco : dim.current_tco
     );
 
-    // Calcular el valor máximo absoluto entre todas las dimensiones (current y future) para escala fija
+    // Calculate maximum absolute value across all dimensions (current and future) for fixed scale
     const allDimensionValues = dimensions.flatMap((dim: any) => [dim.current_tco, dim.future_tco]);
     const maxScaleValue = Math.max(...allDimensionValues);
 
-    // Calcular porcentajes de contribución al TCO global
+    // Calculate contribution percentages to global TCO
     const dimensionPercentages = dimensionTcoValues.map((tco: number) => 
       (tco / currentGlobalTco) * 100
     );
 
     return (
       <div className="space-y-8">
-        {/* TCO Total - Centrado arriba */}
+        {/* Total TCO - Centered top */}
         <div className="text-center">
           <p className="text-muted-foreground mb-2">
-            {showFutureProjection ? 'La proyección futura del proceso tiene un' : 'El proceso asociado tiene un'}
+            {showFutureProjection ? 'The future projection of the process has a' : 'The associated process has a'}
           </p>
           <p className="text-4xl font-bold text-foreground mb-2">
-            TCO de {formatCurrency(currentGlobalTco)}
+            TCO of {formatCurrency(currentGlobalTco)}
           </p>
           <p className="text-muted-foreground">
-            anual{showFutureProjection ? ' proyectado' : ''}. Este proceso considera el siguiente desglose de dimensiones:
+            annually{showFutureProjection ? ' projected' : ''}. This process considers the following dimension breakdown:
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Gráfica Radial */}
+          {/* Radial Chart */}
           <div className="flex items-center justify-center">
             <div className="w-full aspect-square max-w-md">
               <RadialChart 
@@ -216,9 +216,9 @@ export default function SystemOverview() {
             </div>
           </div>
 
-          {/* Leyenda de dimensiones */}
+          {/* Dimension Legend */}
           <div className="flex flex-col justify-center space-y-3">
-            <h3 className="text-lg font-semibold text-foreground mb-2">Leyenda de Dimensiones</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-2">Dimension Legend</h3>
             <div className="space-y-3">
               {dimensionNames.map((name: string, index: number) => {
                 const dimension = dimensions.find((d: any) => d.dimension_name === name);
@@ -243,18 +243,18 @@ export default function SystemOverview() {
           </div>
         </div>
 
-        {/* Botón Alternar Proyección */}
+        {/* Toggle Projection Button */}
         <div className="flex justify-center pt-4">
           <Button onClick={handleCalculateProjection} size="lg" className="px-8">
             <Calculator className="h-5 w-5 mr-2" />
-            {showFutureProjection ? 'Ver Proyección Actual' : 'Ver Proyección Futura'}
+            {showFutureProjection ? 'View Current Projection' : 'View Future Projection'}
           </Button>
         </div>
       </div>
     );
   };
 
-  // Renderizar vista inicial (sin resultados)
+  // Render initial view (no results)
   const renderInitialView = () => {
     return (
       <>
@@ -271,7 +271,7 @@ export default function SystemOverview() {
               </div>
 
               <p className="text-gray-700 text-sm mt-1">
-                El proceso asociado al módulo Agentic {config.name.split(' ').slice(1).join(' ')} tiene {config.dimensions.length} dimensiones:
+                The process associated with the Agentic {config.name.split(' ').slice(1).join(' ')} module has {config.dimensions.length} dimensions:
               </p>
 
               <ul className="text-gray-700 text-sm mt-4 space-y-1">
@@ -283,11 +283,11 @@ export default function SystemOverview() {
               </ul>
 
               <p className="text-gray-700 text-sm mt-4">
-                Estas dimensiones pueden variar según la información completada en el cuestionario presente, comencemos...
+                These dimensions may vary depending on the information completed in the questionnaire, let's begin...
               </p>
             </div>
             <Button onClick={handleStart} size="lg" className="px-8">
-              Comenzar Caso de Uso
+              Start Use Case
             </Button>
           </div>
         </div>
@@ -309,10 +309,10 @@ export default function SystemOverview() {
           <h1 className="text-2xl font-semibold text-gray-900">ROI First Assistant</h1>
         </div>
 
-        {/* Botón "Nuevo Caso de Uso" solo si hay resultados */}
+        {/* "New Use Case" button only if there are results */}
         {showResults && (
           <Button variant="outline" onClick={handleNewCase}>
-            Nuevo Caso de Uso
+            New Use Case
           </Button>
         )}
       </div>

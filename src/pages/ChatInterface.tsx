@@ -74,7 +74,7 @@ export default function ChatInterface() {
   const [correctionState, setCorrectionState] = useState<CorrectionState | null>(null);
   const [currentState, setCurrentState] = useState<any>(null);
 
-  // 🆕 States for ROI calculation
+  // States for ROI calculation
   const [isCalculating, setIsCalculating] = useState(false);
   const [showCalculateButton, setShowCalculateButton] = useState(false);
   const [collectedData, setCollectedData] = useState<any>(null);
@@ -185,7 +185,7 @@ export default function ChatInterface() {
         setConversationId(data.conversation_id);
       }
 
-      // 🆕 Detect if data collection is complete
+      // Detect if data collection is complete
       if (data.status === 'completed' || data.status === 'data_completed' || data.status === 'validated_complete') {
         console.log('✅ Complete data detected');
         
@@ -315,16 +315,16 @@ export default function ChatInterface() {
         throw new Error(calculationResult.metadata?.error || 'Calculation failed');
       }
 
-      console.log('✅ Cálculo completado:', calculationResult);
+      console.log('✅ Calculation completed:', calculationResult);
 
-      // 💾 Save results to sessionStorage
+      // Save results to sessionStorage
       sessionStorage.setItem('calculationData', JSON.stringify(calculationResult));
       console.log('💾 Results saved to sessionStorage');
 
-      // 🎉 Show success toast
+      // Show success toast
       toast.success('ROI calculation completed successfully!');
 
-      // 🔄 Redirect to overview screen
+      // Redirect to overview screen
       setTimeout(() => {
         navigate(`/roi-business-case/${system}/overview`);
       }, 500);
@@ -444,7 +444,7 @@ export default function ChatInterface() {
           {/* Correction indicator */}
           {renderCorrectionIndicator()}
 
-          {/* 🆕 Calculate ROI Button - Appears when data is complete */}
+          {/* Calculate ROI Button - Appears when data is complete */}
           {showCalculateButton && (
             <div className="mb-4 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
               <div className="flex items-center justify-between">
