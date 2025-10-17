@@ -22,7 +22,7 @@ const Header = ({ modules }: HeaderProps) => {
   const defaultModules = [
     { name: "Agentic Customer & IT Support", href: "/discovery", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
     { name: "Legal & Compliance", href: "/compliance", icon: LegalCompliance, iconColor: "text-green-300" },
-    { name: "Order to Cash", href: "/cost", icon: OrderToCash, iconColor: "text-error-100", active: true },
+    { name: "Order to Cash", href: "http://a4c9180bbc31c43998bd689195906a81-b99dae4105f00a51.elb.us-east-1.amazonaws.com:9098/", icon: OrderToCash, iconColor: "text-error-100" },
   ];
 
   const modulesToRender = modules || defaultModules;
@@ -41,7 +41,7 @@ const Header = ({ modules }: HeaderProps) => {
                     <a key={module.name} href={module.href}>
                       <Button
                         variant="outline"
-                        className={`h-12 flex items-center px-8 py-2 rounded-xl text-bluegrey-50 ${module.active ? 'bg-gray-800' : 'bg-[#434B4F] bg-gradient-to-r from-[#434B4F] to-[#59656C]'}`}
+                        className={`h-12 border-0 flex items-center px-8 py-2 rounded-xl text-bluegrey-50 ${module.active ? 'bg-gray-800' : 'bg-[#434B4F] bg-gradient-to-r from-[#434B4F] to-[#59656C]'}`}
                       >
                         {Icon && (
                           <Icon className={`size-8 ${module.iconColor} bg-black rounded-full`} />
