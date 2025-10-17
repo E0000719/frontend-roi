@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FileText, TrendingUp, DollarSign, Calculator, ArrowLeft, Bot, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RadialChart } from '@/components/RadialChart';
-import { setRoiSystem, setRoiDimensions, getCalculationData, hasCalculationData, clearCalculationData } from '@/utils/sessionStorage';
+import { setRoiSystem, setRoiDimensions, getCalculationData, hasCalculationData, clearCalculationData, clearRoiSession } from '@/utils/sessionStorage';
 
 const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
   'order-to-cash': {
@@ -134,17 +134,14 @@ export default function SystemOverview() {
   };
 
   const handleNewCase = () => {
-    // Clear previous data
+    // Clear all cached data including calculation and session data
     clearCalculationData();
+    clearRoiSession();
     setCalculationResults(null);
     setShowResults(false);
     
-    // Redirect to start
-    if (system) {
-      setRoiSystem(system);
-      setRoiDimensions(config.dimensions);
-      navigate(`/roi-business-case/${system}/select-agent`);
-    }
+    // Redirect to main ROI page
+    navigate('/roi-business-case');
   };
 
   const handleCalculateProjection = () => {
