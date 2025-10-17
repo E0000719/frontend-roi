@@ -174,12 +174,16 @@
     @apply border-border;
   }
 
-  body {
+  body, .header {
     background-color: #1F2425;
     color: hsl(var(--foreground));
     font-family: 'Neue Haas Grotesk', system-ui, sans-serif;
     background-image: url("/point.svg");
     background-repeat: repeat;
+  }
+
+  body {
+    font-family: 'Neue Haas Grotesk', system-ui, sans-serif;
   }
 
   /* Typography scale (without @apply to avoid build errors) */

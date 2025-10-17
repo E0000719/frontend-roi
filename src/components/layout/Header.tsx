@@ -1,5 +1,8 @@
 import { LucideIcon, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
+import LegalCompliance from "@/components/icons/LegalCompliance";
+import OrderToCash from "@/components/icons/OrderToCash";
 
 interface Module {
   name: string;
@@ -17,16 +20,9 @@ interface HeaderProps {
 const Header = ({ modules }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
-    { name: "Order to Cash", href: "/cost", iconSrc: "/icons/order-to-cash-icon.png", iconColor: "text-error-100", active: true },
-
-    { name: "Legacy Systems Takeover", href: "/legacy", iconSrc: "/icons/legacy-icon.png", iconColor: "text-error-100" },
-    { name: "Agentic Customer & IT Support", href: "/discovery", iconSrc: "/icons/customer-icon.png", iconColor: "text-green-300" },
-    { name: "Legal & Compliance", href: "/compliance", iconSrc: "/icons/compliance-icon.png", iconColor: "text-green-300"},
-    { name: "Enterprise Application Automation", href: "/cost", iconSrc: "/icons/enterprise-icon.png", iconColor: "text-error-100" },
-    { name: "Real-Time Insights", href: "/insights", iconSrc: "/icons/real-time-icon.png", iconColor: "text-blue-500" },
-    { name: "Agentic Recruiting & Hiring", href: "/recruiting", iconSrc: "/icons/recruting-icon.png", iconColor: "text-error-100" },
-    { name: "Physical Agents Service Robots", href: "/recruiting", iconSrc: "/icons/physical-icon.png", iconColor: "text-error-100" },
-
+    { name: "Agentic Customer & IT Support", href: "/discovery", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
+    { name: "Legal & Compliance", href: "/compliance", icon: LegalCompliance, iconColor: "text-green-300" },
+    { name: "Order to Cash", href: "/cost", icon: OrderToCash, iconColor: "text-error-100", active: true },
   ];
 
   const modulesToRender = modules || defaultModules;
@@ -34,26 +30,26 @@ const Header = ({ modules }: HeaderProps) => {
   return (
     <div className="w-full">
       {/* Logo Section */}
-      <div className="bg-bluegrey-500 rounded-2xl p-2 pb-1 pr-4 mb-4">
+      <div className="bg-bluegrey-500 rounded-2xl p-2 pr-4">
         <div className="w-full flex items-center justify-between gap-2">
           {/* Modules Navigation */}
             <div className="thin-scrollbar w-full flex items-center overflow-x-auto gap-2">
                 <div className="flex space-x-2">
                 {modulesToRender.map((module) => {
-                    const Icon = module.icon;
-                    
-                    return (
-                    <a key={module.name} href={module.href} target="_blank" rel="noopener noreferrer">
-                        <Button
+                  const Icon = module.icon;
+                  return (
+                    <a key={module.name} href={module.href}>
+                      <Button
                         variant="outline"
                         className={`h-12 flex items-center px-8 py-2 rounded-xl text-bluegrey-50 ${module.active ? 'bg-gray-800' : 'bg-[#434B4F] bg-gradient-to-r from-[#434B4F] to-[#59656C]'}`}
-                        >
-                          <img src={module.iconSrc} alt={`${module.name} icon`} className="size-8 mr-1" style={{ display: module.iconSrc ? 'inline-block' : 'none' }} />
-                          
-                          <span className="font-medium">{module.name}</span>
-                        </Button>
+                      >
+                        {Icon && (
+                          <Icon className={`size-8 ${module.iconColor} bg-black rounded-full`} />
+                        )}
+                        <span className="font-medium">{module.name}</span>
+                      </Button>
                     </a>
-                    );
+                  );
                 })}
               </div>
             </div>
