@@ -1,4 +1,5 @@
-import { Menu, X, Home, TrendingUp, Bot, Target, FileText } from "lucide-react";import { Button } from "@/components/ui/button";
+import { Menu, X, Home, TrendingUp, Bot, Target, FileText, ChevronUp, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLocation, Link, Outlet } from "react-router-dom";
 import Header from "./Header";
@@ -13,7 +14,12 @@ const Layout = ({ children }: LayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
-  const navigation: Array<{ name: string; href: string; icon: typeof Home }> = [
+  const navigation: Array<{ 
+    name: string; 
+    href: string; 
+    icon: typeof Home; 
+    children?: Array<{ name: string; href: string }> 
+  }> = [
     { name: "Home", href: "/", icon: Home },
     { name: "ROI Business case", href: "/roi-business-case", icon: FileText },
     { name: "On track agents", href: "/on-track-agents", icon: Bot },
