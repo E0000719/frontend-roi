@@ -20,7 +20,7 @@ interface HeaderProps {
 const Header = ({ modules }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
-    { name: "Agentic Customer & IT Support", href: "/discovery", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
+    { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
     { name: "Legal & Compliance", href: "/compliance", icon: LegalCompliance, iconColor: "text-green-300" },
     { name: "Order to Cash", href: "http://a4c9180bbc31c43998bd689195906a81-b99dae4105f00a51.elb.us-east-1.amazonaws.com:9098/", icon: OrderToCash, iconColor: "text-error-100" },
   ];
