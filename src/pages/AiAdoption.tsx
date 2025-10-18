@@ -193,28 +193,68 @@ const dimensionsData = {
 
 const departmentSavings = [
   { 
-    name: "Finance & Accounting", 
-    positions: 68, 
-    savings: 4080000, 
+    name: "Information Technology", 
+    positions: 3, 
+    savings: 3630000, 
     progress: 100,
     monthlySavings: [
-      { month: "Jan", value: 0 },
-      { month: "Feb", value: 0 },
-      { month: "Mar", value: 408000 },
-      { month: "Apr", value: 408000 },
-      { month: "May", value: 408000 },
-      { month: "Jun", value: 408000 },
-      { month: "Jul", value: 408000 },
-      { month: "Aug", value: 408000 },
-      { month: "Sep", value: 408000 },
-      { month: "Oct", value: 408000 },
-      { month: "Nov", value: 408000 },
-      { month: "Dec", value: 408000 },
+      { month: "Jan", value: 302500 },
+      { month: "Feb", value: 302500 },
+      { month: "Mar", value: 302500 },
+      { month: "Apr", value: 302500 },
+      { month: "May", value: 302500 },
+      { month: "Jun", value: 302500 },
+      { month: "Jul", value: 302500 },
+      { month: "Aug", value: 302500 },
+      { month: "Sep", value: 302500 },
+      { month: "Oct", value: 302500 },
+      { month: "Nov", value: 302500 },
+      { month: "Dec", value: 302500 },
     ]
   },
   { 
-    name: "Customer Support", 
-    positions: 32, 
+    name: "Human Resources", 
+    positions: 2, 
+    savings: 2016000, 
+    progress: 91.67,
+    monthlySavings: [
+      { month: "Jan", value: 0 },
+      { month: "Feb", value: 183273 },
+      { month: "Mar", value: 183273 },
+      { month: "Apr", value: 183273 },
+      { month: "May", value: 183273 },
+      { month: "Jun", value: 183272 },
+      { month: "Jul", value: 183272 },
+      { month: "Aug", value: 183272 },
+      { month: "Sep", value: 183272 },
+      { month: "Oct", value: 183272 },
+      { month: "Nov", value: 183272 },
+      { month: "Dec", value: 183276 },
+    ]
+  },
+  { 
+    name: "Operations Management", 
+    positions: 2, 
+    savings: 1680000, 
+    progress: 66.67,
+    monthlySavings: [
+      { month: "Jan", value: 0 },
+      { month: "Feb", value: 0 },
+      { month: "Mar", value: 0 },
+      { month: "Apr", value: 0 },
+      { month: "May", value: 210000 },
+      { month: "Jun", value: 210000 },
+      { month: "Jul", value: 210000 },
+      { month: "Aug", value: 210000 },
+      { month: "Sep", value: 210000 },
+      { month: "Oct", value: 210000 },
+      { month: "Nov", value: 210000 },
+      { month: "Dec", value: 210000 },
+    ]
+  },
+  { 
+    name: "Customer Service", 
+    positions: 2, 
     savings: 1536000, 
     progress: 100,
     monthlySavings: [
@@ -233,70 +273,30 @@ const departmentSavings = [
     ]
   },
   { 
-    name: "HR & Administration", 
-    positions: 42, 
-    savings: 2016000, 
-    progress: 100,
-    monthlySavings: [
-      { month: "Jan", value: 0 },
-      { month: "Feb", value: 183273 },
-      { month: "Mar", value: 183273 },
-      { month: "Apr", value: 183273 },
-      { month: "May", value: 183273 },
-      { month: "Jun", value: 183272 },
-      { month: "Jul", value: 183272 },
-      { month: "Aug", value: 183272 },
-      { month: "Sep", value: 183272 },
-      { month: "Oct", value: 183272 },
-      { month: "Nov", value: 183272 },
-      { month: "Dec", value: 183276 },
-    ]
-  },
-  { 
-    name: "Sales Operations", 
-    positions: 28, 
-    savings: 1680000, 
-    progress: 85,
+    name: "Finance", 
+    positions: 2, 
+    savings: 4080000, 
+    progress: 83.33,
     monthlySavings: [
       { month: "Jan", value: 0 },
       { month: "Feb", value: 0 },
-      { month: "Mar", value: 0 },
-      { month: "Apr", value: 0 },
-      { month: "May", value: 210000 },
-      { month: "Jun", value: 210000 },
-      { month: "Jul", value: 210000 },
-      { month: "Aug", value: 210000 },
-      { month: "Sep", value: 210000 },
-      { month: "Oct", value: 210000 },
-      { month: "Nov", value: 210000 },
-      { month: "Dec", value: 210000 },
-    ]
-  },
-  { 
-    name: "IT Operations", 
-    positions: 55, 
-    savings: 3630000, 
-    progress: 92,
-    monthlySavings: [
-      { month: "Jan", value: 302500 },
-      { month: "Feb", value: 302500 },
-      { month: "Mar", value: 302500 },
-      { month: "Apr", value: 302500 },
-      { month: "May", value: 302500 },
-      { month: "Jun", value: 302500 },
-      { month: "Jul", value: 302500 },
-      { month: "Aug", value: 302500 },
-      { month: "Sep", value: 302500 },
-      { month: "Oct", value: 302500 },
-      { month: "Nov", value: 302500 },
-      { month: "Dec", value: 302500 },
+      { month: "Mar", value: 408000 },
+      { month: "Apr", value: 408000 },
+      { month: "May", value: 408000 },
+      { month: "Jun", value: 408000 },
+      { month: "Jul", value: 408000 },
+      { month: "Aug", value: 408000 },
+      { month: "Sep", value: 408000 },
+      { month: "Oct", value: 408000 },
+      { month: "Nov", value: 408000 },
+      { month: "Dec", value: 408000 },
     ]
   },
   { 
     name: "Legal", 
-    positions: 22, 
+    positions: 1, 
     savings: 1584000, 
-    progress: 78,
+    progress: 50,
     monthlySavings: [
       { month: "Jan", value: 0 },
       { month: "Feb", value: 0 },
@@ -426,7 +426,7 @@ export default function AiAdoption() {
       {/* Department Cost Savings */}
       <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">
         <CardHeader>
-          <CardTitle>Department Cost Savings per Department</CardTitle>
+          <CardTitle>Department Cost Savings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {departmentSavings.map((dept) => (
@@ -441,7 +441,7 @@ export default function AiAdoption() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-medium">{dept.name}</span>
-                    <span className="text-sm font-semibold">{dept.positions} positions</span>
+                    <span className="text-sm font-semibold">{dept.positions} Agents Deployed</span>
                   </div>
                   <Progress value={dept.progress} className="h-2" />
                 </div>
