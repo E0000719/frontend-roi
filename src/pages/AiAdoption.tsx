@@ -376,9 +376,6 @@ export default function AiAdoption() {
             <div className="text-sm text-bluegrey-900 mb-2">
               <span className="font-semibold">Selected Metric:</span> {selectedDimension}
             </div>
-            <div className="text-sm text-bluegrey-900 mb-2">
-              <span className="font-semibold">Unit:</span> {currentDimensionData.unit}
-            </div>
             <div className="text-sm text-bluegrey-900">
               <span className="font-semibold">Description:</span> {currentDimensionData.description}
             </div>
@@ -394,6 +391,12 @@ export default function AiAdoption() {
                 />
                 <YAxis 
                   className="text-xs"
+                  label={{ 
+                    value: currentDimensionData.unit, 
+                    angle: -90, 
+                    position: 'insideLeft',
+                    style: { textAnchor: 'middle', fill: 'hsl(var(--foreground))' }
+                  }}
                 />
                 <Tooltip 
                   formatter={(value: number) => {
