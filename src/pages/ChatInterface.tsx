@@ -404,6 +404,9 @@ export default function ChatInterface() {
                 if (roiSystem === 'customer_support') {
                   templateFile = '/Plantilla_Customer_Support.txt';
                   templateName = 'Plantilla_Customer_Support.txt';
+                } else if (roiSystem === 'order_to_cash') {
+                  templateFile = '/Plantilla_Order_To_Cash.txt';
+                  templateName = 'Plantilla_Order_To_Cash.txt';
                 } else if (roiSystem === 'legacy_takeover') {
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';
                   templateName = 'Plantilla_Legacy_TakeOver.txt';

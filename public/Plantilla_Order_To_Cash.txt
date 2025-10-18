@@ -1,0 +1,48 @@
+DIMENSION: Savings in Collection Management Costs
+==================================================
+¿Number of agents dedicated to collections? Tu_Respuesta
+¿Monthly hours per collections agent? Tu_Respuesta
+¿Hourly cost of a collections agent (including benefits)? Tu_Respuesta
+¿Percentage of routine/repetitive collection interactions? Tu_Respuesta
+
+DIMENSION: Reducing Errors in Billing and Processing
+==================================================
+¿Average monthly number of processed orders? Tu_Respuesta
+¿Current percentage of orders with errors requiring correction? Tu_Respuesta
+¿Average hours required to correct an erroneous order? Tu_Respuesta
+¿Hourly cost of staff correcting errors? Tu_Respuesta
+¿Average cost of credit notes issued due to monthly errors? Tu_Respuesta
+¿Estimated number of customers lost annually due to billing issues? Tu_Respuesta
+¿Average annual value of a customer (lifetime value)? Tu_Respuesta
+
+DIMENSION: Improved Collection Speed and DSO Reduction
+==================================================
+¿Average monthly company billing? Tu_Respuesta
+¿Current DSO (Days Sales Outstanding)? Tu_Respuesta
+¿Opportunity cost or annual financing interest rate? Tu_Respuesta
+¿Percentage of invoices paid after the due date? Tu_Respuesta
+
+DIMENSION: Optimizing Order Processing and Billing
+==================================================
+¿Number of people in the order processing team? Tu_Respuesta
+¿Average monthly hours per person dedicated to order processing? Tu_Respuesta
+¿Hourly cost of processing staff (including benefits)? Tu_Respuesta
+¿Percentage of time spent on automatable tasks? Tu_Respuesta
+¿Current average time to process an order from receipt to billing (hours)? Tu_Respuesta
+
+DIMENSION: Reduction in Dispute Management and Reconciliation
+==================================================
+¿Average monthly number of disputes or customer inquiries about billing? Tu_Respuesta
+¿Average hours required to resolve a dispute? Tu_Respuesta
+¿Hourly cost of staff managing disputes? Tu_Respuesta
+¿Number of people dedicated to payment reconciliation? Tu_Respuesta
+¿Monthly hours per person in manual reconciliation? Tu_Respuesta
+¿Hourly cost of reconciliation staff? Tu_Respuesta
+
+DIMENSION: Improved Customer Experience and Retention
+==================================================
+¿Current annual churn rate (percentage of customers leaving)? Tu_Respuesta
+¿Percentage of churn attributable to billing/collections process issues? Tu_Respuesta
+¿Total number of active customers? Tu_Respuesta
+¿Average annual revenue per customer? Tu_Respuesta
+¿Average cost of acquiring a new customer? Tu_Respuesta
