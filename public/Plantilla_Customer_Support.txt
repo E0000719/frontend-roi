@@ -1,0 +1,22 @@
+DIMENSION: Average Handle Time (AHT)
+==================================================
+¿Current Average Handle Time in seconds? Tu_Respuesta
+¿Target Average Handle Time in seconds? Tu_Respuesta
+¿Total monthly interactions? Tu_Respuesta
+¿Agent cost per second? Tu_Respuesta
+
+DIMENSION: First Contact Resolution (FCR)
+==================================================
+¿Total monthly interactions? Tu_Respuesta
+¿Current First Contact Resolution percentage? Tu_Respuesta
+¿Average cost per contact? Tu_Respuesta
+
+DIMENSION: Cost Per Contact
+==================================================
+¿Total operational costs of the monthly period? Tu_Respuesta
+
+DIMENSION: Quality and Customer Experience (CX)
+==================================================
+¿Number of interactions with critical failure per month? Tu_Respuesta
+¿Percentage of impact on callbacks? Tu_Respuesta
+¿Average cost per contact? Tu_Respuesta

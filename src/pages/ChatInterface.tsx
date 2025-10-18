@@ -397,9 +397,25 @@ export default function ChatInterface() {
               variant="outline" 
               size="sm"
               onClick={() => {
+                // Determine which template to download based on the system
+                let templateFile = '';
+                let templateName = '';
+                
+                if (roiSystem === 'customer_support') {
+                  templateFile = '/Plantilla_Customer_Support.txt';
+                  templateName = 'Plantilla_Customer_Support.txt';
+                } else if (roiSystem === 'legacy_takeover') {
+                  templateFile = '/Plantilla_Legacy_TakeOver.txt';
+                  templateName = 'Plantilla_Legacy_TakeOver.txt';
+                } else {
+                  // Default template
+                  templateFile = '/Plantilla_Legacy_TakeOver.txt';
+                  templateName = 'Plantilla_Legacy_TakeOver.txt';
+                }
+                
                 const link = document.createElement('a');
-                link.href = '/Plantilla_Legacy_TakeOver.txt';
-                link.download = 'Plantilla_Legacy_TakeOver.txt';
+                link.href = templateFile;
+                link.download = templateName;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
