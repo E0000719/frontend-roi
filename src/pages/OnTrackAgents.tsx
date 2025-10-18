@@ -151,7 +151,7 @@ export default function OnTrackAgents() {
                   <circle
                     className="stroke-primary"
                     strokeWidth="8"
-                    strokeDasharray={`${75 * 2.51} ${100 * 2.51}`}
+                    strokeDasharray={`${40 * 2.51} ${100 * 2.51}`}
                     strokeLinecap="round"
                     fill="transparent"
                     r="40"
@@ -161,20 +161,34 @@ export default function OnTrackAgents() {
                   />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center flex-col">
-                  <span className="text-3xl font-bold">75%</span>
+                  <span className="text-3xl font-bold">40%</span>
                   <span className="text-xs text-muted-foreground">Completed</span>
                 </div>
               </div>
-              <div className="w-full space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium">Phase 3: Department Expansion</span>
-                  <span className="text-muted-foreground">75%</span>
+              <div className="w-full space-y-3">
+                <div className="grid grid-cols-3 gap-2 text-center text-sm">
+                  <div>
+                    <div className="text-xs text-bluegrey-800 mb-1">Completed</div>
+                    <div className="text-lg font-bold text-primary">40%</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-bluegrey-800 mb-1">Expected</div>
+                    <div className="text-lg font-bold text-bluegrey-900">35%</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-bluegrey-800 mb-1">To Expected</div>
+                    <div className="text-lg font-bold text-primary">+5%</div>
+                  </div>
                 </div>
-                <Progress value={75} className="h-2" />
-                <p className="text-xs text-muted-foreground mt-2">
-                  Next milestone: Sales Department Integration<br />
-                  Due date: May 15, 2025
-                </p>
+                <div className="w-full space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-medium">Next Phase</span>
+                  </div>
+                  <Progress value={40} className="h-2" />
+                  <p className="text-xs text-bluegrey-800 mt-2">
+                    Legacy Takeover Agent Implementation
+                  </p>
+                </div>
               </div>
             </div>
           </CardContent>
