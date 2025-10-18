@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar } from "recharts";
 import { useState } from "react";
+import { MetricsCards } from "@/components/MetricsCards";
 
 const headcountReductionData = [
   { month: "Jan", actual: 320, projected: 315 },
@@ -164,6 +165,10 @@ export default function AiAdoption() {
           <h1 className="text-3xl font-bold text-foreground">360 Company AI Adoption</h1>
           <p className="text-bluegrey-900">Comprehensive AI adoption tracking</p>
         </div>
+      </div>
+
+      <div className="mb-2">
+        <MetricsCards />
       </div>
 
       {/* Headcount Reduction Tracking */}

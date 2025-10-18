@@ -5,6 +5,7 @@ import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from "@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Bar, BarChart } from "recharts";
+import { MetricsCards } from "@/components/MetricsCards";
 const headcountReductionData = [
   { month: "Jan", actual: 320, projected: 315 },
   { month: "Feb", actual: 305, projected: 300 },
@@ -300,8 +301,8 @@ export default function Home() {
           </Select>
         </div>
       </div>
-      <div className="grid grid-cols-4 mt-4 gap-2">
-        { stats.map(stat => statsCard(stat)) }
+      <div className="mt-4">
+        <MetricsCards />
       </div>
       <h2 className="text-base font-semibold mt-6">Quick access</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

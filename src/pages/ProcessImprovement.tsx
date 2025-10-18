@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MetricsCards } from "@/components/MetricsCards";
 
 const agentPerformanceData = [
   { name: "AP-Bot-01", department: "Finance", tasks: 1245, efficiency: "98.7%", status: "active" },
@@ -43,6 +44,10 @@ export default function ProcessImprovement() {
             <h1 className="text-3xl font-bold text-foreground">Continuous Process Improvement</h1>
             <p className="text-bluegrey-900">Select how you want to start improving</p>
           </div>
+        </div>
+
+        <div className="mt-2">
+          <MetricsCards />
         </div>
 
         <Card className="mt-2 main-card bg-white text-gray-900 rounded-2xl border-0 py-6 px-4">
@@ -95,6 +100,10 @@ export default function ProcessImprovement() {
           <h1 className="text-3xl font-bold text-foreground">Continuous Process Improvement</h1>
           <p className="text-bluegrey-900">Select a process to improve</p>
         </div>
+      </div>
+
+      <div className="mb-2">
+        <MetricsCards />
       </div>
 
       <Card className="main-card bg-white text-gray-900 rounded-2xl border-0">

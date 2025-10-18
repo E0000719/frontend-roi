@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Button } from "@/components/ui/button";
+import { MetricsCards } from "@/components/MetricsCards";
 
 // Total de savings de todos los departamentos de AiAdoption
 const departmentSavings = [
@@ -79,19 +80,8 @@ export default function OnTrackAgents() {
       </div>
 
       {/* Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
-        {metricsData.map((metric, index) => (
-          <Card key={index} className="main-card bg-white text-gray-900 rounded-2xl border-0">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm">{metric.label}</span>
-                <metric.icon className={`h-5 w-5 ${metric.color}`} />
-              </div>
-              <div className="text-3xl font-bold mb-1">{metric.value}</div>
-              <div className="text-xs">{metric.change}</div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="mt-2">
+        <MetricsCards />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
