@@ -44,8 +44,8 @@ export const RadialChart = ({ dimensions, data, maxValue, customColors }: Radial
         <Radar
           name="Impacto"
           dataKey="value"
-          stroke={customColors?.radarStroke || "hsl(var(--accent))"}
-          fill={customColors?.radarFill || "hsl(var(--accent))"}
+          stroke={customColors?.radarStroke || "hsl(var(--primary))"}
+          fill={customColors?.radarFill || "hsl(var(--primary))"}
           fillOpacity={0.3}
           strokeWidth={2}
         />
