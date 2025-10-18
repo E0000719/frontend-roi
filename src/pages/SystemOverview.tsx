@@ -20,26 +20,26 @@ const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
   'legacy_takeover': {
     name: 'Legacy Takeover',
     dimensions: [
-      'System Efficiency',
-      'Migration Time',
-      'Data Integrity',
-      'Cost Reduction',
-      'User Adoption',
-      'Technical Debt',
+      'Development and Maintenance Efficiency',
+      'Software Quality',
+      'Delivery Speed',
+      'Operational Costs',
+      'Satisfaction and Value',
+      'Innovation and Scalability',
     ],
   },
   'order_to_cash': {
     name: 'Agentic Order to Cash',
     dimensions: [
-      'Time to Hire',
-      'Cost per Hire',
-      'Candidate Quality',
-      'Process Efficiency',
-      'Retention Rate',
-      'Hiring Manager Satisfaction',
+      'Savings in Collection Management Costs',
+      'Reducing Errors in Billing and Processing',
+      'Improved Collection Speed and DSO Reduction',
+      'Optimizing Order Processing and Billing',
+      'Reduction in Dispute Management and Reconciliation',
+      'Improved Customer Experience and Retention',
     ],
   },
-  'customer-support': {
+  'customer_support': {
     name: 'Agentic Customer Support',
     dimensions: [
       'Response Time',
