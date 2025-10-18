@@ -1,63 +1,21 @@
-import { FileText, Wrench, DollarSign, Headphones, Eye, FileCheck, ShoppingCart, Cpu, Globe, Bot } from "lucide-react";
+import { Headphones, ShoppingCart, Bot } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 
 const modules = [
   {
-    title: "Legacy Takeover",
-    subtitle: "Takeover",
-    icon: Wrench,
-    description: "Modernize legacy systems",
-    route: "legacy_takeover"
-  },
-  {
-    title: "Agentic Cost to Hire",
-    subtitle: "Cost to Hire",
-    icon: DollarSign,
-    description: "Optimize hiring costs",
-    route: "order_to_cash"
-  },
-  {
-    title: "Agentic Customer Support",
-    subtitle: "Customer Support",
-    icon: Headphones,
-    description: "AI-powered support",
-    route: "customer-support"
-  },
-  {
-    title: "Real Time Insights",
-    subtitle: "Insights",
-    icon: Eye,
-    description: "Live analytics",
-    route: "insights"
-  },
-  {
-    title: "Contract Management Compliance",
-    subtitle: "Compliance",
-    icon: FileCheck,
-    description: "Manage contracts",
-    route: "compliance"
-  },
-  {
-    title: "Agentic Order to Cash",
+    title: "Order to Cash",
     subtitle: "Order to Cash",
     icon: ShoppingCart,
     description: "Streamline O2C",
-    route: "order-to-cash"
+    route: "order_to_cash"
   },
   {
-    title: "Physical AI",
-    subtitle: "AI",
-    icon: Cpu,
-    description: "Physical automation",
-    route: "physical-ai"
-  },
-  {
-    title: "Web Interface Takeover",
-    subtitle: "Takeover",
-    icon: Globe,
-    description: "Web automation",
-    route: "web-takeover"
+    title: "Customer Support",
+    subtitle: "Customer Support",
+    icon: Headphones,
+    description: "AI-powered support",
+    route: "customer_support"
   }
 ];
 
