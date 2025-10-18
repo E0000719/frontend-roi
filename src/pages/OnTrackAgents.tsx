@@ -238,7 +238,7 @@ export default function OnTrackAgents() {
       {/* Project Dashboard */}
       <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
-          <CardTitle>Project Implementation Dashboard</CardTitle>
+          <CardTitle>Implementation of New Agents with Risks and Issues Status</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
