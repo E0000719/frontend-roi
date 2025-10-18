@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MetricsCards } from "@/components/MetricsCards";
+import { setRoiSystem } from "@/utils/sessionStorage";
 
 const agentPerformanceData = [
   { name: "Legacy Core Banking", agentType: "Legacy Systems Takeover", version: "1.2", department: "Operations Management", taskCompleted: 54, currentSavingsMM: 0.09, targetSavingsMM: 0.2, percentageToTarget: "45.00%" },
@@ -18,8 +19,19 @@ export default function ProcessImprovement() {
   const [selectedProcess, setSelectedProcess] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const handleProcessSelect = (processName: string) => {
-    setSelectedProcess(processName);
+  const handleProcessSelect = (processName: string, department: string) => {
+    // Map department to roi_system
+    const departmentToSystem: { [key: string]: string } = {
+      "Operations Management": "order_to_cash",
+      "Customer Service": "customer_support"
+    };
+    
+    const roiSystem = departmentToSystem[department];
+    
+    if (roiSystem) {
+      setRoiSystem(roiSystem);
+      navigate(`/${roiSystem}/select-agent`);
+    }
   };
 
   const handleStartOption = (option: string) => {
@@ -134,7 +146,7 @@ export default function ProcessImprovement() {
                   <TableRow
                     key={agent.name}
                     className="cursor-pointer hover:bg-accent/5"
-                    onClick={() => handleProcessSelect(agent.name)}
+                    onClick={() => handleProcessSelect(agent.name, agent.department)}
                   >
                     <TableCell className="font-medium">{index + 1}. {agent.name}</TableCell>
                     <TableCell>{agent.agentType}</TableCell>
