@@ -83,6 +83,15 @@ export default function ChatInterface() {
   const roiType = getRoiType();
   const dimensions = getRoiDimensions();
 
+  // System name mapping
+  const systemNames: Record<string, string> = {
+    'order_to_cash': 'Agentic Order to Cash',
+    'customer_support': 'Agentic Customer Support',
+    'legacy_takeover': 'Legacy Takeover',
+  };
+
+  const displayName = system ? (systemNames[system] || system) : '';
+
   useEffect(() => {
     if (!roiSystem || !roiType || !system) {
       toast.error('Session data missing. Please start from the beginning.');
@@ -388,7 +397,7 @@ export default function ChatInterface() {
         </div>
       </div>
       <div className="flex items-center cursor-pointer font-bold text-lg mt-8" onClick={() => navigate(-1)}>
-        <ArrowLeft /> <span className='ml-3'>{system}</span>
+        <ArrowLeft /> <span className='ml-3'>{displayName}</span>
       </div>
       <div className="flex items-center justify-between">    
         <div className="flex items-center gap-2">
