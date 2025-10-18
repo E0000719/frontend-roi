@@ -484,20 +484,6 @@ export default function AiAdoption() {
         </Card>
       )}
 
-      {/* Total Annual Cost Savings */}
-      <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">
-        <CardContent className="p-8">
-          <div className="text-center">
-            <div className="text-sm text-bluegrey-900 mb-2">Total Annual Cost Savings</div>
-            <div className="text-5xl font-bold text-primary mb-2">
-              ${(totalSavings / 1000000).toFixed(3).replace(/\.?0+$/, '')}M
-            </div>
-            <div className="text-sm text-bluegrey-900">
-              (133 agents deployed saving of ${(totalSavings / 133).toLocaleString()}/year each)
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }
