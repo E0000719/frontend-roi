@@ -202,14 +202,14 @@ export default function SystemOverview() {
           
           {/* Client Net Savings - Only shown in future projection */}
           {showFutureProjection && tco_global.ahorro_neto_cliente_total && (
-            <div className="mt-6 p-6 bg-accent/10 rounded-xl border border-accent/20">
-              <p className="text-sm font-semibold text-muted-foreground mb-2">
+            <div className="mt-6 p-6 bg-emerald-50 rounded-xl border border-emerald-200">
+              <p className="text-sm font-semibold text-gray-600 mb-2">
                 Your Net Savings with AI Implementation
               </p>
-              <p className="text-5xl font-extrabold text-accent">
+              <p className="text-5xl font-extrabold text-emerald-600">
                 {formatCurrency(tco_global.ahorro_neto_cliente_total)}
               </p>
-              <p className="text-sm font-medium text-muted-foreground mt-2">
+              <p className="text-sm font-medium text-gray-600 mt-2">
                 annually projected
               </p>
             </div>
