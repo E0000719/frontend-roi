@@ -1,19 +1,21 @@
-import { Headphones, ShoppingCart, Bot } from "lucide-react";
+import { Bot } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import OrderToCash from "@/components/icons/OrderToCash";
+import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
 
 const modules = [
   {
     title: "Order to Cash",
     subtitle: "Order to Cash",
-    icon: ShoppingCart,
+    icon: OrderToCash,
     description: "Streamline O2C",
     route: "order_to_cash"
   },
   {
     title: "Customer Support",
     subtitle: "Customer Support",
-    icon: Headphones,
+    icon: AgenticCustomerITSupport,
     description: "AI-powered support",
     route: "customer_support"
   }
@@ -62,10 +64,10 @@ export default function RoiBusinessCase() {
                   </div>
                 </div>
                 <CardTitle className="text-2xl font-semibold text-foreground leading-tight mt-6">
-                  {module.title.split(' ')[0]}
+                  {module.title}
                 </CardTitle>
                 <CardDescription className="text-bluegrey-900 text-sm font-normal">
-                  {module.subtitle || module.title.split(' ').slice(1).join(' ')}
+                  {module.description}
                 </CardDescription>
               </CardHeader>
             </Card>
