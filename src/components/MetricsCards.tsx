@@ -46,7 +46,7 @@ const metricsData: MetricCardData[] = [
     title: "Agents Deployed",
     label: "",
     value: "12",
-    footer: "",
+    footer: "3 this quarter",
   },
   {
     type: "single",
