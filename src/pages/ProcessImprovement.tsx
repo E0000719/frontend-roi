@@ -8,11 +8,10 @@ import { Button } from "@/components/ui/button";
 import { MetricsCards } from "@/components/MetricsCards";
 
 const agentPerformanceData = [
-  { name: "AP-Bot-01", department: "Finance", tasks: 1245, efficiency: "98.7%", status: "active" },
-  { name: "HR-Assistant-03", department: "Human Resources", tasks: 876, efficiency: "95.2%", status: "active" },
-  { name: "Support-Agent-12", department: "Customer Service", tasks: 2341, efficiency: "97.8%", status: "active" },
-  { name: "Sales-Assistant-05", department: "Sales", tasks: 543, efficiency: "92.1%", status: "maintenance" },
-  { name: "IT-Support-02", department: "IT", tasks: 1087, efficiency: "99.3%", status: "active" },
+  { name: "Legacy Core Banking", agentType: "Legacy Systems Takeover", version: "1.2", department: "Operations Management", taskCompleted: 54, currentSavingsMM: 0.09, targetSavingsMM: 0.2, percentageToTarget: "45.00%" },
+  { name: "CV in Bank Branches", agentType: "Real Time Insights", version: "2", department: "Operations Management", taskCompleted: 1254, currentSavingsMM: 0.24, targetSavingsMM: 0.3, percentageToTarget: "80.00%" },
+  { name: "IT Service Desk", agentType: "Agentic Customer & IT Support", version: "0.5", department: "Operations Management", taskCompleted: 300, currentSavingsMM: 0.12, targetSavingsMM: 0.6, percentageToTarget: "20.00%" },
+  { name: "Call Center", agentType: "Agentic Customer & IT Support", version: "0.4", department: "Customer Service", taskCompleted: 124, currentSavingsMM: 0.1, targetSavingsMM: 0.8, percentageToTarget: "12.50%" },
 ];
 
 export default function ProcessImprovement() {
@@ -120,29 +119,31 @@ export default function ProcessImprovement() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="text-gray-900">Agent Name</TableHead>
-                  <TableHead className="text-gray-900">Department</TableHead>
-                  <TableHead className="text-gray-900">Tasks Completed</TableHead>
-                  <TableHead className="text-gray-900">Efficiency</TableHead>
-                  <TableHead className="text-gray-900">Status</TableHead>
+                  <TableHead className="text-bluegrey-900">Agent Name</TableHead>
+                  <TableHead className="text-bluegrey-900">Agent Type</TableHead>
+                  <TableHead className="text-bluegrey-900">Version</TableHead>
+                  <TableHead className="text-bluegrey-900">Department</TableHead>
+                  <TableHead className="text-bluegrey-900">Task Completed</TableHead>
+                  <TableHead className="text-bluegrey-900">Current Savings MM</TableHead>
+                  <TableHead className="text-bluegrey-900">Target Savings MM</TableHead>
+                  <TableHead className="text-bluegrey-900">Percentage to Target</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {agentPerformanceData.map((agent) => (
+                {agentPerformanceData.map((agent, index) => (
                   <TableRow
                     key={agent.name}
                     className="cursor-pointer hover:bg-accent/5"
                     onClick={() => handleProcessSelect(agent.name)}
                   >
-                    <TableCell className="font-medium">{agent.name}</TableCell>
+                    <TableCell className="font-medium">{index + 1}. {agent.name}</TableCell>
+                    <TableCell>{agent.agentType}</TableCell>
+                    <TableCell>{agent.version}</TableCell>
                     <TableCell>{agent.department}</TableCell>
-                    <TableCell>{agent.tasks.toLocaleString()}</TableCell>
-                    <TableCell>{agent.efficiency}</TableCell>
-                    <TableCell>
-                      <Badge variant={agent.status === "active" ? "default" : "secondary"}>
-                        {agent.status === "active" ? "Active" : "Maintenance"}
-                      </Badge>
-                    </TableCell>
+                    <TableCell>{agent.taskCompleted}</TableCell>
+                    <TableCell>{agent.currentSavingsMM}</TableCell>
+                    <TableCell>{agent.targetSavingsMM}</TableCell>
+                    <TableCell>{agent.percentageToTarget}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
