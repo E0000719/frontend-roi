@@ -59,9 +59,9 @@ const metricsData: MetricCardData[] = [
 
 export function MetricsCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-2">
+    <div className="flex flex-col lg:flex-row gap-2">
       {metricsData.map((metric, index) => (
-        <Card key={index} className={`main-card bg-white text-gray-900 rounded-2xl border-0 ${metric.type === "dual" ? "lg:col-span-2" : "lg:col-span-1"}`}>
+        <Card key={index} className={`main-card bg-white text-gray-900 rounded-2xl border-0 ${metric.type === "dual" ? "lg:w-[23%]" : "lg:w-[18%]"} flex-1 lg:flex-none`}>
           <CardContent className="p-6 flex flex-col items-center justify-center h-full">
             
             {metric.type === "dual" ? (
