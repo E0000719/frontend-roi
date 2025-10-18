@@ -350,9 +350,9 @@ export default function AiAdoption() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <CardTitle>Headcount Reduction Tracking</CardTitle>
+              <CardTitle>{selectedDimension}</CardTitle>
               <p className="text-sm text-bluegrey-900 mt-1">
-                Monitor and predict headcount reduction trends
+                {currentDimensionData.description}
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -375,15 +375,6 @@ export default function AiAdoption() {
           </div>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="mb-4">
-            <div className="text-sm text-bluegrey-900 mb-2">
-              <span className="font-semibold">Selected Metric:</span> {selectedDimension}
-            </div>
-            <div className="text-sm text-bluegrey-900">
-              <span className="font-semibold">Description:</span> {currentDimensionData.description}
-            </div>
-          </div>
-
           <div>
             <ResponsiveContainer width="100%" height={350}>
               <LineChart data={currentDimensionData.data}>
