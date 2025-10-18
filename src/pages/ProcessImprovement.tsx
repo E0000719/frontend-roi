@@ -30,7 +30,7 @@ export default function ProcessImprovement() {
     
     if (roiSystem) {
       setRoiSystem(roiSystem);
-      navigate(`/${roiSystem}/select-agent`);
+      navigate(`/roi-business-case/${roiSystem}/select-agent`);
     }
   };
 
