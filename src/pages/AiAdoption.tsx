@@ -46,7 +46,7 @@ const dimensionsData = {
     ]
   },
   "Human Error": {
-    unit: "%",
+    unit: "Percentage",
     description: "Evaluates decreases in mistakes or inaccuracies due to AI-driven processes",
     data: [
       { month: "Jan", current: -1, expected: -1.05 },
@@ -100,7 +100,7 @@ const dimensionsData = {
     ]
   },
   "User Adoption": {
-    unit: "%",
+    unit: "Percentage",
     description: "Reflects how quickly and widely employees or customers embrace AI tools",
     data: [
       { month: "Jan", current: 5, expected: 5.25 },
@@ -118,7 +118,7 @@ const dimensionsData = {
     ]
   },
   "System Efficiency": {
-    unit: "%",
+    unit: "Percentage",
     description: "Gauges performance improvements in workflows, processing speed, and resource use from AI integration",
     data: [
       { month: "Jan", current: 2, expected: 2.1 },
@@ -172,7 +172,7 @@ const dimensionsData = {
     ]
   },
   "Customer Satisfaction": {
-    unit: "%",
+    unit: "Percentage",
     description: "Measures overall improvement in client experience and satisfaction due to AI-enabled enhancements",
     data: [
       { month: "Jan", current: 2, expected: 2.1 },
