@@ -61,7 +61,7 @@ export function MetricsCards() {
   return (
     <div className="flex flex-col lg:flex-row gap-2">
       {metricsData.map((metric, index) => (
-        <Card key={index} className={`main-card bg-white text-gray-900 rounded-2xl border-0 ${metric.type === "dual" ? "lg:w-[23%]" : "lg:w-[18%]"} flex-1 lg:flex-none`}>
+        <Card key={index} className={`main-card bg-white text-gray-900 rounded-2xl border border-primary ${metric.type === "dual" ? "lg:w-[23%]" : "lg:w-[18%]"} flex-1 lg:flex-none`}>
           <CardContent className="p-6 flex flex-col items-center justify-center h-full">
             
             {metric.type === "dual" ? (
