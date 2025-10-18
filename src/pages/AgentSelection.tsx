@@ -20,6 +20,13 @@ export default function AgentSelection() {
   const [primarySector, setPrimarySector] = useState('');
   const [secondarySectors, setSecondarySectors] = useState<string[]>([]);
 
+  const systemNames: Record<string, string> = {
+    'order_to_cash': 'Order to Cash',
+    'customer_support': 'Agentic Customer Support'
+  };
+
+  const displayName = system ? systemNames[system] || system : '';
+
   const sectors = [
     { value: 'tecnologia', label: 'Technology' },
     { value: 'finanzas', label: 'Finance' },
@@ -79,7 +86,7 @@ export default function AgentSelection() {
         </div>
       </div>
       <div className="flex items-center cursor-pointer font-bold text-lg mt-8" onClick={() => navigate(-1)}>
-        <ArrowLeft /> <span className='ml-3'> {system} </span>
+        <ArrowLeft /> <span className='ml-3'> {displayName} </span>
       </div>
 
         <h3 className="text-2xl font-bold text-gray-900 mt-8">
