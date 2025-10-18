@@ -19,18 +19,18 @@ const metricsData: MetricCardData[] = [
   {
     type: "dual",
     title: "Current ROI / Savings",
-    leftLabel: "Total ROI",
+    leftLabel: "Current ROI",
     leftValue: "140%",
-    rightLabel: "Total Cost Saving",
+    rightLabel: "Savings",
     rightValue: "2.4M",
     footer: "5% vs Expected",
   },
   {
     type: "dual",
     title: "Target ROI / Savings",
-    leftLabel: "Total ROI",
+    leftLabel: "Target ROI",
     leftValue: "140%",
-    rightLabel: "Total Cost Saving",
+    rightLabel: "Savings",
     rightValue: "2.4M",
     footer: "",
   },
@@ -59,34 +59,40 @@ const metricsData: MetricCardData[] = [
 
 export function MetricsCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-2">
       {metricsData.map((metric, index) => (
-        <Card key={index} className="main-card bg-white text-gray-900 rounded-2xl border-0">
-          <CardContent className="p-6">
-            <div className="text-sm text-bluegrey-900 mb-4">{metric.title}</div>
+        <Card key={index} className={`main-card bg-white text-gray-900 rounded-2xl border-0 ${metric.type === "dual" ? "lg:col-span-2" : "lg:col-span-1"}`}>
+          <CardContent className="p-6 flex flex-col items-center justify-center h-full">
             
             {metric.type === "dual" ? (
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <div className="text-xs text-bluegrey-800 mb-1">{metric.leftLabel}</div>
-                  <div className="text-2xl font-bold">{metric.leftValue}</div>
+              <>
+                <div className="grid grid-cols-2 gap-6 w-full mb-4">
+                  <div className="flex flex-col items-center justify-center text-center">
+                    <div className="text-sm text-bluegrey-900 mb-2">{metric.leftLabel}</div>
+                    <div className="text-3xl font-bold text-primary">{metric.leftValue}</div>
+                  </div>
+                  <div className="flex flex-col items-center justify-center text-center">
+                    <div className="text-sm text-bluegrey-900 mb-2">{metric.rightLabel}</div>
+                    <div className="text-3xl font-bold text-primary">{metric.rightValue}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-bluegrey-800 mb-1">{metric.rightLabel}</div>
-                  <div className="text-2xl font-bold">{metric.rightValue}</div>
-                </div>
-              </div>
-            ) : (
-              <div className="mb-4">
-                {metric.label && (
-                  <div className="text-xs text-bluegrey-800 mb-1">{metric.label}</div>
+                {metric.footer && (
+                  <div className="text-xs text-bluegrey-800 text-center">{metric.footer}</div>
                 )}
-                <div className="text-3xl font-bold">{metric.value}</div>
-              </div>
-            )}
-            
-            {metric.footer && (
-              <div className="text-xs text-bluegrey-800">{metric.footer}</div>
+              </>
+            ) : (
+              <>
+                <div className="text-sm text-bluegrey-900 mb-3 text-center">{metric.title}</div>
+                <div className="mb-3 flex flex-col items-center justify-center">
+                  {metric.label && (
+                    <div className="text-xs text-bluegrey-800 mb-2 text-center">{metric.label}</div>
+                  )}
+                  <div className="text-4xl font-bold text-primary">{metric.value}</div>
+                </div>
+                {metric.footer && (
+                  <div className="text-xs text-bluegrey-800 text-center">{metric.footer}</div>
+                )}
+              </>
             )}
           </CardContent>
         </Card>
