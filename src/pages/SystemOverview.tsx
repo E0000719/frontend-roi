@@ -199,6 +199,21 @@ export default function SystemOverview() {
           <p className="text-muted-foreground">
             annually{showFutureProjection ? ' projected' : ''}. This process considers the following dimension breakdown:
           </p>
+          
+          {/* Client Net Savings - Only shown in future projection */}
+          {showFutureProjection && tco_global.ahorro_neto_cliente_total && (
+            <div className="mt-6 p-6 bg-accent/10 rounded-xl border border-accent/20">
+              <p className="text-sm text-muted-foreground mb-2">
+                Client Net Savings (ROI)
+              </p>
+              <p className="text-3xl font-bold text-accent">
+                {formatCurrency(tco_global.ahorro_neto_cliente_total)}
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                annually projected
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
