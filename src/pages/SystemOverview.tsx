@@ -190,13 +190,13 @@ export default function SystemOverview() {
       <div className="space-y-8">
         {/* Total TCO - Centered top */}
         <div className="text-center">
-          <p className="text-muted-foreground mb-2">
+          <p className="text-gray-600 mb-2">
             {showFutureProjection ? 'The future projection of the process has a' : 'The associated process has a'}
           </p>
-          <p className="text-4xl font-bold text-foreground mb-2">
+          <p className="text-4xl font-bold text-gray-900 mb-2">
             TCO of {formatCurrency(currentGlobalTco)}
           </p>
-          <p className="text-muted-foreground">
+          <p className="text-gray-600">
             annually{showFutureProjection ? ' projected' : ''}. This process considers the following dimension breakdown:
           </p>
           
@@ -224,27 +224,34 @@ export default function SystemOverview() {
                 dimensions={dimensionNames} 
                 data={dimensionTcoValues}
                 maxValue={maxScaleValue}
+                customColors={{
+                  grid: "#d1d5db",
+                  axis: "#1f2937",
+                  axisLabel: "#6b7280",
+                  radarStroke: "#10b981",
+                  radarFill: "#10b981"
+                }}
               />
             </div>
           </div>
 
           {/* Dimension Legend */}
           <div className="flex flex-col justify-center space-y-3">
-            <h3 className="text-lg font-semibold text-foreground mb-2">Dimension Legend</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Dimension Legend</h3>
             <div className="space-y-3">
               {dimensionNames.map((name: string, index: number) => {
                 const dimension = dimensions.find((d: any) => d.dimension_name === name);
                 const tcoValue = showFutureProjection ? dimension?.future_tco : dimension?.current_tco;
                 const percentage = (tcoValue / currentGlobalTco) * 100;
                 return (
-                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-sm">
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">
                       {index + 1}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-foreground text-sm leading-tight">{name}</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        TCO: <span className="font-semibold text-accent">{formatCurrency(tcoValue || 0)}</span>
+                      <p className="font-medium text-gray-900 text-sm leading-tight">{name}</p>
+                      <p className="text-xs text-gray-600 mt-1">
+                        TCO: <span className="font-semibold text-emerald-600">{formatCurrency(tcoValue || 0)}</span>
                         {' '}({formatPercentage(percentage)})
                       </p>
                     </div>
