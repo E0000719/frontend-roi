@@ -235,21 +235,276 @@ export default function OnTrackAgents() {
         </CardContent>
       </Card>
 
-      {/* Department Breakdown */}
+      {/* Project Dashboard */}
       <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
-          <CardTitle>Department Breakdown</CardTitle>
+          <CardTitle>Project Implementation Dashboard</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {departmentBreakdown.map((dept) => (
-            <div key={dept.name} className="space-y-2">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-medium">{dept.name}</span>
-                <span className="text-muted-foreground">{dept.progress}%</span>
-              </div>
-              <Progress value={dept.progress} className="h-2" />
-            </div>
-          ))}
+        <CardContent>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="border border-gray-300 bg-gray-100 p-4 text-left font-semibold">Project</th>
+                  <th className="border border-gray-300 bg-blue-200 p-4 text-center font-semibold">Legacy Java</th>
+                  <th className="border border-gray-300 bg-cyan-200 p-4 text-center font-semibold">Cloud IT Support</th>
+                  <th className="border border-gray-300 bg-green-200 p-4 text-center font-semibold">On-Prem IT Support</th>
+                  <th className="border border-gray-300 bg-yellow-200 p-4 text-center font-semibold">Supply Change Automation</th>
+                  <th className="border border-gray-300 bg-orange-200 p-4 text-center font-semibold">HR Avatar Agents</th>
+                  <th className="border border-gray-300 bg-blue-200 p-4 text-center font-semibold">Legacy Core Banking 2.0</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* KPI Row */}
+                <tr>
+                  <td className="border border-gray-300 bg-gray-100 p-4 font-semibold">KPI ▼</td>
+                  <td className="border border-gray-300 p-4 text-sm">
+                    <div>Start: 6-Jan-26</div>
+                    <div className="font-semibold">End: 24-Sep-26</div>
+                  </td>
+                  <td className="border border-gray-300 p-4 text-sm">
+                    <div>Start: 2-Jan-26</div>
+                    <div className="font-semibold">End: 24-Mar-26</div>
+                  </td>
+                  <td className="border border-gray-300 p-4 text-sm">
+                    <div>Start: 2-Jan-26</div>
+                    <div className="font-semibold">End: 24-Sep-26</div>
+                  </td>
+                  <td className="border border-gray-300 p-4 text-sm">
+                    <div>Start: 3-Apr-26</div>
+                    <div className="font-semibold">End: 24-Sep-26</div>
+                  </td>
+                  <td className="border border-gray-300 p-4 text-sm">
+                    <div>Start: 19-Jan-26</div>
+                    <div className="font-semibold">End: 17-Aug-26</div>
+                  </td>
+                  <td className="border border-gray-300 p-4 text-sm">
+                    <div>Start: 21-Jan-26</div>
+                    <div className="font-semibold">End: 11-Aug-26</div>
+                  </td>
+                </tr>
+                
+                {/* Progress Row */}
+                <tr>
+                  <td className="border border-gray-300 bg-gray-100 p-4 font-semibold">Progress</td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="relative w-20 h-20">
+                        <svg className="w-full h-full" viewBox="0 0 100 100">
+                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-blue-900" strokeWidth="8" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">40%</div>
+                      </div>
+                      <span className="text-xs text-gray-600">2/13 in Progress</span>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="relative w-20 h-20">
+                        <svg className="w-full h-full" viewBox="0 0 100 100">
+                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-cyan-500" strokeWidth="8" strokeDasharray={`${25 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">25%</div>
+                      </div>
+                      <span className="text-xs text-gray-600">5/11 in Progress</span>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="relative w-20 h-20">
+                        <svg className="w-full h-full" viewBox="0 0 100 100">
+                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-green-600" strokeWidth="8" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">40%</div>
+                      </div>
+                      <span className="text-xs text-gray-600">2/13 in Progress</span>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="relative w-20 h-20">
+                        <svg className="w-full h-full" viewBox="0 0 100 100">
+                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-yellow-500" strokeWidth="8" strokeDasharray={`${12 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">12%</div>
+                      </div>
+                      <span className="text-xs text-gray-600">1/7 in Progress</span>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="relative w-20 h-20">
+                        <svg className="w-full h-full" viewBox="0 0 100 100">
+                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-orange-500" strokeWidth="8" strokeDasharray={`${55 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">55%</div>
+                      </div>
+                      <span className="text-xs text-gray-600">3/9 in Progress</span>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="relative w-20 h-20">
+                        <svg className="w-full h-full" viewBox="0 0 100 100">
+                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-blue-900" strokeWidth="8" strokeDasharray={`${22 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">22%</div>
+                      </div>
+                      <span className="text-xs text-gray-600">4/11 in Progress</span>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Planned vs Actual Hours */}
+                <tr>
+                  <td className="border border-gray-300 bg-gray-100 p-4 font-semibold">Planned Vs<br/>Actual<br/>Hours</td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex items-end justify-center gap-2 h-24">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-blue-900" style={{height: '60px'}}></div>
+                        <span className="text-xs">30.5</span>
+                        <span className="text-xs text-gray-600">Planned</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-blue-400" style={{height: '50px'}}></div>
+                        <span className="text-xs">25.1</span>
+                        <span className="text-xs text-gray-600">Actual</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex items-end justify-center gap-2 h-24">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-cyan-600" style={{height: '52px'}}></div>
+                        <span className="text-xs">25.8</span>
+                        <span className="text-xs text-gray-600">Planned</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-cyan-300" style={{height: '42px'}}></div>
+                        <span className="text-xs">20.8</span>
+                        <span className="text-xs text-gray-600">Actual</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex items-end justify-center gap-2 h-24">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-green-700" style={{height: '64px'}}></div>
+                        <span className="text-xs">31.8</span>
+                        <span className="text-xs text-gray-600">Planned</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-green-400" style={{height: '50px'}}></div>
+                        <span className="text-xs">24.8</span>
+                        <span className="text-xs text-gray-600">Actual</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex items-end justify-center gap-2 h-24">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-yellow-600" style={{height: '50px'}}></div>
+                        <span className="text-xs">25</span>
+                        <span className="text-xs text-gray-600">Planned</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-yellow-300" style={{height: '20px'}}></div>
+                        <span className="text-xs">10</span>
+                        <span className="text-xs text-gray-600">Actual</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex items-end justify-center gap-2 h-24">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-orange-600" style={{height: '30px'}}></div>
+                        <span className="text-xs">15.2</span>
+                        <span className="text-xs text-gray-600">Planned</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-orange-300" style={{height: '41px'}}></div>
+                        <span className="text-xs">20.5</span>
+                        <span className="text-xs text-gray-600">Actual</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="flex items-end justify-center gap-2 h-24">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-blue-900" style={{height: '53px'}}></div>
+                        <span className="text-xs">26.5</span>
+                        <span className="text-xs text-gray-600">Planned</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-12 bg-blue-400" style={{height: '51px'}}></div>
+                        <span className="text-xs">25.5</span>
+                        <span className="text-xs text-gray-600">Actual</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Risks & Issues */}
+                <tr>
+                  <td className="border border-gray-300 bg-gray-100 p-4 font-semibold">Risks & Issues</td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Extreem</span><div className="flex-1 bg-blue-900 h-4 flex items-center justify-end px-1 text-white">2</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">High</span><div className="flex-1 bg-blue-400 h-4 flex items-center justify-end px-1">2</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Medium</span><div className="flex-1 bg-blue-200 h-4 flex items-center justify-end px-1">4</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Low</span></div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Extreem</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">High</span><div className="flex-1 bg-cyan-500 h-4 flex items-center justify-end px-1 text-white">2</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Medium</span><div className="flex-1 bg-cyan-300 h-4 flex items-center justify-end px-1">2</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Low</span><div className="flex-1 bg-cyan-100 h-4 flex items-center justify-end px-1">4</div></div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Extreem</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">High</span><div className="flex-1 bg-green-700 h-4 flex items-center justify-end px-1 text-white">1</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Medium</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Low</span><div className="flex-1 bg-green-300 h-4 flex items-center justify-end px-1">2</div></div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Extreem</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">High</span><div className="flex-1 bg-yellow-500 h-4 flex items-center justify-end px-1">2</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Medium</span><div className="flex-1 bg-yellow-300 h-4 flex items-center justify-end px-1">3</div></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Low</span><div className="flex-1 bg-yellow-100 h-4 flex items-center justify-end px-1">2</div></div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Extreem</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">High</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Medium</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Low</span></div>
+                    </div>
+                  </td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Extreem</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">High</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Medium</span></div>
+                      <div className="flex items-center gap-2"><span className="text-gray-600">Low</span></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </CardContent>
       </Card>
     </div>
