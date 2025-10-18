@@ -356,6 +356,9 @@ export default function AiAdoption() {
               </p>
             </div>
             <div className="flex items-center gap-4">
+              <label className="text-sm font-medium text-foreground">
+                Dimension:
+              </label>
               <Select value={selectedDimension} onValueChange={setSelectedDimension}>
                 <SelectTrigger className="w-[280px]">
                   <SelectValue placeholder="Select dimension" />
