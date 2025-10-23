@@ -13,6 +13,7 @@ interface MetricCardData {
   value?: string;
   // Common
   footer?: string;
+  classStyle?: string;
 }
 
 const metricsData: MetricCardData[] = [
@@ -24,6 +25,7 @@ const metricsData: MetricCardData[] = [
     rightLabel: "Savings",
     rightValue: "2.4M",
     footer: "5% vs Expected",
+    classStyle: "bg-blue-200",
   },
   {
     type: "dual",
@@ -33,6 +35,7 @@ const metricsData: MetricCardData[] = [
     rightLabel: "Savings",
     rightValue: "2.4M",
     footer: "",
+    classStyle: "bg-green-100",
   },
   {
     type: "single",
@@ -40,6 +43,7 @@ const metricsData: MetricCardData[] = [
     label: "Investment to date",
     value: "0.989M",
     footer: "until 12/30/25",
+    classStyle: "bg-pink-500",
   },
   {
     type: "single",
@@ -47,6 +51,7 @@ const metricsData: MetricCardData[] = [
     label: "",
     value: "12",
     footer: "3 this quarter",
+    classStyle: "bg-warning-200",
   },
   {
     type: "single",
@@ -54,6 +59,7 @@ const metricsData: MetricCardData[] = [
     label: "",
     value: "37.80 %",
     footer: "5.5% vs Last Month",
+    classStyle: "bg-blue-200",
   },
 ];
 
@@ -61,19 +67,19 @@ export function MetricsCards() {
   return (
     <div className="flex flex-col lg:flex-row gap-2 w-full">
       {metricsData.map((metric, index) => (
-        <Card key={index} className={`main-card bg-white text-gray-900 rounded-2xl border border-primary ${metric.type === "dual" ? "lg:flex-[23]" : "lg:flex-[18]"} flex-1`}>
+        <Card key={index} className={`main-card bg-bluegrey-200 text-gray-900 rounded-2xl ${metric.type === "dual" ? "lg:flex-[23]" : "lg:flex-[18]"} flex-1`}>
           <CardContent className="p-6 flex flex-col items-center justify-center h-full">
             
             {metric.type === "dual" ? (
               <>
                 <div className="grid grid-cols-2 gap-6 w-full mb-4">
                   <div className="flex flex-col items-center justify-center text-center">
-                    <div className="text-sm text-bluegrey-900 mb-2">{metric.leftLabel}</div>
-                    <div className="text-3xl font-bold text-primary">{metric.leftValue}</div>
+                    <div className={`text-xs text-bluegrey-900 mb-2 bg-blue-200 p-1 font-jetbrains rounded-md ${metric.classStyle}`}>{metric.leftLabel}</div>
+                    <div className="text-3xl font-bold">{metric.leftValue}</div>
                   </div>
                   <div className="flex flex-col items-center justify-center text-center">
-                    <div className="text-sm text-bluegrey-900 mb-2">{metric.rightLabel}</div>
-                    <div className="text-3xl font-bold text-primary">{metric.rightValue}</div>
+                    <div className={`text-xs text-bluegrey-900 mb-2 bg-blue-200 p-1 font-jetbrains rounded-md ${metric.classStyle}`}>{metric.rightLabel}</div>
+                    <div className="text-3xl font-bold">{metric.rightValue}</div>
                   </div>
                 </div>
                 {metric.footer && (
@@ -82,12 +88,12 @@ export function MetricsCards() {
               </>
             ) : (
               <>
-                <div className="text-sm text-bluegrey-900 mb-3 text-center">{metric.title}</div>
+                <div className={`text-sm text-bluegrey-900 mb-3 text-center p-1 font-jetbrains rounded-md ${metric.classStyle}`}>{metric.title}</div>
                 <div className="mb-3 flex flex-col items-center justify-center">
                   {metric.label && (
                     <div className="text-xs text-bluegrey-800 mb-2 text-center">{metric.label}</div>
                   )}
-                  <div className="text-4xl font-bold text-primary">{metric.value}</div>
+                  <div className="text-4xl font-bold">{metric.value}</div>
                 </div>
                 {metric.footer && (
                   <div className="text-xs text-bluegrey-800 text-center">{metric.footer}</div>

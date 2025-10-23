@@ -188,7 +188,7 @@ function quickCard(module) {
   }
 
   return (
-    <div className="bg-bluegrey-100 rounded-lg p-4 cursor-pointer" key={module.title} onClick={gotoLink(module.to)}>
+    <div className="bg-bluegrey-200 rounded-lg p-4 cursor-pointer" key={module.title} onClick={gotoLink(module.to)}>
       <div className="flex items-center gap-2">
         <div className="bg-bluegrey-200 p-2 rounded-xl size-10">
           <module.icon className={`size-6`} />
@@ -215,7 +215,7 @@ function moduleCard(module) {
   }
 
   return (
-    <div className="bg-bluegrey-100 rounded-lg p-4 cursor-pointer" key={module.title} onClick={gotoLink(module.to)}>
+    <div className="bg-bluegrey-200 rounded-lg p-4 cursor-pointer" key={module.title} onClick={gotoLink(module.to)}>
       <div className="flex items-center gap-2">
         <div className="bg-bluegrey-200 p-2 rounded-xl size-10">
           <img src={module.iconSrc} alt={`${module.title} icon`} className="size-6" />
@@ -239,7 +239,7 @@ function moduleCard(module) {
   
 function insightsCard(insight) {
   return (
-    <div className="bg-bluegrey-100 rounded-lg p-4 cursor-pointer" key={insight.title}>
+    <div className="bg-bluegrey-200 rounded-lg p-4 cursor-pointer" key={insight.title}>
       <div className="flex items-center gap-2 justify-between">
         <div className="bg-bluegrey-200 p-2 rounded-xl size-10">
           <insight.icon className={`size-6`} />
@@ -273,8 +273,8 @@ function fullDateCurrent() {
 }
 export default function Home() {
   return (
-    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
-      <div className="bg-bluegrey-100 rounded-lg p-4 flex items-center justify-between">
+    <div className="w-full h-full main-card bg-bluegrey-500 rounded-2xl  py-8 px-4 mb-4">
+      <div className="bg-bluegrey-300 rounded-lg p-4 flex items-center justify-between">
         <div>Hi, {User.name}! Welcome back</div>
         <div> { fullDateCurrent() }</div>
       </div>
@@ -312,7 +312,7 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {modules.map(module => moduleCard(module))}
       </div>
-      <Card className="bg-bluegrey-100 p-6 mt-6">
+      <Card className="bg-bluegrey-200 p-6 mt-6">
         <h2 className="text-xl text-gray-900 font-bold">Trend of agents used per month</h2>
         <CardContent className="pt-8">
             <ResponsiveContainer width="100%" height={300}>
@@ -334,7 +334,7 @@ export default function Home() {
         </CardContent>
       </Card>
 
-      <Card className="bg-bluegrey-100 p-6 mt-6">
+      <Card className="bg-bluegrey-200 p-6 mt-6">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl text-gray-900 font-bold">Cost of using agents per department</h2>
