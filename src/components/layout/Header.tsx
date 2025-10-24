@@ -27,7 +27,7 @@ const Header = ({ modules }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
     { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" },
-    { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
+    { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
     { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300" },
     { name: "Order to Cash", href: "https://roomie2.sgrhost.com/", icon: OrderToCash, iconColor: "text-pink-400" },
     { name: "Agentic Recruiting & Hiring", href: "", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
