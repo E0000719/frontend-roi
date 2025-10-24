@@ -30,7 +30,7 @@ const Header = ({ modules }: HeaderProps) => {
     { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
     { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300" },
     { name: "Order to Cash", href: "https://roomie2.sgrhost.com/", icon: OrderToCash, iconColor: "text-pink-400" },
-    { name: "Agentic Recruiting & Hiring", href: "", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
+    { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
     { name: "Enterprise Application Automation", href: "", icon: EnterpriseApplicationAutomationIcon, iconColor: "text-blue-400" },
     { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400" },
     { name: "Physical Agent Service Robots", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-blue-400" },
