@@ -25,7 +25,7 @@ const metricsData: MetricCardData[] = [
     rightLabel: "Savings",
     rightValue: "2.4M",
     footer: "5% vs Expected",
-    classStyle: "bg-blue-200",
+    classStyle: "bg-green-100",
   },
   {
     type: "dual",
@@ -43,7 +43,7 @@ const metricsData: MetricCardData[] = [
     label: "Investment to date",
     value: "0.989M",
     footer: "until 12/30/25",
-    classStyle: "bg-pink-500",
+    classStyle: "bg-blue-200",
   },
   {
     type: "single",
@@ -51,7 +51,7 @@ const metricsData: MetricCardData[] = [
     label: "",
     value: "12",
     footer: "3 this quarter",
-    classStyle: "bg-warning-200",
+    classStyle: "bg-blue-200",
   },
   {
     type: "single",
@@ -59,7 +59,7 @@ const metricsData: MetricCardData[] = [
     label: "",
     value: "37.80 %",
     footer: "5.5% vs Last Month",
-    classStyle: "bg-blue-200",
+    classStyle: "bg-green-100",
   },
 ];
 

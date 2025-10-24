@@ -1,8 +1,14 @@
 import { LucideIcon, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
 import LegalCompliance from "@/components/icons/LegalCompliance";
 import OrderToCash from "@/components/icons/OrderToCash";
+import { AgenticRecruitingHiringIcon } from "@/components/icons/AgenticRecruitingHiringIcon";
+import { EnterpriseApplicationAutomationIcon } from "@/components/icons/EnterpriseApplicationAutomationIcon";
+import { LegacySystemsTakeoverIcon } from "@/components/icons/LegacySystemsTakeoverIcon";
+import { PhysicalAgentServiceRobotsIcon } from "@/components/icons/PhysicalAgentServiceRobotsIcon";
+import { RealTimeInsightsIcon } from "@/components/icons/RealTimeInsightsIcon";
 
 interface Module {
   name: string;
@@ -20,9 +26,15 @@ interface HeaderProps {
 const Header = ({ modules }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
+    { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" },
     { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
     { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300" },
-    { name: "Order to Cash", href: "https://roomie2.sgrhost.com/", icon: OrderToCash, iconColor: "text-error-100" },
+    { name: "Order to Cash", href: "https://roomie2.sgrhost.com/", icon: OrderToCash, iconColor: "text-pink-400" },
+    { name: "Agentic Recruiting & Hiring", href: "", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
+    { name: "Enterprise Application Automation", href: "", icon: EnterpriseApplicationAutomationIcon, iconColor: "text-blue-400" },
+    { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400" },
+    { name: "Physical Agent Service Robots", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-blue-400" },
+    { name: "Real-Time Insights", href: "", icon: RealTimeInsightsIcon, iconColor: "text-green-400" },
   ];
 
   const modulesToRender = modules || defaultModules;

@@ -327,7 +327,7 @@ export default function Home() {
                   stroke="hsl(var(--primary))"
                   strokeWidth={2}
                   name="Actual"
-                  dot={{ fill: "hsl(var(--primary))" }}
+                  dot={false}
                 />
               </LineChart>
             </ResponsiveContainer>
