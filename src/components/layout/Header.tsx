@@ -27,11 +27,10 @@ const Header = ({ modules }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
     { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" },
-    { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
+    { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
     { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300" },
-    { name: "Order to Cash", href: "https://roomie2.sgrhost.com/", icon: OrderToCash, iconColor: "text-pink-400" },
+    { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400" },
     { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
-    { name: "Enterprise Application Automation", href: "", icon: EnterpriseApplicationAutomationIcon, iconColor: "text-blue-400" },
     { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400" },
     { name: "Physical Agent Service Robots", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-blue-400" },
     { name: "Real-Time Insights", href: "", icon: RealTimeInsightsIcon, iconColor: "text-green-400" },
