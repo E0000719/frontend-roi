@@ -1,20 +1,13 @@
 import { LucideIcon, Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
-import LegalCompliance from "@/components/icons/LegalCompliance";
-import OrderToCash from "@/components/icons/OrderToCash";
-import { AgenticRecruitingHiringIcon } from "@/components/icons/AgenticRecruitingHiringIcon";
-import { EnterpriseApplicationAutomationIcon } from "@/components/icons/EnterpriseApplicationAutomationIcon";
-import { LegacySystemsTakeoverIcon } from "@/components/icons/LegacySystemsTakeoverIcon";
 import { PhysicalAgentServiceRobotsIcon } from "@/components/icons/PhysicalAgentServiceRobotsIcon";
-import { RealTimeInsightsIcon } from "@/components/icons/RealTimeInsightsIcon";
 
 interface Module {
   name: string;
   href: string;
-  icon?: LucideIcon;
-  iconSrc?: string; // Optional icon source for image icons
+  icon?: any;
+  iconSrc?: string;
   iconColor?: string;
   active?: boolean;
 }
@@ -28,13 +21,7 @@ interface HeaderProps {
 const Header = ({ modules, onSidebarOpen, sidebarOpen }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
-    { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" },
-    { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
-    { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300" },
-    { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400" },
-    { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
-    { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400" },
-    { name: "Real-Time Insights", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9092/", icon: RealTimeInsightsIcon, iconColor: "text-green-400" },
+    { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" }
   ];
 
   const modulesToRender = modules || defaultModules;

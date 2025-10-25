@@ -1,4 +1,4 @@
-import { Menu, X, Home, TrendingUp, Bot, Target, FileText, ChevronUp, ChevronDown } from "lucide-react";
+import { Menu, ChevronUp, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLocation, Link, Outlet } from "react-router-dom";
@@ -6,26 +6,27 @@ import Header from "./Header";
 
 interface LayoutProps {
   children: React.ReactNode;
+  modules: Array<{
+    name: string;
+    href: string;
+    icon?: any;
+    iconSrc?: string;
+    iconColor?: string;
+    active?: boolean;
+  }>;
+  navigation?: Array<{ 
+    name: string; 
+    href: string;
+    icon: any; 
+    children?: Array<{ name: string; href: string }> 
+  }>;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, modules, navigation }: LayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [arOpen, setArOpen] = useState(false); // For Accounts receivable dropdown
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
-
-  const navigation: Array<{ 
-    name: string; 
-    href: string; 
-    icon: typeof Home; 
-    children?: Array<{ name: string; href: string }> 
-  }> = [
-    { name: "Home", href: "/", icon: Home },
-    { name: "ROI Business case", href: "/roi-business-case", icon: FileText },
-    { name: "On track agents", href: "/on-track-agents", icon: Bot },
-    { name: "Continuous process improvement", href: "/process-improvement", icon: TrendingUp },
-    { name: "360 Company AI adoption", href: "/ai-adoption", icon: Target },
-  ];
 
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
@@ -110,7 +111,7 @@ const Layout = ({ children }: LayoutProps) => {
       </div>
       <div className={`w-full ${collapsed ? "lg:ml-24" : "lg:ml-64"}`}>
         <div className={`fixed top-0 left-0 pl-2 px-6 pt-6 pb-0 z-[999] header w-full ${collapsed ? "lg:ml-24 lg:w-[calc(100%-96px)]" : "lg:ml-64 lg:w-[calc(100%-256px)]"}`}>
-          <Header onSidebarOpen={() => setSidebarOpen(true)} sidebarOpen={sidebarOpen} />
+          <Header onSidebarOpen={() => setSidebarOpen(true)} sidebarOpen={sidebarOpen} modules={modules} />
         </div>
         <div className="w-full">
           {/* Main content */}
@@ -128,9 +129,9 @@ const Layout = ({ children }: LayoutProps) => {
 
 export default Layout;
 
-export function MainLayout() {
+export function MainLayout( { modules, navigation }: { modules: LayoutProps["modules"], navigation: LayoutProps["navigation"] } ) {
   return (
-    <Layout>
+    <Layout modules={modules} navigation={navigation}>
       <Outlet />
     </Layout>
   )
