@@ -32,8 +32,7 @@ const Header = ({ modules }: HeaderProps) => {
     { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400" },
     { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500" },
     { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400" },
-    { name: "Physical Agent Service Robots", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-blue-400" },
-    { name: "Real-Time Insights", href: "", icon: RealTimeInsightsIcon, iconColor: "text-green-400" },
+    { name: "Real-Time Insights", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9092/", icon: RealTimeInsightsIcon, iconColor: "text-green-400" },
   ];
 
   const modulesToRender = modules || defaultModules;
