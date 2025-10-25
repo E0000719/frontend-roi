@@ -13,13 +13,13 @@ import OnTrackAgents from "./pages/OnTrackAgents";
 import ProcessImprovement from "./pages/ProcessImprovement";
 import AiAdoption from "./pages/AiAdoption";
 import NotFound from "./pages/NotFound";
-import { RealTimeInsightsIcon } from "./components/icons/RealTimeInsightsIcon";
-import { LegacySystemsTakeoverIcon } from "./components/icons/LegacySystemsTakeoverIcon";
-import { AgenticRecruitingHiringIcon } from "./components/icons/AgenticRecruitingHiringIcon";
+import RealTimeInsightsIcon from "./components/icons/RealTimeInsightsIcon";
+import LegacySystemsTakeoverIcon from "./components/icons/LegacySystemsTakeoverIcon";
+import AgenticRecruitingHiringIcon from "./components/icons/AgenticRecruitingHiringIcon";
 import OrderToCash from "./components/icons/OrderToCash";
 import LegalCompliance from "./components/icons/LegalCompliance";
 import AgenticCustomerITSupport from "./components/icons/AgenticCustomerITSupport";
-import { PhysicalAgentServiceRobotsIcon } from "./components/icons/PhysicalAgentServiceRobotsIcon";
+import PhysicalAgentServiceRobotsIcon from "./components/icons/PhysicalAgentServiceRobotsIcon";
 import { Bot, FileText, HomeIcon, Target, TrendingUp } from "lucide-react";
 
 const queryClient = new QueryClient();
