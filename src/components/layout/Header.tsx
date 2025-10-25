@@ -1,4 +1,4 @@
-import { LucideIcon, Bell, User } from "lucide-react";
+import { LucideIcon, Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
@@ -21,9 +21,11 @@ interface Module {
 
 interface HeaderProps {
   modules?: Module[];
+  sidebarOpen?: boolean;
+  onSidebarOpen?: (boolean) => void;
 }
 
-const Header = ({ modules }: HeaderProps) => {
+const Header = ({ modules, onSidebarOpen, sidebarOpen }: HeaderProps) => {
   // Default modules if none provided
   const defaultModules = [
     { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" },
@@ -44,7 +46,8 @@ const Header = ({ modules }: HeaderProps) => {
         <div className="w-full flex items-center justify-between gap-2">
           {/* Modules Navigation */}
             <div className="thin-scrollbar w-full flex items-center overflow-x-auto gap-2">
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 flex items-center">
+                  <a className={`p-2 lg:hidden`} onClick={() => onSidebarOpen(true)}><Menu className="size-6" /></a>
                 {modulesToRender.map((module) => {
                   const Icon = module.icon;
                   return (

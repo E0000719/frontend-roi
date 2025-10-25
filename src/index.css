@@ -174,7 +174,7 @@
     @apply border-border;
   }
 
-  body, .header {
+  body, .header, .bg-black-points {
     background-color: #1F2425;
     color: hsl(var(--foreground));
     font-family: 'Neue Haas Grotesk', system-ui, sans-serif;
