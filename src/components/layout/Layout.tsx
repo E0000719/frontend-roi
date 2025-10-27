@@ -24,7 +24,8 @@ interface LayoutProps {
 
 const Layout = ({ children, modules, navigation }: LayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [arOpen, setArOpen] = useState(false); // For Accounts receivable dropdown
+  // Track which parent menu is open by name
+  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
@@ -50,22 +51,22 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
                       <Menu className={`size-6 text-bluegrey-800 ${collapsed?'lg:hidden':''}`}></Menu>
                   </Button>
                 </div>
-                <div className="h-[calc(100%-4rem)] space-y-4 overflow-y-auto scrollbar-hide">
+                <div className="h-[calc(100%-4rem)] space-y-4 overflow-y-auto thin-scrollbar">
                 {navigation.map((item) => {
                   if (item.children) {
-                    // Accounts receivable with dropdown
+                    const isOpen = openMenus[item.name] || false;
                     return (
                       <div key={item.name} className="space-y-1">
                         <button
-                          className={`flex items-center space-x-2 p-2 rounded-xl w-full transition-size duration-50 text-bluegrey-700 hover:text-foreground hover:bg-muted ${arOpen ? "font-semibold" : ""}`}
-                          onClick={() => setArOpen((open) => !open)}
+                          className={`flex items-center space-x-2 p-2 rounded-xl w-full transition-size duration-50 text-bluegrey-700 hover:text-foreground hover:bg-muted ${isOpen ? "font-semibold" : ""}`}
+                          onClick={() => setOpenMenus((prev) => ({ ...prev, [item.name]: !prev[item.name] }))}
                           type="button"
                         >
                           <item.icon className="size-6" />
                           <span className={`font-medium flex-1 text-left ${collapsed ? "hidden" : ""}`}>{item.name}</span>
-                          {arOpen ? <ChevronUp className={`size-4 ${collapsed ? "hidden" : ""}`} /> : <ChevronDown className={`size-4 ${collapsed ? "hidden" : ""}`} />}
+                          {isOpen ? <ChevronUp className={`size-4 ${collapsed ? "hidden" : ""}`} /> : <ChevronDown className={`size-4 ${collapsed ? "hidden" : ""}`} />}
                         </button>
-                        {arOpen && (
+                        {isOpen && (
                           <div className="ml-8 space-y-1">
                             {item.children.map((child) => (
                               <Link
