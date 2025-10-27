@@ -330,8 +330,8 @@ export default function AiAdoption() {
   const currentDimensionData = dimensionsData[selectedDimension as keyof typeof dimensionsData];
 
   return (
-    <div className="w-full h-full main-card bg-bluegrey-500 rounded-2xl  py-8 px-4 mb-2 space-y-6">
-      <div className="flex gap-4 items-center">
+    <div className="w-full h-full">
+      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4 mb-2">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <Target className="h-8 w-8 text-bluegrey-900" />
         </div>
@@ -346,7 +346,7 @@ export default function AiAdoption() {
       </div>
 
       {/* AI Impact Metrics Tracking */}
-      <Card className="main-card bg-bluegrey-200 rounded-2xl py-8 px-4">
+      <Card className="main-card bg-white rounded-2xl py-8 px-4">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div className="flex-1">
@@ -404,18 +404,18 @@ export default function AiAdoption() {
                 <Line
                   type="monotone"
                   dataKey="current"
-                  stroke="#14EA73"
+                  stroke="hsl(var(--primary))"
                   strokeWidth={2}
                   name="Current"
-                  dot={false}
+                  dot={{ fill: "hsl(var(--primary))", r: 4 }}
                 />
                 <Line
                   type="monotone"
                   dataKey="expected"
-                  stroke="#88BDF1"
+                  stroke="#3b82f6"
                   strokeWidth={2}
                   name="Expected"
-                  dot={false}
+                  dot={{ fill: "#3b82f6", r: 4 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -424,7 +424,7 @@ export default function AiAdoption() {
       </Card>
 
       {/* Department Cost Savings */}
-      <Card className="main-card bg-bluegrey-200 rounded-2xl  py-8 px-4 mt-2">
+      <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">
         <CardHeader>
           <CardTitle>Department Cost Savings</CardTitle>
         </CardHeader>
@@ -457,7 +457,7 @@ export default function AiAdoption() {
 
       {/* Monthly Cost Savings by Department */}
       {selectedDeptData && (
-        <Card className="main-card bg-bluegrey-200 text-gray-900 rounded-2xl border-0 mt-2">
+        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
