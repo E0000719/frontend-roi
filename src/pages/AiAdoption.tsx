@@ -1,8 +1,7 @@
 import { Target } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar } from "recharts";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar } from "recharts";
 import { useState } from "react";
 import { MetricsCards } from "@/components/MetricsCards";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -377,7 +376,7 @@ export default function AiAdoption() {
         <CardContent className="space-y-6">
           <div>
             <ResponsiveContainer width="100%" height={350}>
-              <LineChart data={currentDimensionData.data}>
+              <AreaChart data={currentDimensionData.data}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                 <XAxis 
                   dataKey="month" 
@@ -401,23 +400,27 @@ export default function AiAdoption() {
                   }}
                 />
                 <Legend />
-                <Line
+                <Area
                   type="monotone"
                   dataKey="current"
                   stroke="hsl(var(--primary))"
+                  fill="hsl(var(--primary))"
+                  fillOpacity={0.1}
                   strokeWidth={2}
                   name="Current"
-                  dot={{ fill: "hsl(var(--primary))", r: 4 }}
+                  dot={false}
                 />
-                <Line
+                <Area
                   type="monotone"
                   dataKey="expected"
                   stroke="#3b82f6"
+                  fill="#3b82f6"
+                  fillOpacity={0.1}
                   strokeWidth={2}
                   name="Expected"
-                  dot={{ fill: "#3b82f6", r: 4 }}
+                  dot={false}
                 />
-              </LineChart>
+              </AreaChart>
             </ResponsiveContainer>
           </div>
         </CardContent>
@@ -470,7 +473,7 @@ export default function AiAdoption() {
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={selectedDeptData.monthlySavings}>
+              <BarChart data={selectedDeptData.monthlySavings} barSize={11}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                 <XAxis dataKey="month" className="text-xs" />
                 <YAxis className="text-xs" />

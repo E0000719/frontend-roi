@@ -1,9 +1,8 @@
 import { Users, DollarSign, TrendingUp, Target } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Button } from "@/components/ui/button";
 import { MetricsCards } from "@/components/MetricsCards";
 
@@ -103,30 +102,34 @@ export default function OnTrackAgents() {
               </p>
             </div>
             <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={costSavingsTrackingData}>
+              <AreaChart data={costSavingsTrackingData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line 
+                <Area 
                   type="monotone" 
                   dataKey="expected" 
                   stroke="hsl(var(--primary))" 
+                  fill="hsl(var(--primary))"
+                  fillOpacity={0.1}
                   name="Expected" 
                   strokeWidth={2}
-                  dot={{ r: 4 }}
+                  dot={{ r: 0 }}
                 />
-                <Line 
+                <Area 
                   type="monotone" 
                   dataKey="current" 
                   stroke="#3b82f6" 
+                  fill="#3b82f6"
+                  fillOpacity={0.1}
                   name="Current" 
                   strokeWidth={2}
-                  dot={{ r: 4 }}
+                  dot={{ r: 0 }}
                   connectNulls={false}
                 />
-              </LineChart>
+              </AreaChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>

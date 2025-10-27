@@ -1,10 +1,10 @@
-import { FileText, Users, TrendingUp, Target, User, Search, ArrowLeft, ArrowRight, Download, Settings2, Headset, ChartColumn, Zap } from "lucide-react";
+import { FileText, Users, TrendingUp, Target, User, Search, ArrowRight, Download, Settings2, Headset, ChartColumn, Zap } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from "@radix-ui/react-select";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Bar, BarChart } from "recharts";
+import { AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar, BarChart, Area } from "recharts";
 import { MetricsCards } from "@/components/MetricsCards";
 const headcountReductionData = [
   { month: "Jan", actual: 320, projected: 315 },
@@ -316,20 +316,22 @@ export default function Home() {
         <h2 className="text-xl text-gray-900 font-bold">Trend of agents used per month</h2>
         <CardContent className="pt-8">
             <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={headcountReductionData}>
+              <AreaChart data={headcountReductionData}>
                 <CartesianGrid strokeDasharray="3 3" className="text-gray-800" />
                 <XAxis dataKey="month" className="text-xs" />
                 <YAxis className="text-xs" />
 
-                <Line
+                <Area
                   type="monotone"
                   dataKey="actual"
                   stroke="hsl(var(--primary))"
+                  fill="hsl(var(--primary))"
+                  fillOpacity={0.1}
                   strokeWidth={2}
                   name="Actual"
                   dot={false}
                 />
-              </LineChart>
+              </AreaChart>
             </ResponsiveContainer>
         </CardContent>
       </Card>
