@@ -103,6 +103,16 @@ export default function OnTrackAgents() {
             </div>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={costSavingsTrackingData}>
+                <defs>
+                  <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#14EA73" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="#14EA73" stopOpacity={0} />
+                  </linearGradient>
+                  <linearGradient id="blueGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
@@ -112,8 +122,7 @@ export default function OnTrackAgents() {
                   type="monotone" 
                   dataKey="expected" 
                   stroke="hsl(var(--primary))" 
-                  fill="hsl(var(--primary))"
-                  fillOpacity={0.1}
+                  fill="url(#greenGradient)"
                   name="Expected" 
                   strokeWidth={2}
                   dot={{ r: 0 }}
@@ -122,8 +131,7 @@ export default function OnTrackAgents() {
                   type="monotone" 
                   dataKey="current" 
                   stroke="#3b82f6" 
-                  fill="#3b82f6"
-                  fillOpacity={0.1}
+                  fill="url(#blueGradient)"
                   name="Current" 
                   strokeWidth={2}
                   dot={{ r: 0 }}

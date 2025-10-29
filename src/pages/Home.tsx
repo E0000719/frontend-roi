@@ -317,6 +317,12 @@ export default function Home() {
         <CardContent className="pt-8">
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={headcountReductionData}>
+                <defs>
+                  <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#14EA73" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="#14EA73" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
                 <CartesianGrid strokeDasharray="3 3" className="text-gray-800" />
                 <XAxis dataKey="month" className="text-xs" />
                 <YAxis className="text-xs" />
@@ -325,8 +331,7 @@ export default function Home() {
                   type="monotone"
                   dataKey="actual"
                   stroke="hsl(var(--primary))"
-                  fill="hsl(var(--primary))"
-                  fillOpacity={0.1}
+                  fill="url(#greenGradient)"
                   strokeWidth={2}
                   name="Actual"
                   dot={false}
@@ -354,7 +359,7 @@ export default function Home() {
                 <XAxis dataKey="department" className="text-xs" />
                 <YAxis className="text-xs" />
                 <Tooltip />
-                <Bar dataKey="value" fill="hsl(var(--primary))" />
+                <Bar dataKey="value" fill="hsl(var(--primary))" isAnimationActive={true} />
               </BarChart>
             </ResponsiveContainer>
         </CardContent>
