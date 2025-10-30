@@ -6,6 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar, BarChart, Area } from "recharts";
 import { MetricsCards } from "@/components/MetricsCards";
+
+import RealTimeInsightsIcon from "@/components/icons/RealTimeInsightsIcon";
+import LegacySystemsTakeoverIcon from "@/components/icons/LegacySystemsTakeoverIcon";
+import AgenticRecruitingHiringIcon from "@/components/icons/AgenticRecruitingHiringIcon";
+import OrderToCash from "@/components/icons/OrderToCash";
+import LegalCompliance from "@/components/icons/LegalCompliance";
+import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
+import PhysicalAgentServiceRobotsIcon from "@/components/icons/PhysicalAgentServiceRobotsIcon";
+
+
 const headcountReductionData = [
   { month: "Jan", actual: 320, projected: 315 },
   { month: "Feb", actual: 305, projected: 300 },
@@ -55,6 +65,7 @@ const quickAccess = [
   },
 ];
 
+/*
 const modules = [
   {
     title: "Legacy Systems Takeover",
@@ -104,6 +115,23 @@ const modules = [
     to: "/order-to-cash",
     description: "Automate Order-to-Cash. Accelerate Collections. Unlock Cash Flow."
   },
+];
+*/
+const modules: Array<{
+  name: string;
+  href: string;
+  icon?: any;
+  iconSrc?: string;
+  iconColor?: string;
+  active?: boolean;
+  description?: string;
+}> = [
+  { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300", description: "AI-Powered Support Across Every Channel." },
+  { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300", description: "Audit-Ready. Compliance at AI Speed." },
+  { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400", description: "Automate Order-to-Cash. Accelerate Collections. Unlock Cash Flow." },
+  { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500", description: "Hire Faster. Smarter. At Lower Cost." },
+  { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400", description: "Take Control of Legacy; Build the Future in Natural Language." },
+  { name: "Real-Time Insights", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9092/", icon: RealTimeInsightsIcon, iconColor: "text-green-400", description: "From Seeing to Acting: Real-Time AI Insights." },
 ];
 
 const stats = [
@@ -213,15 +241,14 @@ function moduleCard(module) {
       document.location.href = to;
     };
   }
-
   return (
     <div className="bg-bluegrey-100 rounded-lg p-4 cursor-pointer" key={module.title} onClick={gotoLink(module.to)}>
       <div className="flex items-center gap-2">
-        <div className="bg-bluegrey-200 p-2 rounded-xl size-10">
-          <img src={module.iconSrc} alt={`${module.title} icon`} className="size-6" />
+        <div className="">
+          <module.icon  className={`inline size-8 ${module.iconColor} bg-black rounded-full`} />
         </div>
         <div className="font-bold text-lg">
-          {module.title}
+          {module.name}
         </div>
       </div>
       <div className="text-sm text-bluegrey-800">

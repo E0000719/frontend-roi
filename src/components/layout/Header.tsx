@@ -1,5 +1,14 @@
-import { LucideIcon, Bell, User, Menu } from "lucide-react";
+
+import { LucideIcon, Bell, User, Menu, BellDot } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator
+} from "@/components/ui/dropdown-menu";
 
 import { PhysicalAgentServiceRobotsIcon } from "@/components/icons/PhysicalAgentServiceRobotsIcon";
 
@@ -29,7 +38,7 @@ const Header = ({ modules, onSidebarOpen, sidebarOpen }: HeaderProps) => {
   return (
     <div className="w-full">
       {/* Logo Section */}
-      <div className="bg-bluegrey-500 rounded-2xl p-2 pr-4">
+      <div className="bg-bluegrey-500 rounded-2xl p-2 pb-0 pr-4">
         <div className="w-full flex items-center justify-between gap-2">
           {/* Modules Navigation */}
             <div className="thin-scrollbar w-full flex items-center overflow-x-auto gap-2">
@@ -53,13 +62,35 @@ const Header = ({ modules, onSidebarOpen, sidebarOpen }: HeaderProps) => {
                 })}
               </div>
             </div>
-            <div className="ml-2 w-32">
-                <Button variant="ghost" size="icon">
+            <div className="ml-2 w-32 flex items-center">
+              {/* Alerts Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
                     <Bell className="size-6" />
-                </Button>
-                <Button variant="ghost" size="icon" className="ml-2 size-8 rounded-full border-0 bg-green-300">
-                    <User className="size-6" />
-                </Button>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-64">
+                  <DropdownMenuLabel>
+                    Alerts
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {/* Example alert items */}
+                  <DropdownMenuItem>
+                    <span className="font-sm">New user registered</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <span className="font-sm">System update available</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <span className="font-sm">Payment received</span>
+                  </DropdownMenuItem>
+                  {/* Add more alert items as needed */}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <Button variant="ghost" size="icon" className="ml-2 size-8 rounded-full border-0 bg-green-300">
+                <img src="/avatar.jpg" alt="User Avatar" className="border-0.5 rounded-full hover:scale-110 transition-transform" />
+              </Button>
             </div>
          </div>
       </div>

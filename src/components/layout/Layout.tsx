@@ -39,7 +39,7 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
     <div className="min-h-screen flex">
       <div className="bg-black">
           {/* Sidebar */}
-          <div className={`z-[1000] h-full fixed mt-6 pb-6 transform transition-all duration-100 ease-in lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} ${collapsed ? "lg:w-24" : "lg:w-64"}`}>
+          <div className={`h-full fixed mt-6 pb-6 transform transition-all duration-100 ease-in lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} ${collapsed ? "lg:w-24" : "lg:w-64"}`}>
             <nav className="pl-6 pb-6 h-full bg-black-points">
               <div className="w-full h-full bg-bluegrey-500 rounded-2xl space-y-6 pb-8 pt-4 px-4 mb-4">
                 <div className="flex items-center justify-between mb-4">
@@ -111,7 +111,7 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
           </div>
       </div>
       <div className={`w-full ${collapsed ? "lg:ml-24" : "lg:ml-64"}`}>
-        <div className={`fixed top-0 left-0 pl-2 px-6 pt-6 pb-0 z-[999] header w-full ${collapsed ? "lg:ml-24 lg:w-[calc(100%-96px)]" : "lg:ml-64 lg:w-[calc(100%-256px)]"}`}>
+        <div className={`fixed top-0 left-0 pl-2 px-6 pt-6 pb-0 header w-full ${collapsed ? "lg:ml-24 lg:w-[calc(100%-96px)]" : "lg:ml-64 lg:w-[calc(100%-256px)]"}`}>
           <Header onSidebarOpen={() => setSidebarOpen(true)} sidebarOpen={sidebarOpen} modules={modules} />
         </div>
         <div className="w-full">

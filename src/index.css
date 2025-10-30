@@ -219,7 +219,8 @@
 
 @layer utilities {
   .thin-scrollbar::-webkit-scrollbar {
-    height: 4px;
+    height: 8px;
+    width: 8px;
   }
   .thin-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #c0a0b9;
