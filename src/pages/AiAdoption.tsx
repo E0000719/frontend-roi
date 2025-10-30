@@ -329,8 +329,8 @@ export default function AiAdoption() {
   const currentDimensionData = dimensionsData[selectedDimension as keyof typeof dimensionsData];
 
   return (
-    <div className="w-full h-full">
-      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4 mb-2">
+    <>
+      <div className="flex items-center gap-4 pb-4">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <Target className="h-8 w-8 text-bluegrey-900" />
         </div>
@@ -345,8 +345,8 @@ export default function AiAdoption() {
       </div>
 
       {/* AI Impact Metrics Tracking */}
-      <Card className="main-card bg-white rounded-2xl py-8 px-4">
-        <CardHeader>
+      <Card className="bg-bluegrey-100 rounded-2xl py-8 px-6">
+        <CardHeader className="p-0 pb-6">
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <CardTitle>{selectedDimension}</CardTitle>
@@ -359,7 +359,7 @@ export default function AiAdoption() {
                 Dimension:
               </label>
               <Select value={selectedDimension} onValueChange={setSelectedDimension}>
-                <SelectTrigger className="w-[280px]">
+                <SelectTrigger className="w-[280px] bg-bluegrey-300">
                   <SelectValue placeholder="Select dimension" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
@@ -373,7 +373,7 @@ export default function AiAdoption() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 p-0">
           <div>
             <ResponsiveContainer width="100%" height={350}>
               <AreaChart data={currentDimensionData.data}>
@@ -436,11 +436,11 @@ export default function AiAdoption() {
       </Card>
 
       {/* Department Cost Savings */}
-      <Card className="main-card bg-white rounded-2xl  py-8 px-4 mt-2">
-        <CardHeader>
+      <Card className="bg-bluegrey-100 rounded-2xl  py-8 px-6 mt-2">
+        <CardHeader className="p-0 pb-6">
           <CardTitle>Department Cost Savings</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 p-0">
           {departmentSavings.map((dept) => (
             <div 
               key={dept.name} 
@@ -469,7 +469,7 @@ export default function AiAdoption() {
 
       {/* Monthly Cost Savings by Department */}
       {selectedDeptData && (
-        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
+        <Card className="bg-bluegrey-100 text-gray-900 rounded-2xl border-0 mt-2">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
@@ -496,6 +496,6 @@ export default function AiAdoption() {
         </Card>
       )}
 
-    </div>
+    </>
   );
 }

@@ -47,7 +47,7 @@ export default function ProcessImprovement() {
   if (selectedProcess) {
     return (
       <div>
-        <div className="flex items-center gap-4 main-card bg-white text-gray-900 rounded-2xl border-0 py-6 px-4">
+        <div className="flex items-center gap-4 bg-bluegrey-100 text-gray-900 rounded-2xl border-0 py-6 px-4">
           <div className="p-3 rounded-xl bg-bluegrey-200">
             <TrendingUp className="h-8 w-8 text-bluegrey-900" />
           </div>
@@ -61,7 +61,7 @@ export default function ProcessImprovement() {
           <MetricsCards />
         </div>
 
-        <Card className="mt-2 main-card bg-white text-gray-900 rounded-2xl border-0 py-6 px-4">
+        <Card className="mt-2 bg-bluegrey-100 text-gray-900 rounded-2xl border-0 py-6 px-4">
           <CardContent>
             <div className="flex items-center gap-4 mb-8">
               <div className="p-4 rounded-xl bg-bluegrey-200">
@@ -102,8 +102,8 @@ export default function ProcessImprovement() {
   }
 
   return (
-    <div className="w-full h-full">
-      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4 mb-2">
+    <>
+      <div className="flex items-center gap-4 pb-6 ">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <TrendingUp className="h-8 w-8 text-bluegrey-900" />
         </div>
@@ -116,21 +116,20 @@ export default function ProcessImprovement() {
       <div className="mb-2">
         <MetricsCards />
       </div>
-
-      <Card className="main-card bg-white text-gray-900 rounded-2xl border-0">
+      <div className="flex items-center gap-4 my-4">
+        <h2 className="text-xl text-gray-900 font-bold">Select one process to improve</h2>
+      </div>
+      <Card className="main-card bg-bluegrey-100 text-gray-900 rounded-2xl border-0">
         <CardContent className="p-8">
-          <div className="flex items-center gap-4 mb-8">
-            <h2 className="text-xl text-gray-900 font-bold">Select one process to improve</h2>
-          </div>
 
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">AI Agent Performance</h3>
               <Button variant="outline" size="sm" className="text-bluegrey-800 font-jetbrains border-bluegrey-800"> View All </Button>
             </div>
-            <Table>
+            <Table className="border-bluegrey-300 ">
               <TableHeader>
-                <TableRow>
+                <TableRow className="font-jetbrains">
                   <TableHead className="text-bluegrey-900">Agent Name</TableHead>
                   <TableHead className="text-bluegrey-900">Agent Type</TableHead>
                   <TableHead className="text-bluegrey-900">Version</TableHead>
@@ -145,7 +144,7 @@ export default function ProcessImprovement() {
                 {agentPerformanceData.map((agent, index) => (
                   <TableRow
                     key={agent.name}
-                    className="cursor-pointer hover:bg-accent/5"
+                    className="cursor-pointer hover:bg-accent/5 border-bluegrey-500"
                     onClick={() => handleProcessSelect(agent.name, agent.department)}
                   >
                     <TableCell className="font-medium">{index + 1}. {agent.name}</TableCell>
@@ -163,6 +162,6 @@ export default function ProcessImprovement() {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </>
   );
 }

@@ -67,8 +67,8 @@ const departmentBreakdown = [
 export default function OnTrackAgents() {
 
   return (
-    <div className="w-full h-full">
-      <div className="flex items-center gap-4 main-card bg-white rounded-2xl  py-8 px-4">
+    <>
+      <div className="flex items-center gap-4 pb-4">
         <div className="p-3 rounded-xl bg-bluegrey-200">
           <Users className="size-8 text-bluegrey-900" />
         </div>
@@ -85,7 +85,7 @@ export default function OnTrackAgents() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
         {/* Cost Savings Tracking */}
-        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 lg:col-span-2">
+        <Card className="bg-bluegrey-100 text-gray-900 rounded-2xl border-0 lg:col-span-2">
           <CardHeader>
             <CardTitle>Cost Savings Tracking</CardTitle>
           </CardHeader>
@@ -143,7 +143,7 @@ export default function OnTrackAgents() {
         </Card>
 
         {/* Implementation Progress */}
-        <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 lg:col-span-1">
+        <Card className="bg-bluegrey-100 text-gray-900 rounded-2xl border-0 lg:col-span-1">
           <CardHeader>
             <CardTitle>Implementation Progress</CardTitle>
           </CardHeader>
@@ -207,7 +207,7 @@ export default function OnTrackAgents() {
       </div>
 
       {/* Agent Performance Table */}
-      <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
+      <Card className="bg-bluegrey-100 text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>AI Agent Performance</CardTitle>
@@ -247,7 +247,7 @@ export default function OnTrackAgents() {
       </Card>
 
       {/* Project Dashboard */}
-      <Card className="main-card bg-white text-gray-900 rounded-2xl border-0 mt-2">
+      <Card className="bg-bluegrey-100 text-gray-900 rounded-2xl border-0 mt-2">
         <CardHeader>
           <CardTitle>Implementation of New Agents with Risks and Issues Status</CardTitle>
         </CardHeader>
@@ -518,6 +518,6 @@ export default function OnTrackAgents() {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </>
   );
 }

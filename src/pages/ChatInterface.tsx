@@ -386,7 +386,7 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="w-full h-full main-card bg-white rounded-2xl  p-6 h-[calc(100vh-8rem)]">
+    <div className="w-full h-full">
       {/* Header */}
       <div className="flex items-center">
         <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">

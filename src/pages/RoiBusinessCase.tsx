@@ -29,7 +29,7 @@ export default function RoiBusinessCase() {
   };
 
   return (
-    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
+    <>
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
           ROI Business Case
@@ -48,7 +48,7 @@ export default function RoiBusinessCase() {
           Select one of the agentic AI modules to create a new business case
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+      <div className="flex items-center justify-center gap-2">
         {modules.map((module) => {
           const Icon = module.icon;
           return (
@@ -74,6 +74,6 @@ export default function RoiBusinessCase() {
           );
         })}
       </div>
-    </div>
+    </>
   );
 }

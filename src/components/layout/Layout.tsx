@@ -116,10 +116,12 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
         </div>
         <div className="w-full">
           {/* Main content */}
-          <div className={`w-full pt-24`}>
+          <div className={`w-full h-full md:h-[calc(100vh)] pl-2 pr-6 pb-6 pt-24`}>
             {/* Page content */}
-            <main className="w-full pl-[10px] pr-6 pb-6">
-              {children}
+            <main className="w-full h-full pl-[10px] bg-white rounded-2xl overflow-hidden">
+              <div className="h-full overflow-y-auto p-6">
+                {children}
+              </div>
             </main>
           </div>
         </div>

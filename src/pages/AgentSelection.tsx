@@ -75,7 +75,7 @@ export default function AgentSelection() {
   };
 
   return (
-    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
+    <div className="w-full h-full">
       {/* Header */}
       <div className="flex items-center">
         <div className="bg-bluegrey-200 rounded-2xl size-10 flex items-center justify-center mr-3">

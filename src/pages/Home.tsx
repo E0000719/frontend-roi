@@ -273,9 +273,9 @@ function fullDateCurrent() {
 }
 export default function Home() {
   return (
-    <div className="w-full h-full main-card bg-white rounded-2xl  py-8 px-4 mb-4">
-      <div className="bg-bluegrey-100 rounded-lg p-4 flex items-center justify-between">
-        <div>Hi, {User.name}! Welcome back</div>
+    <>
+      <div className="bg-bluegrey-100 rounded-lg mb-4 p-4 flex items-center justify-between">
+        <div>Hi, Diego! Welcome back</div>
         <div> { fullDateCurrent() }</div>
       </div>
       <div className="mt-6">
@@ -369,6 +369,6 @@ export default function Home() {
         {insights.map(insight => insightsCard(insight))}
       </div>
 
-    </div>
+    </>
   );
 }

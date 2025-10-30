@@ -32,7 +32,7 @@ const modules: Array<{
   iconColor?: string;
   active?: boolean;
 }> = [
-  { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400" },
+  { name: "ROI First", href: "", icon: PhysicalAgentServiceRobotsIcon, iconColor: "text-green-400", active: true },
   { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300" },
   { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300" },
   { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400" },
