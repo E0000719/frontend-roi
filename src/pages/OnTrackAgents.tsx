@@ -153,7 +153,7 @@ export default function OnTrackAgents() {
                 <svg className="w-full h-full" viewBox="0 0 100 100">
                   <circle
                     className="stroke-muted"
-                    strokeWidth="8"
+                    strokeWidth="4"
                     fill="transparent"
                     r="40"
                     cx="50"
@@ -161,9 +161,8 @@ export default function OnTrackAgents() {
                   />
                   <circle
                     className="stroke-primary"
-                    strokeWidth="8"
+                    strokeWidth="4"
                     strokeDasharray={`${40 * 2.51} ${100 * 2.51}`}
-                    strokeLinecap="round"
                     fill="transparent"
                     r="40"
                     cx="50"
@@ -302,8 +301,8 @@ export default function OnTrackAgents() {
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-blue-900" strokeWidth="8" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-blue-900" strokeWidth="4" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">40%</div>
                       </div>
@@ -314,8 +313,8 @@ export default function OnTrackAgents() {
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-cyan-500" strokeWidth="8" strokeDasharray={`${25 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-cyan-500" strokeWidth="4" strokeDasharray={`${25 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">25%</div>
                       </div>
@@ -326,8 +325,8 @@ export default function OnTrackAgents() {
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-green-600" strokeWidth="8" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-green-600" strokeWidth="4" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">40%</div>
                       </div>
@@ -338,8 +337,8 @@ export default function OnTrackAgents() {
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-yellow-500" strokeWidth="8" strokeDasharray={`${12 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-yellow-500" strokeWidth="4" strokeDasharray={`${12 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">12%</div>
                       </div>
@@ -350,8 +349,8 @@ export default function OnTrackAgents() {
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-orange-500" strokeWidth="8" strokeDasharray={`${55 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-orange-500" strokeWidth="4" strokeDasharray={`${55 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">55%</div>
                       </div>
@@ -362,8 +361,8 @@ export default function OnTrackAgents() {
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
                         <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="8" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-blue-900" strokeWidth="8" strokeDasharray={`${22 * 2.51} ${100 * 2.51}`} strokeLinecap="round" fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
+                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
+                          <circle className="stroke-blue-900" strokeWidth="4" strokeDasharray={`${22 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">22%</div>
                       </div>
@@ -378,12 +377,12 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-blue-900" style={{height: '60px'}}></div>
+                        <div className="w-2 bg-blue-900" style={{height: '60px'}}></div>
                         <span className="text-xs">30.5</span>
                         <span className="text-xs text-gray-600">Planned</span>
                       </div>
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-blue-400" style={{height: '50px'}}></div>
+                        <div className="w-2 bg-blue-400" style={{height: '50px'}}></div>
                         <span className="text-xs">25.1</span>
                         <span className="text-xs text-gray-600">Actual</span>
                       </div>
@@ -392,12 +391,12 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-cyan-600" style={{height: '52px'}}></div>
+                        <div className="w-2 bg-cyan-600" style={{height: '52px'}}></div>
                         <span className="text-xs">25.8</span>
                         <span className="text-xs text-gray-600">Planned</span>
                       </div>
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-cyan-300" style={{height: '42px'}}></div>
+                        <div className="w-2 bg-cyan-300" style={{height: '42px'}}></div>
                         <span className="text-xs">20.8</span>
                         <span className="text-xs text-gray-600">Actual</span>
                       </div>
@@ -406,12 +405,12 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-green-700" style={{height: '64px'}}></div>
+                        <div className="w-2 bg-green-700" style={{height: '64px'}}></div>
                         <span className="text-xs">31.8</span>
                         <span className="text-xs text-gray-600">Planned</span>
                       </div>
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-green-400" style={{height: '50px'}}></div>
+                        <div className="w-2 bg-green-400" style={{height: '50px'}}></div>
                         <span className="text-xs">24.8</span>
                         <span className="text-xs text-gray-600">Actual</span>
                       </div>
@@ -420,12 +419,12 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-yellow-600" style={{height: '50px'}}></div>
+                        <div className="w-2 bg-yellow-600" style={{height: '50px'}}></div>
                         <span className="text-xs">25</span>
                         <span className="text-xs text-gray-600">Planned</span>
                       </div>
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-yellow-300" style={{height: '20px'}}></div>
+                        <div className="w-2 bg-yellow-300" style={{height: '20px'}}></div>
                         <span className="text-xs">10</span>
                         <span className="text-xs text-gray-600">Actual</span>
                       </div>
@@ -434,12 +433,12 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-orange-600" style={{height: '30px'}}></div>
+                        <div className="w-2 bg-orange-600" style={{height: '30px'}}></div>
                         <span className="text-xs">15.2</span>
                         <span className="text-xs text-gray-600">Planned</span>
                       </div>
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-orange-300" style={{height: '41px'}}></div>
+                        <div className="w-2 bg-orange-300" style={{height: '41px'}}></div>
                         <span className="text-xs">20.5</span>
                         <span className="text-xs text-gray-600">Actual</span>
                       </div>
@@ -448,12 +447,12 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-blue-900" style={{height: '53px'}}></div>
+                        <div className="w-2 bg-blue-900" style={{height: '53px'}}></div>
                         <span className="text-xs">26.5</span>
                         <span className="text-xs text-gray-600">Planned</span>
                       </div>
                       <div className="flex flex-col items-center gap-1">
-                        <div className="w-12 bg-blue-400" style={{height: '51px'}}></div>
+                        <div className="w-2 bg-blue-400" style={{height: '51px'}}></div>
                         <span className="text-xs">25.5</span>
                         <span className="text-xs text-gray-600">Actual</span>
                       </div>

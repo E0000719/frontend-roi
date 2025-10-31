@@ -1,7 +1,7 @@
 import { Menu, ChevronUp, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { useLocation, Link, Outlet } from "react-router-dom";
+import { useLocation, Link, Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 
 interface LayoutProps {
@@ -28,6 +28,7 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const navigationState = useNavigation();
 
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
@@ -36,7 +37,16 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex relative">
+      <span className="text-white">{navigationState.state}</span>
+      {/* Loading overlay */}
+      {navigationState.state === "loading" && (
+        <div className="fixed top-0 left-0 w-full h-1.5 z-50">
+          <div className="w-full h-full bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 animate-pulse">
+            LOADING
+          </div>
+        </div>
+      )}
       <div className="bg-black">
           {/* Sidebar */}
           <div className={`h-full fixed mt-6 pb-6 transform transition-all duration-100 ease-in lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} ${collapsed ? "lg:w-24" : "lg:w-64"}`}>

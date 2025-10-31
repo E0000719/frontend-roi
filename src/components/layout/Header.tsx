@@ -1,5 +1,5 @@
 
-import { LucideIcon, Bell, User, Menu, BellDot } from "lucide-react";
+import { Bell, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
