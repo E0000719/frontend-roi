@@ -1,4 +1,6 @@
 import { Users, DollarSign, TrendingUp, Target } from "lucide-react";
+import { BarStat } from "@/components/BarStat";
+import { CircularProgress } from "@/components/CircularProgress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
@@ -150,26 +152,7 @@ export default function OnTrackAgents() {
           <CardContent className="space-y-6">
             <div className="flex flex-col items-center justify-center">
               <div className="relative w-40 h-40 mb-4">
-                <svg className="w-full h-full" viewBox="0 0 100 100">
-                  <circle
-                    className="stroke-muted"
-                    strokeWidth="4"
-                    fill="transparent"
-                    r="40"
-                    cx="50"
-                    cy="50"
-                  />
-                  <circle
-                    className="stroke-primary"
-                    strokeWidth="4"
-                    strokeDasharray={`${40 * 2.51} ${100 * 2.51}`}
-                    fill="transparent"
-                    r="40"
-                    cx="50"
-                    cy="50"
-                    transform="rotate(-90 50 50)"
-                  />
-                </svg>
+                <CircularProgress size={160} colorClass="stroke-primary" value={40} />
                 <div className="absolute inset-0 flex items-center justify-center flex-col">
                   <span className="text-3xl font-bold">40%</span>
                   <span className="text-xs text-muted-foreground">Completed</span>
@@ -300,10 +283,7 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-blue-900" strokeWidth="4" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
-                        </svg>
+                        <CircularProgress colorClass="stroke-blue-900" value={40} />
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">40%</div>
                       </div>
                       <span className="text-xs text-gray-600">2/13 in Progress</span>
@@ -312,10 +292,7 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-cyan-500" strokeWidth="4" strokeDasharray={`${25 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
-                        </svg>
+                        <CircularProgress colorClass="stroke-cyan-500" value={25} />
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">25%</div>
                       </div>
                       <span className="text-xs text-gray-600">5/11 in Progress</span>
@@ -324,10 +301,7 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-green-600" strokeWidth="4" strokeDasharray={`${40 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
-                        </svg>
+                        <CircularProgress colorClass="stroke-green-600" value={40} />
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">40%</div>
                       </div>
                       <span className="text-xs text-gray-600">2/13 in Progress</span>
@@ -336,10 +310,7 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-yellow-500" strokeWidth="4" strokeDasharray={`${12 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
-                        </svg>
+                        <CircularProgress colorClass="stroke-yellow-500" value={12} />
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">12%</div>
                       </div>
                       <span className="text-xs text-gray-600">1/7 in Progress</span>
@@ -348,10 +319,7 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-orange-500" strokeWidth="4" strokeDasharray={`${55 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
-                        </svg>
+                        <CircularProgress colorClass="stroke-orange-500" value={55} />
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">55%</div>
                       </div>
                       <span className="text-xs text-gray-600">3/9 in Progress</span>
@@ -360,10 +328,7 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative w-20 h-20">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle className="stroke-gray-300" strokeWidth="4" fill="transparent" r="40" cx="50" cy="50" />
-                          <circle className="stroke-blue-900" strokeWidth="4" strokeDasharray={`${22 * 2.51} ${100 * 2.51}`} fill="transparent" r="40" cx="50" cy="50" transform="rotate(-90 50 50)" />
-                        </svg>
+                        <CircularProgress colorClass="stroke-blue-900" value={22} />
                         <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">22%</div>
                       </div>
                       <span className="text-xs text-gray-600">4/11 in Progress</span>
@@ -376,86 +341,45 @@ export default function OnTrackAgents() {
                   <td className="border border-gray-300 bg-gray-100 p-4 font-semibold">Planned Vs<br/>Actual<br/>Hours</td>
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-blue-900" style={{height: '60px'}}></div>
-                        <span className="text-xs">30.5</span>
-                        <span className="text-xs text-gray-600">Planned</span>
-                      </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-blue-400" style={{height: '50px'}}></div>
-                        <span className="text-xs">25.1</span>
-                        <span className="text-xs text-gray-600">Actual</span>
-                      </div>
+                      {/* Planned bar using BarStat component */}
+                      <BarStat percentage={100} value={30.5} label="Planned" colorClass="bg-blue-900" />
+
+                      {/* Actual bar using BarStat component */}
+                      <BarStat percentage={25.1/30.5 * 100} value={25.1} label="Actual" colorClass="bg-blue-400" />
                     </div>
                   </td>
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-cyan-600" style={{height: '52px'}}></div>
-                        <span className="text-xs">25.8</span>
-                        <span className="text-xs text-gray-600">Planned</span>
-                      </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-cyan-300" style={{height: '42px'}}></div>
-                        <span className="text-xs">20.8</span>
-                        <span className="text-xs text-gray-600">Actual</span>
-                      </div>
+                      {/* Planned bar using BarStat component */}
+                      <BarStat percentage={100} value={25.8} label="Planned" colorClass="bg-cyan-600" />
+
+                      {/* Actual bar using BarStat component */}
+                      <BarStat percentage={20.8/25.8 * 100} value={20.8} label="Actual" colorClass="bg-cyan-300" />
                     </div>
                   </td>
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-green-700" style={{height: '64px'}}></div>
-                        <span className="text-xs">31.8</span>
-                        <span className="text-xs text-gray-600">Planned</span>
-                      </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-green-400" style={{height: '50px'}}></div>
-                        <span className="text-xs">24.8</span>
-                        <span className="text-xs text-gray-600">Actual</span>
-                      </div>
+                      <BarStat percentage={100} value={31.8} label="Planned" colorClass="bg-green-700" />
+                      <BarStat percentage={24.8/31.8 * 100} value={24.8} label="Actual" colorClass="bg-green-400" />
                     </div>
                   </td>
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-yellow-600" style={{height: '50px'}}></div>
-                        <span className="text-xs">25</span>
-                        <span className="text-xs text-gray-600">Planned</span>
-                      </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-yellow-300" style={{height: '20px'}}></div>
-                        <span className="text-xs">10</span>
-                        <span className="text-xs text-gray-600">Actual</span>
-                      </div>
+                      <BarStat percentage={100} value={25} label="Planned" colorClass="bg-yellow-600" />
+                      <BarStat percentage={10/25 * 100} value={10} label="Actual" colorClass="bg-yellow-300" />
                     </div>
                   </td>
                   <td className="border border-gray-300 p-4">
                     <div className="flex items-end justify-center gap-2 h-24">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-orange-600" style={{height: '30px'}}></div>
-                        <span className="text-xs">15.2</span>
-                        <span className="text-xs text-gray-600">Planned</span>
-                      </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-orange-300" style={{height: '41px'}}></div>
-                        <span className="text-xs">20.5</span>
-                        <span className="text-xs text-gray-600">Actual</span>
-                      </div>
+                      <BarStat percentage={100} value={15.2} label="Planned" colorClass="bg-orange-600" />
+                      <BarStat percentage={20.5/15.2 * 100} value={20.5} label="Actual" colorClass="bg-orange-300" />
                     </div>
                   </td>
                   <td className="border border-gray-300 p-4">
+
                     <div className="flex items-end justify-center gap-2 h-24">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-blue-900" style={{height: '53px'}}></div>
-                        <span className="text-xs">26.5</span>
-                        <span className="text-xs text-gray-600">Planned</span>
-                      </div>
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-2 bg-blue-400" style={{height: '51px'}}></div>
-                        <span className="text-xs">25.5</span>
-                        <span className="text-xs text-gray-600">Actual</span>
-                      </div>
+                      <BarStat percentage={100} value={26.5} label="Planned" colorClass="bg-blue-900" />
+                      <BarStat percentage={25.5/26.5 * 100} value={25.5} label="Actual" colorClass="bg-blue-400" />
                     </div>
                   </td>
                 </tr>
