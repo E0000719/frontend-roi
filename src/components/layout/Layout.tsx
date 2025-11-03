@@ -38,7 +38,6 @@ const Layout = ({ children, modules, navigation }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex relative">
-      <span className="text-white">{navigationState.state}</span>
       {/* Loading overlay */}
       {navigationState.state === "loading" && (
         <div className="fixed top-0 left-0 w-full h-1.5 z-50">
