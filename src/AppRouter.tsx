@@ -12,6 +12,8 @@ import NotFound from "./pages/NotFound";
 import { MainLayout } from "./components/layout/Layout";
 import modules from "./modules";
 import navigation from "./navigation";
+import EnterpriseApplications from "./pages/EnterpriseApplications";
+import CostReduction from "./pages/CostReduction";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,8 @@ const router = createBrowserRouter([
       { path: "/on-track-agents", element: <OnTrackAgents /> },
       { path: "/process-improvement", element: <ProcessImprovement /> },
       { path: "/ai-adoption", element: <AiAdoption /> },
+      { path: "/enterprise-applications", element: <EnterpriseApplications /> },
+      { path: "/cost-reduction", element: <CostReduction /> },
     ],
   },
   { path: "*", element: <NotFound /> },
