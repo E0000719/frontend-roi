@@ -65,58 +65,6 @@ const quickAccess = [
   },
 ];
 
-/*
-const modules = [
-  {
-    title: "Legacy Systems Takeover",
-    iconSrc: "/icons/legacy-icon.png",
-    to: "/legacy-systems-takeover",
-    description: "Take Control of Legacy; Build the Future in Natural Language."
-  },
-  {
-    title: "Agentic Customer & IT Support",
-    iconSrc: "/icons/customer-icon.png",
-    to: "/agentic-customer-it-support",
-    description: "AI-Powered Support Across Every Channel."
-  },
-  {
-    title: "Legal & Compliance",
-    iconSrc: "/icons/compliance-icon.png",
-    to: "/legal-compliance",
-    description: "Audit-Ready. Compliance at AI Speed."
-  },
-  {
-    title: "Enterprise Application Automation",
-    iconSrc: "/icons/enterprise-icon.png",
-    to: "/enterprise-application-automation",
-    description: "Control Enterprise Systems in Natural Language."
-  },
-  {
-    title: "Real-Time Insights",
-    iconSrc: "/icons/real-time-icon.png",
-    to: "/real-time-insights",
-    description: "From Seeing to Acting: Real-Time AI Insights."
-  },
-  {
-    title: "Agentic Recruiting & Hiring",
-    iconSrc: "/icons/recruting-icon.png",
-    to: "/agentic-recruiting-hiring",
-    description: "Hire Faster. Smarter. At Lower Cost."
-  },
-  {
-    title: "Physical Agents Service Robots",
-    iconSrc: "/icons/physical-icon.png",
-    to: "/physical-agents-service-robots",
-    description: "Audit-Ready. Compliance at AI Speed."
-  },
-  {
-    title: "Order to cash",
-    iconSrc: "/icons/order-to-cash-icon.png",
-    to: "/order-to-cash",
-    description: "Automate Order-to-Cash. Accelerate Collections. Unlock Cash Flow."
-  },
-];
-*/
 const modules: Array<{
   name: string;
   href: string;
@@ -127,10 +75,10 @@ const modules: Array<{
   description?: string;
 }> = [
   { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300", description: "AI-Powered Support Across Every Channel." },
-  { name: "Legal & Compliance", href: "", icon: LegalCompliance, iconColor: "text-green-300", description: "Audit-Ready. Compliance at AI Speed." },
+  { name: "Legal & Compliance", href: "http://automated.legal.compliance.roi-roomie.com:9080/", icon: LegalCompliance, iconColor: "text-green-300", description: "Audit-Ready. Compliance at AI Speed." },
   { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400", description: "Automate Order-to-Cash. Accelerate Collections. Unlock Cash Flow." },
   { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500", description: "Hire Faster. Smarter. At Lower Cost." },
-  { name: "Legacy Systems Takeover", href: "", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400", description: "Take Control of Legacy; Build the Future in Natural Language." },
+  { name: "Legacy Systems Takeover", href: "http://lto.wi.roi-roomie.com:8089/", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400", description: "Take Control of Legacy; Build the Future in Natural Language." },
   { name: "Real-Time Insights", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9092/", icon: RealTimeInsightsIcon, iconColor: "text-green-400", description: "From Seeing to Acting: Real-Time AI Insights." },
 ];
 
