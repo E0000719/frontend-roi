@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useNavigate } from "react-router-dom";
 import OrderToCash from "@/components/icons/OrderToCash";
 import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
+import LegalCompliance from "@/components/icons/LegalCompliance";
 
 const modules = [
   {
@@ -18,6 +19,13 @@ const modules = [
     icon: AgenticCustomerITSupport,
     description: "AI-powered support",
     route: "customer_support"
+  },
+  {
+    title: "Legal & Compliance",
+    subtitle: "Legal & Compliance",
+    icon: LegalCompliance,
+    description: "Automated compliance",
+    route: "legal_and_compliance"
   }
 ];
 

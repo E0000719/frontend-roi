@@ -61,6 +61,17 @@ const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
       'ROI Visibility',
     ],
   },
+  'legal_and_compliance': {
+    name: 'Legal & Compliance',
+    dimensions: [
+      'Operational Efficiency',
+      'Legal Consulting Cost Reduction',
+      'Compliance and Risk Mitigation',
+      'Certification and Audit Speed',
+      'Talent Productivity and Utilization',
+      'Quality, Security and Traceability',
+    ],
+  },
   'compliance': {
     name: 'Contract Management Compliance',
     dimensions: [
