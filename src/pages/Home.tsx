@@ -74,12 +74,12 @@ const modules: Array<{
   active?: boolean;
   description?: string;
 }> = [
-  { name: "Agentic Customer & IT Support", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300", description: "AI-Powered Support Across Every Channel." },
+  { name: "Agentic Customer & IT Support", href: "http://ec2-50-17-154-161.compute-1.amazonaws.com:8080/", icon: AgenticCustomerITSupport, iconColor: "text-warning-300", description: "AI-Powered Support Across Every Channel." },
   { name: "Legal & Compliance", href: "http://automated.legal.compliance.roi-roomie.com:9080/", icon: LegalCompliance, iconColor: "text-green-300", description: "Audit-Ready. Compliance at AI Speed." },
-  { name: "Order to Cash", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400", description: "Automate Order-to-Cash. Accelerate Collections. Unlock Cash Flow." },
-  { name: "Agentic Recruiting & Hiring", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500", description: "Hire Faster. Smarter. At Lower Cost." },
+  { name: "Order to Cash", href: "http://ec2-50-17-154-161.compute-1.amazonaws.com:9098", icon: OrderToCash, iconColor: "text-pink-400", description: "Automate Order-to-Cash. Accelerate Collections. Unlock Cash Flow." },
+  { name: "Agentic Recruiting & Hiring", href: "http://ec2-50-17-154-161.compute-1.amazonaws.com:8083/", icon: AgenticRecruitingHiringIcon, iconColor: "text-blue-500", description: "Hire Faster. Smarter. At Lower Cost." },
   { name: "Legacy Systems Takeover", href: "http://lto.wi.roi-roomie.com:8089/", icon: LegacySystemsTakeoverIcon, iconColor: "text-pink-400", description: "Take Control of Legacy; Build the Future in Natural Language." },
-  { name: "Real-Time Insights", href: "http://ec2-44-223-62-175.compute-1.amazonaws.com:9092/", icon: RealTimeInsightsIcon, iconColor: "text-green-400", description: "From Seeing to Acting: Real-Time AI Insights." },
+  { name: "Real-Time Insights", href: "http://ec2-50-17-154-161.compute-1.amazonaws.com:9092/", icon: RealTimeInsightsIcon, iconColor: "text-green-400", description: "From Seeing to Acting: Real-Time AI Insights." },
 ];
 
 const stats = [
