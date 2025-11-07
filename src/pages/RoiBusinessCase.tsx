@@ -72,14 +72,14 @@ export default function RoiBusinessCase() {
           Select one of the agentic AI modules to create a new business case
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
         {modules.map((module) => {
           const Icon = module.icon;
           return (
             <Card 
               key={module.title}
               onClick={() => handleModuleClick(module.route)}
-              className="rounded-2xl text-card-foreground shadow-sm border-0 secondary-card bg-bluegrey-100 px-6 py-8"
+              className="rounded-2xl text-card-foreground shadow-sm border-0 secondary-card bg-bluegrey-100 px-6 py-8 cursor-pointer hover:shadow-lg transition-shadow"
             >
               <CardHeader className="text-center pb-3">
                 <div className="flex justify-center">
