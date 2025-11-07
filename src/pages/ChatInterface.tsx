@@ -197,7 +197,7 @@ export default function ChatInterface() {
         console.log('🔄 Sending correction with context:', requestPayload.correction_context);
       }
 
-      const response = await fetch('http://ec2-50-17-154-161.compute-1.amazonaws.com:9095/chat', {
+      const response = await fetch('http://portal.roi-roomie.com:9095/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -329,7 +329,7 @@ export default function ChatInterface() {
       console.log('🧮 Starting ROI calculation...');
       console.log('📊 Data to send:', collectedData);
 
-      const response = await fetch('http://ec2-50-17-154-161.compute-1.amazonaws.com:9095/calculate', {
+      const response = await fetch('http://portal.roi-roomie.com:9095/calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
