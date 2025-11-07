@@ -492,7 +492,7 @@ export default function ChatInterface() {
             </div>
           </div>
         </div>  
-        <div className="flex flex-col flex-grow md:w-2/3 rounded-xl p-6 h-[calc(100%-8rem)] secondary-card bg-bluegrey-100">
+        <div className="flex flex-col flex-grow md:w-2/3 rounded-xl p-6 h-[calc(100%-8rem)] secondary-card bg-bluegrey-100 relative">
           <div className="flex items-center justify-between gap-3 mb-6">
             <h2 className="text-xl font-semibold text-foreground">ROI First Assistant</h2>
             <Button variant='outline' className='font-jetbrains border-bluegrey-700 rounded-xl'> 
@@ -695,20 +695,20 @@ export default function ChatInterface() {
               )}
             </div>
           </div>
+
+          {/* Floating Scroll to Top Button */}
+          {showScrollTop && (
+            <Button
+              onClick={scrollToTop}
+              size="icon"
+              className="absolute bottom-20 right-6 size-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg z-50 transition-all duration-300"
+              title="Scroll to top"
+            >
+              <ArrowUp className="h-5 w-5" />
+            </Button>
+          )}
         </div>
       </div>
-
-      {/* Floating Scroll to Top Button */}
-      {showScrollTop && (
-        <Button
-          onClick={scrollToTop}
-          size="icon"
-          className="fixed bottom-6 right-6 size-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg z-50 transition-all duration-300"
-          title="Scroll to top"
-        >
-          <ArrowUp className="h-5 w-5" />
-        </Button>
-      )}
     </div>
   );
 }
