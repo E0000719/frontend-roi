@@ -1,0 +1,40 @@
+DIMENSION: Savings in Operational Work Costs
+==================================================
+¿Number of recruiters currently working? [ EXAMPLE: 5]
+¿Hours each recruiter dedicates per month to repetitive operational tasks? [ EXAMPLE: 120]
+¿Average cost per recruiter hour? [ EXAMPLE: 250.00]
+¿Expected automation percentage with AI? [ EXAMPLE: 60%]
+
+DIMENSION: Acceleration of Time to Hire
+==================================================
+¿Current average time to fill a vacancy (in days)? [ EXAMPLE: 45]
+¿Estimated time with AI to fill a vacancy (in days)? [ EXAMPLE: 25]
+¿Average daily cost of having an unfilled vacancy (due to productivity loss)? [ EXAMPLE: 2000.00]
+¿Number of annual vacancies? [ EXAMPLE: 100]
+
+DIMENSION: Improvement in Hiring Quality
+==================================================
+¿Current early turnover rate (within 6 months)? [ EXAMPLE: 25%]
+¿Expected early turnover rate with AI? [ EXAMPLE: 15%]
+¿Average cost to replace an employee? [ EXAMPLE: 50000.00]
+¿Number of annual hires? [ EXAMPLE: 100]
+
+DIMENSION: Savings in External Hiring Costs
+==================================================
+¿Annual spending on external agencies or recruitment platforms? [ EXAMPLE: 500000.00]
+¿Expected reduction percentage from using internal AI? [ EXAMPLE: 50%]
+
+DIMENSION: Savings from Improved Candidate Experience
+==================================================
+¿Current candidate abandonment rate during the process? [ EXAMPLE: 40%]
+¿Expected rate with AI (better communication, follow-up)? [ EXAMPLE: 25%]
+¿Average cost associated with restarting a process per lost candidate? [ EXAMPLE: 5000.00]
+¿Number of selection processes per year? [ EXAMPLE: 100]
+
+DIMENSION: Efficiency in Evaluation and Interviews
+==================================================
+¿Average number of interviews per vacancy? [ EXAMPLE: 6]
+¿Average duration per interview (hours)? [ EXAMPLE: 1.0]
+¿Average cost per hour of an interviewing manager? [ EXAMPLE: 500.00]
+¿Percentage of unnecessary interviews avoided with AI? [ EXAMPLE: 40%]
+¿Number of vacancies per year? [ EXAMPLE: 100]

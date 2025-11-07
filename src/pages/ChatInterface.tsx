@@ -425,6 +425,9 @@ export default function ChatInterface() {
                 } else if (roiSystem === 'legacy_takeover') {
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';
                   templateName = 'Plantilla_Legacy_TakeOver.txt';
+                } else if (roiSystem === 'cost_to_hire') {
+                  templateFile = '/Plantilla_Cost_To_Hire.txt';
+                  templateName = 'Plantilla_Cost_To_Hire.txt';
                 } else {
                   // Default template
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';
