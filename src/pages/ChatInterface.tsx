@@ -499,23 +499,65 @@ export default function ChatInterface() {
                     </p>
                   </div>
                 </div>
-                <Button
-                  onClick={handleCalculateROI}
-                  disabled={isCalculating}
-                  className="bg-green-600 hover:bg-green-700 text-white"
-                >
-                  {isCalculating ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Calculating...
-                    </>
-                  ) : (
-                    <>
-                      <Calculator className="h-4 w-4 mr-2" />
-                      Calculate ROI
-                    </>
-                  )}
-                </Button>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      // Determine which template to download based on the system
+                      let templateFile = '';
+                      let templateName = '';
+                      
+                      if (roiSystem === 'customer_support') {
+                        templateFile = '/Plantilla_Customer_Support.txt';
+                        templateName = 'Plantilla_Customer_Support.txt';
+                      } else if (roiSystem === 'order_to_cash') {
+                        templateFile = '/Plantilla_Order_To_Cash.txt';
+                        templateName = 'Plantilla_Order_To_Cash.txt';
+                      } else if (roiSystem === 'legacy_takeover') {
+                        templateFile = '/Plantilla_Legacy_TakeOver.txt';
+                        templateName = 'Plantilla_Legacy_TakeOver.txt';
+                      } else if (roiSystem === 'cost_to_hire') {
+                        templateFile = '/Plantilla_Cost_To_Hire.txt';
+                        templateName = 'Plantilla_Cost_To_Hire.txt';
+                      } else if (roiSystem === 'legal_and_compliance') {
+                        templateFile = '/Plantilla_Legal_And_Compliance.txt';
+                        templateName = 'Plantilla_Legal_And_Compliance.txt';
+                      } else {
+                        // Default template
+                        templateFile = '/Plantilla_Legacy_TakeOver.txt';
+                        templateName = 'Plantilla_Legacy_TakeOver.txt';
+                      }
+                      
+                      const link = document.createElement('a');
+                      link.href = templateFile;
+                      link.download = templateName;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                    className="border-green-600 text-green-700 hover:bg-green-50"
+                  >
+                    <Download className="h-4 w-4 mr-2" />
+                    Download Template
+                  </Button>
+                  <Button
+                    onClick={handleCalculateROI}
+                    disabled={isCalculating}
+                    className="bg-green-600 hover:bg-green-700 text-white"
+                  >
+                    {isCalculating ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Calculating...
+                      </>
+                    ) : (
+                      <>
+                        <Calculator className="h-4 w-4 mr-2" />
+                        Calculate ROI
+                      </>
+                    )}
+                  </Button>
+                </div>
               </div>
             </div>
           )}
