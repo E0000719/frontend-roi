@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator, Download, ArrowLeft, Zap, Trash, Paperclip, SendHorizonal } from 'lucide-react';
+import { FileText, Send, Sparkles, Bot, AlertCircle, Calculator, Download, ArrowLeft, Zap, Trash, Paperclip, SendHorizonal, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { getRoiSystem, getRoiType, getRoiDimensions } from '@/utils/sessionStorage';
@@ -145,6 +145,13 @@ export default function ChatInterface() {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToTop = () => {
+    const chatContainer = document.querySelector('.chat-messages-container');
+    if (chatContainer) {
+      chatContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const agentName = roiType === 'expert' ? 'GPT ROI First' : 'ROI First Assistant';
@@ -502,6 +509,15 @@ export default function ChatInterface() {
                 <div className="flex items-center gap-2">
                   <Button
                     variant="outline"
+                    size="icon"
+                    onClick={scrollToTop}
+                    className="border-green-600 text-green-700 hover:bg-green-50"
+                    title="Scroll to top"
+                  >
+                    <ArrowUp className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant="outline"
                     onClick={() => {
                       // Determine which template to download based on the system
                       let templateFile = '';
@@ -574,7 +590,7 @@ export default function ChatInterface() {
             </div>
           )}
 
-          <div className="flex-1 overflow-y-auto space-y-4">
+          <div className="flex-1 overflow-y-auto space-y-4 chat-messages-container">
             
             {messages.map((msg, index) => (
               <div
