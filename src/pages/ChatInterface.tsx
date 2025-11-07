@@ -418,23 +418,23 @@ export default function ChatInterface() {
                 
                 if (roiSystem === 'customer_support') {
                   templateFile = '/Plantilla_Customer_Support.txt';
-                  templateName = 'Plantilla_Customer_Support.txt';
+                  templateName = 'template_customer_support.txt';
                 } else if (roiSystem === 'order_to_cash') {
                   templateFile = '/Plantilla_Order_To_Cash.txt';
-                  templateName = 'Plantilla_Order_To_Cash.txt';
+                  templateName = 'template_order_to_cash.txt';
                 } else if (roiSystem === 'legacy_takeover') {
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';
-                  templateName = 'Plantilla_Legacy_TakeOver.txt';
+                  templateName = 'template_legacy_takeover.txt';
                 } else if (roiSystem === 'cost_to_hire') {
                   templateFile = '/Plantilla_Cost_To_Hire.txt';
-                  templateName = 'Plantilla_Cost_To_Hire.txt';
+                  templateName = 'template_cost_to_hire.txt';
                 } else if (roiSystem === 'legal_and_compliance') {
                   templateFile = '/Plantilla_Legal_And_Compliance.txt';
-                  templateName = 'Plantilla_Legal_And_Compliance.txt';
+                  templateName = 'template_legal_and_compliance.txt';
                 } else {
                   // Default template
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';
-                  templateName = 'Plantilla_Legacy_TakeOver.txt';
+                  templateName = 'template_legacy_takeover.txt';
                 }
                 
                 const link = document.createElement('a');
@@ -509,23 +509,23 @@ export default function ChatInterface() {
                       
                       if (roiSystem === 'customer_support') {
                         templateFile = '/Plantilla_Customer_Support.txt';
-                        templateName = 'Plantilla_Customer_Support.txt';
+                        templateName = 'template_customer_support.txt';
                       } else if (roiSystem === 'order_to_cash') {
                         templateFile = '/Plantilla_Order_To_Cash.txt';
-                        templateName = 'Plantilla_Order_To_Cash.txt';
+                        templateName = 'template_order_to_cash.txt';
                       } else if (roiSystem === 'legacy_takeover') {
                         templateFile = '/Plantilla_Legacy_TakeOver.txt';
-                        templateName = 'Plantilla_Legacy_TakeOver.txt';
+                        templateName = 'template_legacy_takeover.txt';
                       } else if (roiSystem === 'cost_to_hire') {
                         templateFile = '/Plantilla_Cost_To_Hire.txt';
-                        templateName = 'Plantilla_Cost_To_Hire.txt';
+                        templateName = 'template_cost_to_hire.txt';
                       } else if (roiSystem === 'legal_and_compliance') {
                         templateFile = '/Plantilla_Legal_And_Compliance.txt';
-                        templateName = 'Plantilla_Legal_And_Compliance.txt';
+                        templateName = 'template_legal_and_compliance.txt';
                       } else {
                         // Default template
                         templateFile = '/Plantilla_Legacy_TakeOver.txt';
-                        templateName = 'Plantilla_Legacy_TakeOver.txt';
+                        templateName = 'template_legacy_takeover.txt';
                       }
                       
                       const link = document.createElement('a');
