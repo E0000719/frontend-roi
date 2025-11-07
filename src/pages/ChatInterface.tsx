@@ -78,6 +78,7 @@ export default function ChatInterface() {
   const [isCalculating, setIsCalculating] = useState(false);
   const [showCalculateButton, setShowCalculateButton] = useState(false);
   const [collectedData, setCollectedData] = useState<any>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const roiSystem = getRoiSystem();
   const roiType = getRoiType();
@@ -141,6 +142,18 @@ export default function ChatInterface() {
 
   useEffect(() => {
     scrollToBottom();
+  }, [messages]);
+
+  useEffect(() => {
+    const chatContainer = document.querySelector('.chat-messages-container');
+    if (!chatContainer) return;
+
+    const handleScroll = () => {
+      setShowScrollTop(chatContainer.scrollTop > 200);
+    };
+
+    chatContainer.addEventListener('scroll', handleScroll);
+    return () => chatContainer.removeEventListener('scroll', handleScroll);
   }, [messages]);
 
   const scrollToBottom = () => {
@@ -509,15 +522,6 @@ export default function ChatInterface() {
                 <div className="flex items-center gap-2">
                   <Button
                     variant="outline"
-                    size="icon"
-                    onClick={scrollToTop}
-                    className="border-green-600 text-green-700 hover:bg-green-50"
-                    title="Scroll to top"
-                  >
-                    <ArrowUp className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    variant="outline"
                     onClick={() => {
                       // Determine which template to download based on the system
                       let templateFile = '';
@@ -693,6 +697,18 @@ export default function ChatInterface() {
           </div>
         </div>
       </div>
+
+      {/* Floating Scroll to Top Button */}
+      {showScrollTop && (
+        <Button
+          onClick={scrollToTop}
+          size="icon"
+          className="fixed bottom-6 right-6 size-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg z-50 transition-all duration-300"
+          title="Scroll to top"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </Button>
+      )}
     </div>
   );
 }
