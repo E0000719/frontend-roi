@@ -1,43 +1,60 @@
-**EFICIENCIA:**
-¿Horas Hombre? Tu_Respuesta
-¿Costo Hora Hombre? Tu_Respuesta
-¿Recursos? Tu_Respuesta
-¿Porcentaje Mantenimiento? Tu_Respuesta
-¿Porcentaje Nuevas Funcionalidades? Tu_Respuesta
+# Plantilla Expert para Legacy Takeover ROI Calculator
+# Esta plantilla se genera dinámicamente desde el schema
+# Formato esperado del usuario experto
 
-**CALIDAD:**
-¿Errores Produccion? Tu_Respuesta
-¿Costo Error Produccion? Tu_Respuesta
-¿Errores Qa? Tu_Respuesta
-¿Costo Error Qa? Tu_Respuesta
-¿Porcentaje Codigo Automatizado? Tu_Respuesta
+DIMENSION: Development and Maintenance Efficiency
+==================================================
+¿Monthly work hours for legacy maintenance? [ EXAMPLE: 500]
+¿Cost per developer hour? [ EXAMPLE: 1500.00]
+¿Total number of developers? [ EXAMPLE: 10]
+¿Percentage of time dedicated to legacy maintenance? [ EXAMPLE: 60%]
+¿Percentage of time for new development? [ EXAMPLE: 60%]
 
-**VELOCIDAD:**
-¿Dias Promedio? Tu_Respuesta
-¿Costo Diario? Tu_Respuesta
-¿Porcentaje Retrasos? Tu_Respuesta
-¿Proyectos? Tu_Respuesta
-¿Costo Promedio Proyecto? Tu_Respuesta
+DIMENSION: Software Quality
+==================================================
+¿Monthly critical errors in production? [ EXAMPLE: 10]
+¿Average cost per production error? [ EXAMPLE: 1500.00]
+¿Monthly errors detected in QA? [ EXAMPLE: 10]
+¿Average cost per QA error? [ EXAMPLE: 1500.00]
+¿Percentage of code with automated tests? [ EXAMPLE: 60%]
 
-**COSTOS OPERATIVOS:**
-¿Devs Internos? Tu_Respuesta
-¿Costo Dev Interno? Tu_Respuesta
-¿Consultores? Tu_Respuesta
-¿Costo Consultor? Tu_Respuesta
-¿Costo Licencias? Tu_Respuesta
-¿Incidentes? Tu_Respuesta
-¿Costo Incidente? Tu_Respuesta
+DIMENSION: Delivery Speed
+==================================================
+¿Average days to deploy a feature? [ EXAMPLE: 10]
+¿Opportunity cost per day of delay? [ EXAMPLE: 1500.00]
+¿Percentage of projects delayed by more than 25%? [ EXAMPLE: 60%]
+¿Features/projects delivered per year? [ EXAMPLE: 10]
+¿Average value of a project? [ EXAMPLE: 1500.00]
 
-**SATISFACCION VALOR:**
-¿Quejas? Tu_Respuesta
-¿Costo Queja? Tu_Respuesta
-¿Porcentaje Rotacion? Tu_Respuesta
-¿Recursos Legacy? Tu_Respuesta
-¿Costo Rotacion? Tu_Respuesta
-¿Costo Productividad Perdida? Tu_Respuesta
+DIMENSION: Operational Costs
+==================================================
+¿Developers dedicated to legacy? [ EXAMPLE: 10]
+¿Annual cost per internal developer? [ EXAMPLE: 1500.00]
+¿External consultants? [ EXAMPLE: 10]
+¿Annual cost per consultant? [ EXAMPLE: 1500.00]
+¿Annual spending on legacy licenses/support? [ EXAMPLE: 1500.00]
+¿Annual critical incidents? [ EXAMPLE: 10]
+¿Average cost per critical incident? [ EXAMPLE: 1500.00]
 
-**INNOVACION ESCALABILIDAD:**
-¿Inversion Innovacion? Tu_Respuesta
-¿Porcentaje Proyectos Bloqueados? Tu_Respuesta
-¿Costo Retrasos? Tu_Respuesta
-¿Costo Infraestructura Legacy? Tu_Respuesta
+DIMENSION: Satisfaction and Value
+==================================================
+¿Monthly IT complaints? [ EXAMPLE: 10]
+¿Average cost per complaint? [ EXAMPLE: 1500.00]
+¿Annual turnover percentage of technical staff? [ EXAMPLE: 60%]
+¿Technical resources on legacy? [ EXAMPLE: 10]
+¿Cost per resource turnover? [ EXAMPLE: 1500.00]
+¿Annual productivity loss cost? [ EXAMPLE: 1500.00]
+
+DIMENSION: Innovation and Scalability
+==================================================
+¿Annual investment in innovation? [ EXAMPLE: 1500.00]
+¿Percentage of innovation projects delayed by legacy? [ EXAMPLE: 60%]
+¿Estimated cost of delays? [ EXAMPLE: 1500.00]
+¿Annual spending on legacy infrastructure? [ EXAMPLE: 1500.00]
+
+# USER INSTRUCTIONS:
+# 1. Replace [EXAMPLE: value] with your actual data
+# 2. You can omit the 'DIMENSION:' lines if you prefer
+# 3. Maintain the question-answer format
+# 4. Numeric values do not require any specific formatting
+# 5. Percentages can be 60% or 0.6
