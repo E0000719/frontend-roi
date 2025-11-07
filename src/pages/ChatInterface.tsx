@@ -428,6 +428,9 @@ export default function ChatInterface() {
                 } else if (roiSystem === 'cost_to_hire') {
                   templateFile = '/Plantilla_Cost_To_Hire.txt';
                   templateName = 'Plantilla_Cost_To_Hire.txt';
+                } else if (roiSystem === 'legal_and_compliance') {
+                  templateFile = '/Plantilla_Legal_And_Compliance.txt';
+                  templateName = 'Plantilla_Legal_And_Compliance.txt';
                 } else {
                   // Default template
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';

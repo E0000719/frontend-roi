@@ -1,0 +1,29 @@
+DIMENSION: Operational Efficiency
+==================================================
+¿Current monthly hours invested in repetitive legal/compliance tasks? [EXAMPLE: 320]
+¿Average cost per hour of employees performing these tasks? [EXAMPLE: 45.00]
+
+DIMENSION: Legal Consulting Cost Reduction
+==================================================
+¿Annual spending on external legal consultants or contracted audits? [EXAMPLE: 250000]
+
+DIMENSION: Compliance and Risk Mitigation
+==================================================
+¿Average annual fines or regulatory sanctions paid in the last 12 months? [EXAMPLE: 150000]
+¿Annual cost spent on corrective audits or legal remediation? [EXAMPLE: 80000]
+
+DIMENSION: Certification and Audit Speed
+==================================================
+¿Current weeks required for audit or certification preparation (ISO/CMMI/ESG)? [EXAMPLE: 8]
+¿Cost per week of having the project delayed? [EXAMPLE: 15000]
+¿Number of certifications or audits conducted per year? [EXAMPLE: 4]
+
+DIMENSION: Talent Productivity and Utilization
+==================================================
+¿Monthly hours freed from specialized personnel by eliminating manual tasks? [EXAMPLE: 200]
+¿Economic value per hour of specialized talent? [EXAMPLE: 75.00]
+
+DIMENSION: Quality, Security and Traceability
+==================================================
+¿Average monthly document errors in legal or regulatory topics? [EXAMPLE: 15]
+¿Cost to correct each error (monetary or in hours)? [EXAMPLE: 800]
