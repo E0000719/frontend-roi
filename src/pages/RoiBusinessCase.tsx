@@ -5,6 +5,7 @@ import OrderToCash from "@/components/icons/OrderToCash";
 import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
 import LegalCompliance from "@/components/icons/LegalCompliance";
 import AgenticRecruitingHiringIcon from "@/components/icons/AgenticRecruitingHiringIcon";
+import LegacySystemsTakeoverIcon from "@/components/icons/LegacySystemsTakeoverIcon";
 
 const modules = [
   {
@@ -34,6 +35,13 @@ const modules = [
     icon: AgenticRecruitingHiringIcon,
     description: "Optimize hiring costs",
     route: "cost_to_hire"
+  },
+  {
+    title: "Legacy Takeover",
+    subtitle: "Legacy Takeover",
+    icon: LegacySystemsTakeoverIcon,
+    description: "Modernize legacy systems",
+    route: "legacy_takeover"
   }
 ];
 
