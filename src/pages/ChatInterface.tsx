@@ -88,6 +88,12 @@ export default function ChatInterface() {
     'order_to_cash': 'Agentic Order to Cash',
     'customer_support': 'Agentic Customer Support',
     'legacy_takeover': 'Legacy Takeover',
+    'legal_and_compliance': 'Legal & Compliance',
+    'cost_to_hire': 'Cost to Hire',
+    'compliance': 'Contract Management Compliance',
+    'insights': 'Real Time Insights',
+    'physical-ai': 'Physical AI',
+    'web-takeover': 'Web Interface Takeover',
   };
 
   const displayName = system ? (systemNames[system] || system) : '';
