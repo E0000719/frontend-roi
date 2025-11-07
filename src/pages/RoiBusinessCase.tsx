@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import OrderToCash from "@/components/icons/OrderToCash";
 import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSupport";
 import LegalCompliance from "@/components/icons/LegalCompliance";
+import AgenticRecruitingHiringIcon from "@/components/icons/AgenticRecruitingHiringIcon";
 
 const modules = [
   {
@@ -26,6 +27,13 @@ const modules = [
     icon: LegalCompliance,
     description: "Automated compliance",
     route: "legal_and_compliance"
+  },
+  {
+    title: "Cost to Hire",
+    subtitle: "Cost to Hire",
+    icon: AgenticRecruitingHiringIcon,
+    description: "Optimize hiring costs",
+    route: "cost_to_hire"
   }
 ];
 

@@ -72,6 +72,17 @@ const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
       'Quality, Security and Traceability',
     ],
   },
+  'cost_to_hire': {
+    name: 'Cost to Hire',
+    dimensions: [
+      'Savings in Operational Work Costs',
+      'Acceleration of Time to Hire',
+      'Improvement in Hiring Quality',
+      'Savings in External Hiring Costs',
+      'Savings from Improved Candidate Experience',
+      'Efficiency in Evaluation and Interviews',
+    ],
+  },
   'compliance': {
     name: 'Contract Management Compliance',
     dimensions: [
