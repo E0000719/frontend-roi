@@ -92,7 +92,7 @@ export default function ChatInterface() {
     'legal_and_compliance': 'Legal & Compliance',
     'cost_to_hire': 'Cost to Hire',
     'compliance': 'Contract Management Compliance',
-    'insights': 'Real Time Insights',
+    'real_time_insights': 'Real Time Insights',
     'physical-ai': 'Physical AI',
     'web-takeover': 'Web Interface Takeover',
   };
@@ -451,6 +451,9 @@ export default function ChatInterface() {
                 } else if (roiSystem === 'legal_and_compliance') {
                   templateFile = '/Plantilla_Legal_And_Compliance.txt';
                   templateName = 'template_legal_and_compliance.txt';
+                } else if (roiSystem === 'real_time_insights') {
+                  templateFile = '/Plantilla_Real_Time_Insights.txt';
+                  templateName = 'template_real_time_insights.txt';
                 } else {
                   // Default template
                   templateFile = '/Plantilla_Legacy_TakeOver.txt';

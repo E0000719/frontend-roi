@@ -27,7 +27,7 @@ export default function AgentSelection() {
     'legal_and_compliance': 'Legal & Compliance',
     'cost_to_hire': 'Cost to Hire',
     'compliance': 'Contract Management Compliance',
-    'insights': 'Real Time Insights',
+    'real_time_insights': 'Real Time Insights',
     'physical-ai': 'Physical AI',
     'web-takeover': 'Web Interface Takeover',
   };
