@@ -293,7 +293,7 @@ export default function SystemOverview() {
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-gray-900 text-sm leading-tight">{name}</p>
                       <p className="text-xs text-gray-600 mt-1">
-                        TCO: <span className="font-semibold text-emerald-600">{formatCurrency(tcoValue || 0)}</span>
+                        CO: <span className="font-semibold text-emerald-600">{formatCurrency(tcoValue || 0)}</span>
                         {' '}({formatPercentage(percentage)})
                       </p>
                     </div>
