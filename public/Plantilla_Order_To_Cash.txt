@@ -1,48 +1,54 @@
-DIMENSION: Savings in Collection Management Costs
-==================================================
-¿Number of agents dedicated to collections? [ EXAMPLE: 10]
-¿Monthly hours per collections agent? [ EXAMPLE: 10]
-¿Hourly cost of a collections agent (including benefits)? [ EXAMPLE: 1500.00]
-¿Percentage of routine/repetitive collection interactions? [ EXAMPLE: 60%]
+# Expert Template for Order to Cash ROI Calculator
 
-DIMENSION: Reducing Errors in Billing and Processing
+DIMENSION: Collection Management
 ==================================================
-¿Average monthly number of processed orders? [ EXAMPLE: 10000]
-¿Current percentage of orders with errors requiring correction? [ EXAMPLE: 60%]
-¿Average hours required to correct an erroneous order? [ EXAMPLE: 1500.00]
-¿Hourly cost of staff correcting errors? [ EXAMPLE: 1500.00]
-¿Average cost of credit notes issued due to monthly errors? [ EXAMPLE: 1500.00]
-¿Estimated number of customers lost annually due to billing issues? [ EXAMPLE: 500]
-¿Average annual value of a customer (lifetime value)? [ EXAMPLE: 1500.00]
+¿Number of collection agents dedicated to the process? [EXAMPLE: 10]
+¿Average monthly hours per agent dedicated to collection? [EXAMPLE: 8000]
+¿Hourly cost of a collection agent (including benefits)? [EXAMPLE: 40]
 
-DIMENSION: Improved Collection Speed and DSO Reduction
+DIMENSION: Billing and Order Processing Errors
 ==================================================
-¿Average monthly company billing? [ EXAMPLE: 1500.00]
-¿Current DSO (Days Sales Outstanding)? [ EXAMPLE: 10]
-¿Opportunity cost or annual financing interest rate? [ EXAMPLE: 60%]
-¿Percentage of invoices paid after the due date? [ EXAMPLE: 60%]
+¿Average monthly number of processed orders? [EXAMPLE: 10000]
+¿Current percentage of orders with errors requiring correction? [EXAMPLE: 60%]
+¿Average hours required to correct an order with error? [EXAMPLE: 8000]
+¿Hourly cost of staff correcting errors? [EXAMPLE: 40]
+¿Average cost of credit notes issued due to monthly errors? [EXAMPLE: 75000]
+¿Estimated number of customers lost annually due to billing issues? [EXAMPLE: 500]
+¿Average annual value of a customer (lifetime value)? [EXAMPLE: 1500.00]
 
-DIMENSION: Optimizing Order Processing and Billing
+DIMENSION: Collection Speed and DSO Reduction
 ==================================================
-¿Number of people in the order processing team? [ EXAMPLE: 10]
-¿Average monthly hours per person dedicated to order processing? [ EXAMPLE: 10]
-¿Hourly cost of processing staff (including benefits)? [ EXAMPLE: 1500.00]
-¿Percentage of time spent on automatable tasks? [ EXAMPLE: 60%]
-¿Current average time to process an order from receipt to billing (hours)? [ EXAMPLE: 1500.00]
+¿Average monthly company billing? [EXAMPLE: 1500.00]
+¿Current DSO (Days Sales Outstanding)? [EXAMPLE: 10]
+¿Opportunity cost or annual financing interest rate? [EXAMPLE: 60%]
 
-DIMENSION: Reduction in Dispute Management and Reconciliation
+DIMENSION: Order Processing and Billing
 ==================================================
-¿Average monthly number of disputes or customer inquiries about billing? [ EXAMPLE: 500]
-¿Average hours required to resolve a dispute? [ EXAMPLE: 1500.00]
-¿Hourly cost of staff managing disputes? [ EXAMPLE: 1500.00]
-¿Number of people dedicated to payment reconciliation? [ EXAMPLE: 10]
-¿Monthly hours per person in manual reconciliation? [ EXAMPLE: 10]
-¿Hourly cost of reconciliation staff? [ EXAMPLE: 1500.00]
+¿Number of people in the order processing team? [EXAMPLE: 10]
+¿Average monthly hours per person dedicated to order processing? [EXAMPLE: 8000]
+¿Hourly cost of processing staff (including benefits)? [EXAMPLE: 40]
+¿Percentage of time spent on automatable tasks (data entry, validation, invoice generation)? [EXAMPLE: 60%]
 
-DIMENSION: Improved Customer Experience and Retention
+DIMENSION: Dispute Management and Reconciliation
 ==================================================
-¿Current annual churn rate (percentage of customers leaving)? [ EXAMPLE: 60%]
-¿Percentage of churn attributable to billing/collections process issues? [ EXAMPLE: 60%]
-¿Total number of active customers? [ EXAMPLE: 10000]
-¿Average annual revenue per customer? [ EXAMPLE: 1500.00]
-¿Average cost of acquiring a new customer? [ EXAMPLE: 1500.00]
+¿Average monthly number of disputes or customer inquiries about billing? [EXAMPLE: 500]
+¿Average hours required to resolve a dispute? [EXAMPLE: 8000]
+¿Hourly cost of staff managing disputes? [EXAMPLE: 40]
+¿Number of people dedicated to payment reconciliation? [EXAMPLE: 10]
+¿Monthly hours per person in manual reconciliation? [EXAMPLE: 8000]
+¿Hourly cost of reconciliation staff? [EXAMPLE: 40]
+
+DIMENSION: Customer Experience and Retention
+==================================================
+¿Current annual churn rate (percentage of customers leaving)? [EXAMPLE: 60%]
+¿Percentage of churn attributable to billing/collections process issues? [EXAMPLE: 60%]
+¿Total number of active customers? [EXAMPLE: 10000]
+¿Average annual revenue per customer? [EXAMPLE: 1500.00]
+¿Average cost of acquiring a new customer? [EXAMPLE: 75000]
+
+# USER INSTRUCTIONS:
+# 1. Replace [EXAMPLE: value] with your actual data
+# 2. You can omit the 'DIMENSION:' lines if you prefer
+# 3. Maintain the question-answer format
+# 4. Numeric values ​​do not require any specific formatting
+# 5. Percentages can be 60% or 0.6
