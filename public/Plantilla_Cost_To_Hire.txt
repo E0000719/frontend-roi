@@ -1,4 +1,4 @@
-# Plantilla Expert para Cost to Hire ROI Calculator
+# Expert Template for Recruitment Cost ROI Calculator
 
 DIMENSION: Operational Work Costs
 ==================================================
