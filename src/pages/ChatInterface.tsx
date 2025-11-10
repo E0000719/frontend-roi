@@ -197,7 +197,7 @@ export default function ChatInterface() {
         console.log('🔄 Sending correction with context:', requestPayload.correction_context);
       }
 
-      const response = await fetch('https://web.portal.roi-roomie.com:447/chat', {
+      const response = await fetch('https://web.portal.roi-roomie.com:449/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -329,7 +329,7 @@ export default function ChatInterface() {
       console.log('🧮 Starting ROI calculation...');
       console.log('📊 Data to send:', collectedData);
 
-      const response = await fetch('https://web.portal.roi-roomie.com:447/calculate', {
+      const response = await fetch('https://web.portal.roi-roomie.com:449/calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
