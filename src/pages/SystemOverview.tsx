@@ -222,18 +222,38 @@ export default function SystemOverview() {
             annually{showFutureProjection ? ' projected' : ''}. This process considers the following dimension breakdown:
           </p>
           
-          {/* Client Net Savings - Only shown in future projection */}
+          {/* Client Net Savings and AI Investment - Only shown in future projection */}
           {showFutureProjection && tco_global.ahorro_neto_cliente_total && (
             <div className="mt-6 p-6 bg-emerald-50 rounded-xl border border-emerald-200">
-              <p className="text-sm font-semibold text-gray-600 mb-2">
-                Your Net Savings with AI Implementation
-              </p>
-              <p className="text-5xl font-extrabold text-emerald-600">
-                {formatCurrency(tco_global.ahorro_neto_cliente_total)}
-              </p>
-              <p className="text-sm font-medium text-gray-600 mt-2">
-                annually projected
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Net Savings Column */}
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-gray-600 mb-2">
+                    Your Net Savings with AI Implementation
+                  </p>
+                  <p className="text-4xl md:text-5xl font-extrabold text-emerald-600">
+                    {formatCurrency(tco_global.ahorro_neto_cliente_total)}
+                  </p>
+                  <p className="text-sm font-medium text-gray-600 mt-2">
+                    annually projected
+                  </p>
+                </div>
+                
+                {/* AI Investment Column */}
+                {tco_global.fee_servicio_total && (
+                  <div className="text-center border-l-0 md:border-l-2 border-emerald-200 pl-0 md:pl-6">
+                    <p className="text-sm font-semibold text-gray-600 mb-2">
+                      Inversión de IA
+                    </p>
+                    <p className="text-4xl md:text-5xl font-extrabold text-emerald-600">
+                      {formatCurrency(tco_global.fee_servicio_total)}
+                    </p>
+                    <p className="text-sm font-medium text-gray-600 mt-2">
+                      annually projected
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
