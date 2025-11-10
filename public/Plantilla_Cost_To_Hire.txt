@@ -1,40 +1,47 @@
 DIMENSION: Operational Work Costs
 ==================================================
-¿Number of recruiters currently working? [EJEMPLO: 10]
-¿Hours each recruiter dedicates per month to repetitive operational tasks? [EJEMPLO: 8000]
-¿Average cost per recruiter hour? [EJEMPLO: 40]
-¿Expected automation percentage with AI? [EJEMPLO: 60%]
+¿Number of recruiters currently working? [EXAMPLE: 10]
+¿Hours each recruiter dedicates per month to repetitive operational tasks? [EXAMPLE: 8000]
+¿Average cost per recruiter hour? [EXAMPLE: 40]
+¿Expected automation percentage with AI? [EXAMPLE: 60%]
 
 DIMENSION: Time to Hire Acceleration
 ==================================================
-¿Current average time to fill a vacancy (in days)? [EJEMPLO: 10]
-¿Estimated time with AI to fill a vacancy (in days)? [EJEMPLO: 10]
-¿Average daily cost of having an unfilled vacancy (due to productivity loss)? [EJEMPLO: 35]
-¿Number of annual vacancies? [EJEMPLO: 500]
+¿Current average time to fill a vacancy (in days)? [EXAMPLE: 10]
+¿Estimated time with AI to fill a vacancy (in days)? [EXAMPLE: 10]
+¿Average daily cost of having an unfilled vacancy (due to productivity loss)? [EXAMPLE: 35]
+¿Number of annual vacancies? [EXAMPLE: 500]
 
 DIMENSION: Hiring Quality Improvement
 ==================================================
-¿Current early turnover rate (within 6 months)? [EJEMPLO: 60%]
-¿Expected early turnover rate with AI? [EJEMPLO: 60%]
-¿Average cost to replace an employee? [EJEMPLO: 75000]
-¿Number of annual hires? [EJEMPLO: 500]
+¿Current early turnover rate (within 6 months)? [EXAMPLE: 60%]
+¿Expected early turnover rate with AI? [EXAMPLE: 60%]
+¿Average cost to replace an employee? [EXAMPLE: 75000]
+¿Number of annual hires? [EXAMPLE: 500]
 
 DIMENSION: External Hiring Costs Reduction
 ==================================================
-¿Annual spending on external agencies or recruitment platforms? [EJEMPLO: 1500.00]
-¿Expected reduction percentage from using internal AI? [EJEMPLO: 60%]
+¿Annual spending on external agencies or recruitment platforms? [EXAMPLE: 1500.00]
+¿Expected reduction percentage from using internal AI? [EXAMPLE: 60%]
 
 DIMENSION: Candidate Experience Improvement
 ==================================================
-¿Current candidate abandonment rate during the process? [EJEMPLO: 60%]
-¿Expected rate with AI (better communication, follow-up)? [EJEMPLO: 60%]
-¿Average cost associated with restarting a process per lost candidate? [EJEMPLO: 75000]
-¿Number of selection processes per year? [EJEMPLO: 500]
+¿Current candidate abandonment rate during the process? [EXAMPLE: 60%]
+¿Expected rate with AI (better communication, follow-up)? [EXAMPLE: 60%]
+¿Average cost associated with restarting a process per lost candidate? [EXAMPLE: 75000]
+¿Number of selection processes per year? [EXAMPLE: 500]
 
 DIMENSION: Interview and Evaluation Efficiency
 ==================================================
-¿Average number of interviews per vacancy? [EJEMPLO: 10]
-¿Average duration per interview (hours)? [EJEMPLO: 1500.00]
-¿Average cost per hour of an interviewing manager? [EJEMPLO: 40]
-¿Percentage of unnecessary interviews avoided with AI? [EJEMPLO: 60%]
-¿Number of vacancies per year? [EJEMPLO: 500]
+¿Average number of interviews per vacancy? [EXAMPLE: 10]
+¿Average duration per interview (hours)? [EXAMPLE: 1500.00]
+¿Average cost per hour of an interviewing manager? [EXAMPLE: 40]
+¿Percentage of unnecessary interviews avoided with AI? [EXAMPLE: 60%]
+¿Number of vacancies per year? [EXAMPLE: 500]
+
+# USER INSTRUCTIONS:
+# 1. Replace [EXAMPLE: value] with your actual data
+# 2. You can omit the 'DIMENSION:' lines if you prefer
+# 3. Maintain the question-answer format
+# 4. Numeric values ​​do not require any specific formatting
+# 5. Percentages can be 60% or 0.6
