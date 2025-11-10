@@ -243,7 +243,7 @@ export default function SystemOverview() {
                 {tco_global.fee_servicio_total && (
                   <div className="text-center border-l-0 md:border-l-2 border-emerald-200 pl-0 md:pl-6">
                     <p className="text-sm font-semibold text-gray-600 mb-2">
-                      Inversión de IA
+                      AI Investment
                     </p>
                     <p className="text-4xl md:text-5xl font-extrabold text-emerald-600">
                       {formatCurrency(tco_global.fee_servicio_total)}
