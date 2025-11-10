@@ -116,6 +116,17 @@ const systemConfigs: Record<string, { name: string; dimensions: string[] }> = {
       'Maintenance Effort',
     ],
   },
+  'real_time_insights': {
+    name: 'Real Time Insights',
+    dimensions: [
+      'Operation and Maintenance Cost (O&M)',
+      'Labor Costs',
+      'Inventory Loss Cost (Shrinkage)',
+      'Technology and IT Support Cost',
+      'Supply Chain and Logistics Cost',
+      'Financial Friction and Insurance Cost',
+    ],
+  },
 };
 
 export default function SystemOverview() {

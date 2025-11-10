@@ -1,0 +1,47 @@
+# Expert Template for Real-Time Insights ROI Calculator
+# Expected format for expert users
+
+DIMENSION: Operation and Maintenance Cost (O&M)
+==================================================
+¿What is the average annual energy consumption cost (kWh) of your equipment? [EXAMPLE: 50000.00]
+¿What is the total annual expenditure on direct process consumables? [EXAMPLE: 25000.00]
+¿What is the annual cost of preventive maintenance plans and technical service? [EXAMPLE: 35000.00]
+¿What is the average annual expenditure on corrective repairs and unexpected spare parts? [EXAMPLE: 20000.00]
+
+DIMENSION: Labor Costs
+==================================================
+¿What is the average annual gross salary for operational roles? [EXAMPLE: 35000.00]
+¿What is the percentage factor for benefits and social security? [EXAMPLE: 30%]
+¿What is the total annual expenditure on training and recertification? [EXAMPLE: 15000.00]
+
+DIMENSION: Inventory Loss Cost (Shrinkage)
+==================================================
+¿What is the monetary value of inventory recorded in books at the beginning of the fiscal period? [EXAMPLE: 2000000.00]
+¿What is the total monetary value of all inventory purchases made during the period? [EXAMPLE: 5000000.00]
+¿What is the total value of net sales at acquisition cost? [EXAMPLE: 4500000.00]
+¿What is the monetary value of physically counted inventory at the end of the period? [EXAMPLE: 1900000.00]
+
+DIMENSION: Technology and IT Support Cost
+==================================================
+¿What is the annual cost of software licenses and subscriptions? [EXAMPLE: 80000.00]
+¿What is the annual cost of technical support contracts and software updates? [EXAMPLE: 30000.00]
+¿What is the annual depreciation value of hardware? [EXAMPLE: 25000.00]
+
+DIMENSION: Supply Chain and Logistics Cost
+==================================================
+¿What is the average cost to transport one unit from distribution center to point of sale? [EXAMPLE: 2.50]
+¿What is the total volume of units moved annually in the supply chain? [EXAMPLE: 500000]
+¿What is the annual warehouse rent/depreciation and fixed operational expenses? [EXAMPLE: 120000.00]
+
+DIMENSION: Financial Friction and Insurance Cost
+==================================================
+¿What is the average monetary value of inventory maintained in stock? [EXAMPLE: 1500000.00]
+¿What is the opportunity interest rate for capital? [EXAMPLE: 8%]
+¿What is the total annual cost of insurance policies? [EXAMPLE: 45000.00]
+
+# USER INSTRUCTIONS:
+# 1. Replace [EXAMPLE: value] with your actual data
+# 2. You can omit the 'DIMENSION:' lines if you prefer
+# 3. Maintain the question-answer format
+# 4. Numeric values do not require any specific formatting
+# 5. Percentages can be written as 30% or 0.3

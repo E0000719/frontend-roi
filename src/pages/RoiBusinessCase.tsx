@@ -6,6 +6,7 @@ import AgenticCustomerITSupport from "@/components/icons/AgenticCustomerITSuppor
 import LegalCompliance from "@/components/icons/LegalCompliance";
 import AgenticRecruitingHiringIcon from "@/components/icons/AgenticRecruitingHiringIcon";
 import LegacySystemsTakeoverIcon from "@/components/icons/LegacySystemsTakeoverIcon";
+import RealTimeInsightsIcon from "@/components/icons/RealTimeInsightsIcon";
 
 const modules = [
   {
@@ -42,6 +43,13 @@ const modules = [
     icon: LegacySystemsTakeoverIcon,
     description: "Modernize legacy systems",
     route: "legacy_takeover"
+  },
+  {
+    title: "Real Time Insights",
+    subtitle: "Real Time Insights",
+    icon: RealTimeInsightsIcon,
+    description: "Real-time business insights",
+    route: "real_time_insights"
   }
 ];
 
